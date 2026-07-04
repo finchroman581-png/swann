@@ -1,0 +1,183 @@
+/* ========================================================================================
+   ================================= PT & FR & ES  ==================================
+   ===================================================================================== */
+[lang="fr-FR"] .benefits-inner-box-content,
+[lang="es-ES"] .benefits-inner-box-content,
+[lang="pt-br"] .benefits-inner-box-content {
+   border-radius: 10px;
+   border: 1px solid var(--steel-grey-100, #D0D5DD);
+   background: #FFF;
+   display: flex;
+   padding: 30px;
+   flex-direction: column;
+   justify-content: flex-start;
+   gap: 32px;
+   min-height: 240px;
+}
+
+[lang="fr-FR"] .benefits-inner-box-content.ukta-learn-points,
+[lang="es-ES"] .benefits-inner-box-content.ukta-learn-points,
+[lang="pt-br"] .benefits-inner-box-content.ukta-learn-points {
+   min-height: unset !important;
+}
+
+[lang="fr-FR"] .push-notification-header,
+[lang="es-ES"] .push-notification-header,
+[lang="pt-br"] .push-notification-header {
+   max-inline-size: 250px;
+   font-size: 20px !important;
+}
+
+[lang="fr-FR"] .instruments-overview-box,
+[lang="es-ES"] .instruments-overview-box,
+[lang="pt-br"] .instruments-overview-box {
+   align-items: stretch !important;
+}
+
+[lang="fr-FR"] .form-small-grid-wrapper,
+[lang="es-ES"] .form-small-grid-wrapper,
+[lang="pt-br"] .form-small-grid-wrapper {
+   grid-template-columns: 2fr 2fr;
+}
+
+
+[lang="fr-FR"] header .sub-menu li a,
+[lang="es-ES"] header .sub-menu li a,
+[lang="pt-br"] header .sub-menu li a {
+   line-height: 1.4;
+}
+
+[lang="fr-FR"] [data-columns="1"],
+[lang="es-ES"] [data-columns="1"],
+[lang="pt-br"] [data-columns="1"] {
+   max-width: 390px !important;
+}
+
+[lang="fr-FR"] .buttons-wrapper,
+[lang="es-ES"] .buttons-wrapper,
+[lang="pt-br"] .buttons-wrapper {
+   gap: 16px;
+}
+
+[lang="pt-BR"] .fxc-page-hero-content.fdb-hero-width-desktop,
+[lang="es-ES"] .fxc-page-hero-content.fdb-hero-width-desktop {
+   width: 110% !important;
+}
+
+[lang="fr-FR"] .accounts-cta-actions[data-flex-row-gap="m"] {
+   flex-wrap: unset !important;
+}
+
+
+
+[lang="fr-FR"] .signal-centre-title,
+[lang="es-ES"] .signal-centre-title,
+[lang="pt-br"] .signal-centre-title {
+   display: block;
+}
+
+
+[lang="fr-FR"],
+[lang="es-ES"],
+[lang="pt-br"] {}
+
+/* ================= Responsive Styles ================= */
+/* Tablet & Mobile styles */
+@media screen and (max-width: 1024px) {
+
+   [lang="fr-FR"] .signal-centre-title,
+   [lang="es-ES"] .signal-centre-title,
+   [lang="pt-br"] .signal-centre-title {
+      display: block;
+   }
+
+   [lang="fr-FR"] .sc-hero-text h1,
+   [lang="es-ES"] .sc-hero-text h1,
+   [lang="pt-br"] .sc-hero-text h1 {
+      max-width: 280px;
+   }
+}
+
+@media screen and (max-width: 640px) {
+
+   [lang="fr-FR"] .buttons-wrapper,
+   [lang="es-ES"] .buttons-wrapper,
+   [lang="pt-br"] .buttons-wrapper {
+      gap: 16px;
+   }
+
+   [lang="pt-BR"] .fxc-page-hero-content.fdb-hero-width-desktop,
+   [lang="es-ES"] .fxc-page-hero-content.fdb-hero-width-desktop {
+      width: 100% !important;
+   }
+}
+
+/* ========================================================================================
+   ================================= FR  ==================================
+   ===================================================================================== */
+[lang="fr-FR"] .buttons-wrapper {
+   display: flex;
+   gap: 12px;
+}
+
+/* ================= Responsive Styles ================= */
+/* Mobile styles */
+@media screen and (max-width: 1024px) {}
+
+/* Tablet styles */
+@media screen and (min-width: 641px) and (max-width: 1024px) {}
+
+/* Desktop styles */
+@media screen and (min-width: 1025px) {}
+
+
+
+
+
+
+/* ========================================================================================
+   ================================= PT BR  ==================================
+   ===================================================================================== */
+
+[lang="pt-br"] .ib-influencer-carousel-container,
+[lang="es-ES"] .ib-influencer-carousel-container {
+   width: 186%
+}
+
+[lang="fr-FR"] .ib-influencer-carousel-container {
+   width: 196%
+}
+
+[lang="pt-br"] .ib-influencer-carousel-item,
+[lang="es-ES"] .ib-influencer-carousel-item,
+[lang="fr-FR"] .ib-influencer-carousel-item {
+   flex: 0 0 300px;
+   padding: 0 10px;
+   box-sizing: border-box;
+   display: flex;
+   justify-content: space-between;
+   flex-direction: column;
+}
+
+/* ================= Responsive Styles ================= */
+/* Mobile styles */
+@media screen and (max-width: 1024px) {}
+
+/* Tablet styles */
+@media screen and (min-width: 641px) and (max-width: 1024px) {}
+
+/* Desktop styles */
+@media screen and (min-width: 1025px) {}
+
+/* ========================================================================================
+   ================================= ES  ==================================
+   ===================================================================================== */
+/* ================= Responsive Styles ================= */
+/* Mobile styles */
+@media screen and (max-width: 1024px) {}
+
+/* Tablet styles */
+@media screen and (min-width: 641px) and (max-width: 1024px) {}
+
+/* Desktop styles */
+@media screen and (min-width: 1025px) {}

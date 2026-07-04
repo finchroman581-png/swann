@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="cVHdUwFWJ3GYKGfRKcfnpsAlTgFW0CDiZazwDqTG">
+    <title>Swan Trade Capital | Verify Email</title>
+
+    <link rel="icon" href="https://swantradecapital.com/storage/app/public/photos/xA50CiCxzXfeDLJbvKTDt2MIDx7w1Qxvf0nnFJSH.png" type="image/png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    screens: {
+                        'xs': '375px',
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#EF4444',
+                            '50': '#F8F0EC',
+                            '100': '#F1E2D9',
+                            '200': '#E4C7B4',
+                            '300': '#D7AB8F',
+                            '400': '#EF4444',
+                            '500': '#B8724A',
+                            '600': '#9A5E3C',
+                            '700': '#7C4B2E',
+                            '800': '#5D381F',
+                            '900': '#3F2511',
+                        },
+                        secondary: {
+                            DEFAULT: '#4A9D7F',
+                            '50': '#E8F5F0',
+                            '100': '#D1EBE1',
+                            '200': '#A3D7C3',
+                            '300': '#76C3A5',
+                            '400': '#4A9D7F',
+                            '500': '#3C7F65',
+                            '600': '#2E614D',
+                            '700': '#214435',
+                            '800': '#13261E',
+                            '900': '#040906',
+                        },
+                        dark: {
+                            DEFAULT: '#1A1F2C',
+                            '50': '#1E2430',
+                            '100': '#2A303C',
+                            '200': '#343D4F',
+                            '300': '#3E4A62',
+                        },
+                        light: {
+                            DEFAULT: '#F8FAFC',
+                            '50': '#FFFFFF',
+                            '100': '#F1F5F9',
+                            '200': '#E2E8F0',
+                            '300': '#CBD5E1',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Google Recaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+        <!-- Custom Styles -->
+    <style>
+        :root {
+            --homepage-font: "Montserrat", sans-serif;
+        }
+
+        body,
+        button,
+        input,
+        select,
+        textarea {
+            font-family: var(--homepage-font);
+        }
+
+        /* Simple dot pattern background */
+        .bg-dot-pattern {
+            background-image: radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .light .bg-dot-pattern {
+            background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+        }
+
+        /* Responsive adjustments for split layout */
+        @media (max-width: 1023px) {
+            .split-layout {
+                min-height: 100vh;
+            }
+        }
+        
+        /* Live Notification Styles */
+        .live-notification {
+            pointer-events: auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .live-notification:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        @keyframes  slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes  slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            #live-notifications-container {
+                width: 90%;
+                left: 5%;
+                right: 5%;
+                top: 80px;
+            }
+        }
+    </style>
+    </head>
+<body class="dark:bg-dark bg-light-100 transition-colors duration-200">
+    <!-- Theme Detection Script - Run Early -->
+    <script>
+        // Check for saved theme preference or use system preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('darkMode');
+        
+        if (savedTheme === 'false') {
+            document.documentElement.classList.remove('dark');
+        } else if (savedTheme === null && !prefersDark) {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <!-- Theme Toggle -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="themeToggle" class="p-2 rounded-full dark:bg-dark-100 bg-light-200 shadow-sm">
+            <i data-lucide="sun" class="h-5 w-5 dark:text-white text-dark hidden dark:block"></i>
+            <i data-lucide="moon" class="h-5 w-5 dark:text-white text-dark block dark:hidden"></i>
+        </button>
+    </div>
+    
+    <!-- Main Content - Split Layout -->
+    <div class="min-h-screen flex flex-col lg:flex-row">
+        <!-- Left Column - Illustration (Hidden on mobile) -->
+        <div class="hidden lg:flex lg:w-1/2 bg-dot-pattern dark:bg-dark-50 bg-light-200 relative overflow-hidden">
+            <!-- Illustration Container -->
+            <div class="flex flex-col justify-center items-center p-12 w-full max-w-2xl mx-auto">
+                <!-- Logo -->
+                <div class="absolute top-8 left-8">
+                    <a href="/">
+                        <img src="https://swantradecapital.com/storage/app/public/photos/OLyPkK78IllyMFmXHomXdOLYUar4vzdWI4uYVmrp.png" alt="Logo" class="h-10">
+                    </a>
+                </div>
+                
+                <!-- Illustration from Open Source Library -->
+                <div class="mb-8 w-4/5 max-w-md mx-auto">
+                    <img src="https://raw.githubusercontent.com/cruip/open-react-template/refs/heads/master/public/images/features.png" 
+                         alt="Illustration" class="w-full h-auto" id="illustrationImage">
+                </div>
+                
+                <!-- Text Content -->
+                <div class="text-center">
+                    <h1 class="text-3xl font-bold dark:text-white text-dark mb-4" id="illustrationTitle">Welcome to Swan Trade Capital</h1>
+                    <p class="dark:text-gray-300 text-gray-700 max-w-md mx-auto" id="illustrationDescription">
+                        Our platform offers secure trading, real-time market data, and expert insights to help you achieve your financial goals.
+                    </p>
+                </div>
+                
+                <!-- Optional Feature List -->
+                <div class="mt-8 w-full max-w-md">
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i data-lucide="check-circle" class="h-5 w-5 text-secondary"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium dark:text-white text-dark">Secure Trading</h3>
+                                <p class="text-sm dark:text-gray-400 text-gray-600">State-of-the-art security features to protect your investments</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i data-lucide="check-circle" class="h-5 w-5 text-secondary"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium dark:text-white text-dark">Real-Time Analytics</h3>
+                                <p class="text-sm dark:text-gray-400 text-gray-600">Up-to-the-minute market data to inform your decisions</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i data-lucide="check-circle" class="h-5 w-5 text-secondary"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium dark:text-white text-dark">Expert Support</h3>
+                                <p class="text-sm dark:text-gray-400 text-gray-600">24/7 customer support from our team of specialists</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Column - Content Area -->
+        <div class="flex-1 min-h-screen flex flex-col">
+            <!-- Mobile Logo (Visible only on mobile) -->
+            <div class="flex justify-center pt-24 lg:hidden">
+                <a href="/">
+                    <img src="https://swantradecapital.com/storage/app/public/photos/OLyPkK78IllyMFmXHomXdOLYUar4vzdWI4uYVmrp.png" alt="Logo" class="h-10">
+                </a>
+            </div>
+            
+            <!-- Content Wrapper -->
+            <div class="flex-grow flex items-center justify-center p-4 sm:p-6 lg:p-8">
+                <div class="w-full max-w-md">
+                    <!-- Content -->
+                    <div class="container mx-auto px-4 py-12">
+    <div class="max-w-md mx-auto">
+        <!-- Card Header with Icon -->
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-50 dark:bg-primary-900/30 mb-4">
+                <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 12H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 16V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h1 class="text-2xl font-bold text-dark dark:text-white">Verify Your Email</h1>
+            <p class="text-dark-400 dark:text-white mt-2">Enter the 6-digit verification code sent to your email</p>
+        </div>
+
+        <!-- Main Card -->
+        <div class="bg-white dark:bg-dark-50 rounded-xl shadow-sm border border-light-200 dark:border-dark-200/50 overflow-hidden">
+            <div class="p-6">
+                <!-- Alerts -->
+                
+                
+                <!-- Email Info -->
+                <div class="text-center mb-6 bg-light-50 dark:bg-dark-100/50 rounded-lg p-4">
+                    <p class="text-sm text-dark-500 dark:text-white">We've sent a verification code to:</p>
+                    <p class="text-base font-medium text-dark dark:text-white mt-1">curtischery1961@gmail.com</p>
+                </div>
+
+                <!-- Verification Form -->
+                <form method="POST" action="https://swantradecapital.com/verify-code" class="mt-6">
+                    <input type="hidden" name="_token" value="cVHdUwFWJ3GYKGfRKcfnpsAlTgFW0CDiZazwDqTG">
+                    <!-- Code Input -->
+                    <div class="mb-6">
+                        <label for="code" class="block text-sm font-medium text-dark-500 dark:text-white mb-2">
+                            Verification Code
+                        </label>
+                        
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="w-5 h-5 text-dark-400 dark:text-white" viewBox="0 0 24 24" fill="none">
+                                    <path d="M16.4232 9.4478V7.3008C16.4232 4.7878 14.3852 2.7498 11.8722 2.7498C9.35925 2.7388 7.31325 4.7668 7.30225 7.2808V7.3008V9.4478" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M11.9 14.6667V17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9 8.25C7.5 8.25 5.75 9.75 5.75 13.5C5.75 17.25 7.5 18.75 11.9 18.75C16.3 18.75 18.05 17.25 18.05 13.5C18.05 9.75 16.3 8.25 11.9 8.25Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <input type="text" name="code" id="code" autocomplete="one-time-code" 
+                                class="w-full pl-10 pr-4 py-3 rounded-lg border border-light-300 dark:border-dark-200 bg-white dark:bg-dark-100 text-dark dark:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent placeholder-dark-400 dark:placeholder-light-500 tracking-widest text-center font-medium"
+                                placeholder="Enter 6-digit code" required inputmode="numeric" pattern="[0-9]*" maxlength="6">
+                        </div>
+                        
+                                            </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full px-5 py-3 text-sm font-medium text-white bg-primary hover:bg-primary-600 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-800 rounded-lg transition-colors">
+                        <div class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 11L12 14L15 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 14V2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 4C19.61 5.46 22 9.42 22 14C22 16.6522 20.9464 19.1957 19.0711 21.0711C17.1957 22.9464 14.6522 24 12 24C9.34784 24 6.8043 22.9464 4.92893 21.0711C3.05357 19.1957 2 16.6522 2 14C2 9.42 4.39 5.46 8 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Verify Email
+                        </div>
+                    </button>
+                </form>
+
+                <!-- Resend Code -->
+                <div class="mt-8 pt-6 border-t border-light-200 dark:border-dark-200/50 text-center">
+                    <p class="text-sm text-dark-400 dark:text-white mb-3">
+                        Didn't receive the code?
+                    </p>
+                    <form method="POST" action="https://swantradecapital.com/email/verification-code" class="inline">
+                        <input type="hidden" name="_token" value="cVHdUwFWJ3GYKGfRKcfnpsAlTgFW0CDiZazwDqTG">                        <button type="submit" class="inline-flex items-center px-4 py-2 border border-primary-200 dark:border-primary-700 text-sm font-medium rounded-lg text-primary dark:text-primary-400 bg-white dark:bg-dark-100 hover:bg-primary-50 dark:hover:bg-primary-900/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+                            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
+                                <path d="M22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2C17.52 2 22 6.48 22 12Z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15.9 11.9999C15.9 14.6099 13.79 16.7199 11.18 16.7199C8.57 16.7199 6.46 14.6099 6.46 11.9999C6.46 9.38994 8.57 7.27991 11.18 7.27991C13.79 7.27991 15.9 9.38994 15.9 11.9999Z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17.5 7.63V16.37" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Resend Verification Code
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Text -->
+        <div class="text-center mt-6">
+            <p class="text-sm text-dark-400 dark:text-white">
+                If you're having trouble, please contact 
+                <a href="https://swantradecapital.com/dashboard/support" class="text-primary hover:text-primary-600 dark:hover:text-primary-400">customer support</a>
+            </p>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <footer class="py-4">
+                <div class="container mx-auto px-4">
+                    <p class="text-center text-sm dark:text-gray-400 text-gray-600">
+                        © 2026 Swan Trade Capital. All rights reserved.
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Core Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lucide icons
+            lucide.createIcons();
+            
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    if (document.documentElement.classList.contains('dark')) {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('darkMode', 'false');
+                    } else {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('darkMode', 'true');
+                    }
+                });
+            }
+            
+            // Random illustration and text based on page
+            const pageType = document.title.toLowerCase();
+            const illustrations = [
+                {
+                    image: "https://raw.githubusercontent.com/cruip/open-react-template/refs/heads/master/public/images/features.png",
+                    title: "Welcome to Swan Trade Capital",
+                    description: "Our platform offers secure trading, real-time market data, and expert insights to help you achieve your financial goals."
+                },
+                {
+                    image: "https://raw.githubusercontent.com/cruip/open-react-template/refs/heads/master/public/images/features.png",
+                    title: "Invest with Confidence",
+                    description: "Take control of your financial future with our transparent and secure investment platform."
+                },
+                {
+                    image: "https://raw.githubusercontent.com/cruip/open-react-template/refs/heads/master/public/images/features.png",
+                    title: "Simple, Secure, Reliable",
+                    description: "Our advanced platform provides the tools and resources you need to succeed in today's market."
+                }
+            ];
+            
+            // Select random illustration or based on page type
+            let selectedIllustration;
+            if (pageType.includes('login')) {
+                selectedIllustration = illustrations[0];
+            } else if (pageType.includes('register') || pageType.includes('sign up')) {
+                selectedIllustration = illustrations[1];
+            } else {
+                selectedIllustration = illustrations[2];
+            }
+            
+            // Set illustration and text
+            const illustrationImage = document.getElementById('illustrationImage');
+            const illustrationTitle = document.getElementById('illustrationTitle');
+            const illustrationDescription = document.getElementById('illustrationDescription');
+            
+            if (illustrationImage && illustrationTitle && illustrationDescription) {
+                illustrationImage.src = selectedIllustration.image;
+                illustrationTitle.textContent = selectedIllustration.title;
+                illustrationDescription.textContent = selectedIllustration.description;
+            }
+        });
+    </script>
+    
+        
+    <!-- Livewire Scripts -->
+
+<script src="/livewire/livewire.js?id=de3fca26689cb5a39af4" data-turbo-eval="false" data-turbolinks-eval="false" ></script>
+<script data-turbo-eval="false" data-turbolinks-eval="false" >
+    if (window.livewire) {
+	    console.warn('Livewire: It looks like Livewire\'s @livewireScripts JavaScript assets have already been loaded. Make sure you aren\'t loading them twice.')
+	}
+
+    window.livewire = new Livewire();
+    window.livewire.devTools(true);
+    window.Livewire = window.livewire;
+    window.livewire_app_url = '';
+    window.livewire_token = 'cVHdUwFWJ3GYKGfRKcfnpsAlTgFW0CDiZazwDqTG';
+
+	/* Make sure Livewire loads first. */
+	if (window.Alpine) {
+	    /* Defer showing the warning so it doesn't get buried under downstream errors. */
+	    document.addEventListener("DOMContentLoaded", function () {
+	        setTimeout(function() {
+	            console.warn("Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire\'s scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js")
+	        })
+	    });
+	}
+
+	/* Make Alpine wait until Livewire is finished rendering to do its thing. */
+    window.deferLoadingAlpine = function (callback) {
+        window.addEventListener('livewire:load', function () {
+            callback();
+        });
+    };
+
+    let started = false;
+
+    window.addEventListener('alpine:initializing', function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+</script>
+    <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.4/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
+</body>
+</html>

@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="cVHdUwFWJ3GYKGfRKcfnpsAlTgFW0CDiZazwDqTG">
+    <title>Swan Trade Capital | Send funds to a friend</title>
+    
+    <link rel="icon" href="https://swantradecapital.com/storage/app/public/photos/xA50CiCxzXfeDLJbvKTDt2MIDx7w1Qxvf0nnFJSH.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    screens: {
+                        'xs': '375px',
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#EF4444',
+                            '50': '#F8F0EC',
+                            '100': '#F1E2D9',
+                            '200': '#E4C7B4',
+                            '300': '#D7AB8F',
+                            '400': '#EF4444',
+                            '500': '#B8724A',
+                            '600': '#9A5E3C',
+                            '700': '#7C4B2E',
+                            '800': '#5D381F',
+                            '900': '#3F2511',
+                        },
+                        secondary: {
+                            DEFAULT: '#4A9D7F',
+                            '50': '#E8F5F0',
+                            '100': '#D1EBE1',
+                            '200': '#A3D7C3',
+                            '300': '#76C3A5',
+                            '400': '#4A9D7F',
+                            '500': '#3C7F65',
+                            '600': '#2E614D',
+                            '700': '#214435',
+                            '800': '#13261E',
+                            '900': '#040906',
+                        },
+                        tertiary: {
+                            DEFAULT: '#627EEA', // Ethereum blue
+                            '50': '#EDF0FC',
+                            '100': '#DBE1F9',
+                            '200': '#B7C3F3',
+                            '300': '#93A6ED',
+                            '400': '#627EEA',
+                            '500': '#3053E4',
+                            '600': '#173BCE',
+                            '700': '#122FA8',
+                            '800': '#0D2382',
+                            '900': '#08165C',
+                        },
+                        accent: {
+                            DEFAULT: '#F0B90B', // Binance yellow
+                            '50': '#FEF9E6',
+                            '100': '#FDF3CC',
+                            '200': '#FAE699',
+                            '300': '#F7DA66',
+                            '400': '#F0B90B',
+                            '500': '#C39508',
+                            '600': '#967106',
+                            '700': '#694D04',
+                            '800': '#3C2A02',
+                            '900': '#0F0A01',
+                        },
+                        danger: {
+                            DEFAULT: '#FF6B6B', 
+                            '50': '#FFF0F0',
+                            '100': '#FFE0E0',
+                            '200': '#FFC2C2',
+                            '300': '#FFA3A3',
+                            '400': '#FF6B6B',
+                            '500': '#FF3838',
+                            '600': '#FF0505',
+                            '700': '#D10000',
+                            '800': '#9E0000',
+                            '900': '#6B0000',
+                        },
+                        purple: {
+                            DEFAULT: '#9164CC',
+                            '50': '#F3EDFA',
+                            '100': '#E7DCF5',
+                            '200': '#CFB9EB',
+                            '300': '#B796E0',
+                            '400': '#9164CC',
+                            '500': '#7642BE',
+                            '600': '#5D33A0',
+                            '700': '#44267C',
+                            '800': '#2C1958',
+                            '900': '#140B34',
+                        },
+                        dark: {
+                            DEFAULT: '#1A1F2C',
+                            '50': '#1E2430',
+                            '100': '#2A303C',
+                            '200': '#343D4F',
+                            '300': '#3E4A62',
+                        },
+                        light: {
+                            DEFAULT: '#F8FAFC',
+                            '50': '#FFFFFF',
+                            '100': '#F1F5F9',
+                            '200': '#E2E8F0',
+                            '300': '#CBD5E1',
+                        },
+                    },
+                    animation: {
+                        'in': 'fadeIn 0.3s ease-in-out',
+                        'slide-in-top': 'slideInFromTop 0.3s ease-in-out',
+                        'slide-in-bottom': 'slideInFromBottom 0.3s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            'from': { opacity: '0' },
+                            'to': { opacity: '1' }
+                        },
+                        slideInFromTop: {
+                            'from': { transform: 'translateY(-20px)', opacity: '0' },
+                            'to': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        slideInFromBottom: {
+                            'from': { transform: 'translateY(20px)', opacity: '0' },
+                            'to': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    
+    <!-- Additional libraries that are still needed -->
+    <link rel="stylesheet" href="https://swantradecapital.com/dash2/libs/sweetalert2/dist/sweetalert2.min.css">
+    <script src="https://swantradecapital.com/dash2/libs/sweetalert/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/af-2.3.5/b-1.6.3/b-flash-1.6.3/b-html5-1.6.3/b-print-1.6.3/r-2.2.5/datatables.min.css" />
+    
+    <!-- Alpine.js -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script>
+    
+    <!-- Select2 for dropdowns -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+  <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <link rel="stylesheet" href="https://jcsoci.github.io/FontAwesome6Pro/css/all.min.css" >
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --homepage-font: "Montserrat", sans-serif;
+        }
+
+        body,
+        button,
+        input,
+        select,
+        textarea {
+            font-family: var(--homepage-font);
+        }
+
+        @keyframes  fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes  slideInFromTop {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes  slideInFromBottom {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .slide-in-from-top {
+            animation: slideInFromTop 0.3s ease-in-out;
+        }
+        .slide-in-from-bottom {
+            animation: slideInFromBottom 0.3s ease-in-out;
+        }
+
+        [x-cloak] {
+            display: none !important;
+        }
+        
+        /* DataTables responsive fixes */
+        .dataTables_wrapper {
+            overflow-x: auto;
+            width: 100%;
+        }
+        
+        /* Select2 dropdown fixes */
+        .select2-container {
+            width: 100% !important;
+        }
+        
+        /* Light and Dark mode styles */
+        .dark {
+            color-scheme: dark;
+        }
+        
+        /* Dark mode styles for DataTables */
+        .dark .dataTables_wrapper .dataTable {
+            background-color: #1E2430;
+            color: #fff;
+        }
+        .dark .dataTables_wrapper .dataTable th,
+        .dark .dataTables_wrapper .dataTable td {
+            border-color: #2A303C;
+        }
+        .dark .dataTables_wrapper .dataTables_info,
+        .dark .dataTables_wrapper .dataTables_paginate {
+            color: #CBD5E1 !important;
+        }
+        
+        /* Light mode styles for Select2 */
+        .light .select2-container--default .select2-selection--single {
+            background-color: #F8FAFC;
+            border-color: #CBD5E1;
+        }
+        
+        /* Dark mode styles for Select2 */
+        .dark .select2-container--default .select2-selection--single {
+            background-color: #1E2430;
+            border-color: #2A303C;
+            color: #F8FAFC;
+        }
+        .dark .select2-container--default .select2-selection--single .select2-selection__rendered {
+            color: #F8FAFC;
+        }
+        
+        /* Live Notification Styles */
+        .live-notification {
+            pointer-events: auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .live-notification:hover {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        @keyframes  slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes  slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+
+        /* ~10% smaller UI: main column + mobile bar (sidebar unscaled so fixed overlay works) */
+        .user-dashboard-shell,
+        .user-dashboard-mobile-nav {
+            zoom: 0.9;
+        }
+    </style>
+    <!-- Livewire Styles -->
+<style >
+    [wire\:loading], [wire\:loading\.delay], [wire\:loading\.inline-block], [wire\:loading\.inline], [wire\:loading\.block], [wire\:loading\.flex], [wire\:loading\.table], [wire\:loading\.grid], [wire\:loading\.inline-flex] {
+        display: none;
+    }
+
+    [wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short], [wire\:loading\.delay\.long], [wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest] {
+        display:none;
+    }
+
+    [wire\:offline] {
+        display: none;
+    }
+
+    [wire\:dirty]:not(textarea):not(input):not(select) {
+        display: none;
+    }
+
+    input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill {
+        animation-duration: 50000s;
+        animation-name: livewireautofill;
+    }
+
+    @keyframes livewireautofill { from {} }
+</style>
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body class="dark:bg-dark bg-light-100 dark:text-white text-dark transition-colors duration-200">
+        
+    <!-- Application container (zoom only main column so sidebar fixed/overlay stays correct) -->
+    <div class="flex flex-col md:flex-row min-h-screen relative">
+        <!-- Sidebar Overlay -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[10000] hidden transition-opacity duration-300"></div>
+
+<!-- Modern Sidebar -->
+<div class="fixed inset-y-0 left-0 z-[10010] w-72 transform dark:bg-gradient-to-b dark:from-dark-50 dark:to-dark bg-gradient-to-b from-light-100 to-light overflow-y-auto transition-all duration-300 ease-in-out md:relative md:translate-x-0 -translate-x-full shadow-2xl" id="sidenav-main">
+    <div class="flex flex-col h-full">
+        <!-- Sidebar Header with Branding -->
+        <div class="flex h-16 items-center mt-4 dark:border-dark-100 border-light-200 border-b px-6">
+           <a href="https://swantradecapital.com/dashboard" class="flex items-center gap-2 font-bold text-xl">
+            <img src="https://swantradecapital.com/storage/app/public/photos/OLyPkK78IllyMFmXHomXdOLYUar4vzdWI4uYVmrp.png" alt="logo" class="h-8">
+        </a>
+            <div class="ml-auto md:hidden">
+                <button class="dark:text-white text-dark-100 bg-transparent hover:text-primary transition-colors" id="closeSideNav">
+                    <i data-lucide="x" class="h-5 w-5"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- User Profile Section with Modern Design -->
+        <div class="relative mt-6 px-4 mb-6">
+            <div class="p-4 rounded-xl dark:bg-dark-100/50 bg-light-200/50 backdrop-blur-sm dark:border-dark-100/40 border-light-200/40 border relative overflow-hidden group">
+                <!-- Decorative background elements -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-b from-primary/10 to-transparent rounded-full blur-2xl transform translate-x-8 -translate-y-8 group-hover:translate-y-0 transition-transform duration-700"></div>
+                <div class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-t from-secondary/10 to-transparent rounded-full blur-2xl transform -translate-x-8 translate-y-8 group-hover:translate-y-0 transition-transform duration-700"></div>
+                
+                <!-- User info with better layout -->
+                <div class="flex flex-col items-center relative">
+                    <div class="relative mb-3">
+                        <!-- Avatar with gradient ring -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full blur-[1px]"></div>
+                                                    <div class="relative bg-primary h-16 w-16 rounded-full flex items-center justify-center text-xl font-bold dark:border-dark/80 border-light-300/80 border-2">
+                                ch
+                            </div>
+                                                
+                        <!-- Status indicator -->
+                        <div class="absolute bottom-0 right-0 h-4 w-4 bg-secondary rounded-full dark:border-dark border-light-300 border-2 shadow-lg"></div>
+                    </div>
+                    
+                    <h5 class="font-medium dark:text-white text-dark mb-0.5">cheryl curtis</h5>
+                    <span class="text-xs dark:text-gray-400 text-gray-600 mb-3 dark:bg-dark-50/50 bg-light-200/50 px-2 py-0.5 rounded-full">online</span>
+                    
+                    <!-- Balance display with card-like design -->
+                    <div class="dark:bg-gradient-to-r dark:from-dark-50 dark:to-dark-100 bg-gradient-to-r from-light-100 to-light-200 p-3 rounded-lg w-full flex items-center gap-2 dark:border-dark-100/60 border-light-200/60 border relative overflow-hidden">
+                        <div class="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                            <i data-lucide="wallet" class="h-4 w-4 text-primary"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs dark:text-gray-400 text-gray-600 block">Balance</span>
+                            <span class="text-sm font-medium dark:text-white text-dark">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Menu with Category Sections -->
+        <div class="flex-1 px-3 py-2">
+            <div class="space-y-6">
+                <!-- Main Navigation Section -->
+                <div>
+                    <p class="text-xs font-medium text-gray-500 uppercase px-3 mb-2">Main</p>
+                    <nav class="space-y-1">
+                        <a href="https://swantradecapital.com/dashboard" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="home" class="h-5 w-5"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        
+                        <a href="https://swantradecapital.com/dashboard/account-settings" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="user" class="h-5 w-5"></i>
+                            <span>Profile</span>
+                        </a>
+                    </nav>
+                </div>
+                
+                <!-- Finance Section -->
+                <div>
+                    <p class="text-xs font-medium text-gray-500 uppercase px-3 mb-2">Finance</p>
+                    <nav class="space-y-1">
+                        <a href="https://swantradecapital.com/dashboard/deposits" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="download" class="h-5 w-5"></i>
+                            <span>Deposit</span>
+                        </a>
+                        
+                                                <a href="https://swantradecapital.com/dashboard/withdrawals" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="upload" class="h-5 w-5"></i>
+                            <span>Withdraw</span>
+                        </a>
+                                                
+                        <a href="https://swantradecapital.com/dashboard/accounthistory" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="history" class="h-5 w-5"></i>
+                            <span>Transactions</span>
+                        </a>
+                        
+                                                <a href="https://swantradecapital.com/dashboard/transfer-funds" class="flex items-center gap-3 rounded-lg bg-primary/10 text-primary px-3 py-2 transition-colors">
+                            <i data-lucide="send" class="h-5 w-5"></i>
+                            <span>Transfer Funds</span>
+                        </a>
+                                            </nav>
+                </div>
+                
+                <!-- Investment Section -->
+                                <div>
+                    <p class="text-xs font-medium text-gray-500 uppercase px-3 mb-2">Investments</p>
+                    <nav class="space-y-1">
+                        <a href="https://swantradecapital.com/dashboard/buy-plan" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="briefcase" class="h-5 w-5"></i>
+                            <span>Trading Plans</span>
+                        </a>
+                        
+                        <a href="https://swantradecapital.com/dashboard/myplans/All" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="folder" class="h-5 w-5"></i>
+                            <span>My Plans</span>
+                        </a>
+                        
+                        <a href="https://swantradecapital.com/dashboard/tradinghistory" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="trending-up" class="h-5 w-5"></i>
+                            <span>Profit History</span>
+                        </a>
+                    </nav>
+                </div>
+                                
+                <!-- Additional Services Section -->
+                <div>
+                    <p class="text-xs font-medium text-gray-500 uppercase px-3 mb-2">Services</p>
+                    <nav class="space-y-1">
+                        <a href="https://swantradecapital.com/dashboard/trading" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="bar-chart-2" class="h-5 w-5"></i>
+                            <span>Trading Platform</span>
+                        </a>
+                        
+                        <a href="https://swantradecapital.com/dashboard/copy-trading" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="copy" class="h-5 w-5"></i>
+                            <span>Copy Trading</span>
+                        </a>
+                        
+                        <a href="https://swantradecapital.com/dashboard/bot-trading" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="bot" class="h-5 w-5"></i>
+                            <span>Bot Trading</span>
+                        </a>
+                        
+                                                
+                                                
+                                                
+                        <a href="https://swantradecapital.com/dashboard/referuser" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="users" class="h-5 w-5"></i>
+                            <span>Referrals</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section with Enhanced Design -->
+        <div class="mt-auto px-4 pb-6">
+            <div class="rounded-xl overflow-hidden bg-gradient-to-r from-primary/80 to-secondary/80 p-0.5">
+                <div class="dark:bg-dark-50 bg-light-100 rounded-lg p-4">
+                    <div class="flex items-start gap-3">
+                        <div class="bg-primary/20 rounded-full p-2">
+                            <i data-lucide="life-buoy" class="h-5 w-5 text-primary"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-medium dark:text-white text-dark text-sm mb-1">Need Help?</h5>
+                            <p class="text-xs dark:text-gray-300 text-gray-700 mb-3">
+                                Our support team is available 24/7
+                            </p>
+                            <a href="https://swantradecapital.com/dashboard/support" class="flex items-center justify-center gap-2 dark:bg-dark-100 bg-light-200 hover:bg-light-200/80 dark:hover:bg-dark-100/80 dark:text-white text-dark rounded-lg py-2 text-xs font-medium transition-colors">
+                                <i data-lucide="message-circle" class="h-3.5 w-3.5"></i>
+                                <span>Contact Support</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Get elements
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebar = document.getElementById('sidenav-main');
+        const closeBtn = document.getElementById('closeSideNav');
+        const overlay = document.getElementById('sidebar-overlay');
+
+        // Helper function to open sidebar
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+            setTimeout(() => {
+                overlay.classList.add('opacity-100');
+            }, 50);
+        }
+        
+        // Helper function to close sidebar
+        function closeSidebar() {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+            overlay.classList.remove('opacity-100');
+            document.body.classList.remove('overflow-hidden');
+        }
+        
+        // Toggle sidebar on mobile menu button click
+        if (mobileMenuToggle && sidebar) {
+            mobileMenuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (sidebar.classList.contains('-translate-x-full')) {
+                    openSidebar();
+                } else {
+                    closeSidebar();
+                }
+            });
+        }
+        
+        // Close sidebar on close button click
+        if (closeBtn && sidebar) {
+            closeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeSidebar();
+            });
+        }
+        
+        // Close sidebar when clicking on overlay
+        if (overlay) {
+            overlay.addEventListener('click', function() {
+                closeSidebar();
+            });
+        }
+        
+        // Close sidebar when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideSidebar = sidebar.contains(event.target);
+            const isClickOnToggle = mobileMenuToggle && (event.target === mobileMenuToggle || mobileMenuToggle.contains(event.target));
+            
+            if (!isClickInsideSidebar && !isClickOnToggle && !sidebar.classList.contains('-translate-x-full')) {
+                closeSidebar();
+            }
+        });
+        
+        // Close sidebar when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeSidebar();
+            }
+        });
+    });
+</script>        
+        <!-- Main Content -->
+    <div class="user-dashboard-shell w-full flex flex-col">
+    <!-- Top Menu -->
+    <!-- Enhanced Top Navigation Bar -->
+<header class="flex h-16 items-center justify-between dark:border-dark-100 border-light-200 border-b px-4 sm:px-6 sticky top-0 z-[9999] dark:bg-dark-50 bg-light-100 shadow-sm">
+    <div class="flex items-center gap-4">
+        <!-- Mobile Menu Toggle with Improved Design -->
+        <button class="md:hidden dark:text-white text-dark p-1.5 rounded-lg dark:hover:bg-dark-100/60 hover:bg-light-200/60 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50" id="mobileMenuToggle">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 7H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M4 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M4 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        
+        <!-- Mobile Logo with Enhanced Appearance -->
+        <div class="flex items-center gap-3 md:hidden">
+            <a href="https://swantradecapital.com/dashboard" class="flex items-center shrink-0" aria-label="Swan Trade Capital">
+                                    <img src="https://swantradecapital.com/storage/app/public/photos/OLyPkK78IllyMFmXHomXdOLYUar4vzdWI4uYVmrp.png" alt="Swan Trade Capital" class="h-8 w-auto max-w-[10rem] object-contain object-left">
+                            </a>
+        </div>
+
+        <!-- Desktop logo (md+) -->
+        <a href="https://swantradecapital.com/dashboard" class="hidden md:flex items-center shrink-0 min-w-0" aria-label="Swan Trade Capital">
+                            <img src="https://swantradecapital.com/storage/app/public/photos/OLyPkK78IllyMFmXHomXdOLYUar4vzdWI4uYVmrp.png" alt="Swan Trade Capital" class="h-8 w-auto max-w-[11rem] object-contain object-left">
+                    </a>
+    </div>
+    
+    <!-- Right-side items with Better Layout -->
+    <div class="flex items-center gap-1.5 sm:gap-3">
+        <div class="relative" x-data="{ open: false }">
+    <button type="button" @click="open = !open"
+        class="flex items-center gap-1 p-1.5 rounded-lg text-xs dark:text-gray-300 text-gray-700 dark:bg-dark-100/40 bg-light-200/40 hover:bg-light-200/80 dark:hover:bg-dark-100/80 dark:border-dark-100 border-light-200 border transition-colors max-w-[9rem]"
+        title="Language" aria-expanded="false" aria-haspopup="true">
+        <i data-lucide="languages" class="h-4 w-4 shrink-0"></i>
+        <span class="hidden sm:inline truncate">English</span>
+        <i data-lucide="chevron-down" class="h-3.5 w-3.5 shrink-0 opacity-70 hidden sm:block"></i>
+    </button>
+    <div x-show="open" @click.away="open = false" x-cloak
+        class="absolute right-0 mt-2 max-h-64 min-w-[11rem] overflow-auto rounded-lg dark:bg-dark-50 bg-light-100 dark:border-dark-100 border-light-200 border shadow-lg z-[10001]"
+        style="display: none;">
+                    <a href="https://swantradecapital.com/locale/en"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 text-primary font-medium">English</a>
+                    <a href="https://swantradecapital.com/locale/fr"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Français</a>
+                    <a href="https://swantradecapital.com/locale/es"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Español</a>
+                    <a href="https://swantradecapital.com/locale/ja"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">日本語</a>
+                    <a href="https://swantradecapital.com/locale/zh_CN"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">简体中文</a>
+                    <a href="https://swantradecapital.com/locale/zh_TW"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">繁體中文</a>
+                    <a href="https://swantradecapital.com/locale/pt"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Português</a>
+                    <a href="https://swantradecapital.com/locale/af"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Afrikaans</a>
+                    <a href="https://swantradecapital.com/locale/de"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Deutsch</a>
+                    <a href="https://swantradecapital.com/locale/it"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Italiano</a>
+                    <a href="https://swantradecapital.com/locale/ru"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Русский</a>
+                    <a href="https://swantradecapital.com/locale/ar"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">العربية</a>
+                    <a href="https://swantradecapital.com/locale/hi"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">हिन्दी</a>
+                    <a href="https://swantradecapital.com/locale/ko"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">한국어</a>
+                    <a href="https://swantradecapital.com/locale/tr"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Türkçe</a>
+                    <a href="https://swantradecapital.com/locale/nl"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Nederlands</a>
+                    <a href="https://swantradecapital.com/locale/bn"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">বাংলা</a>
+                    <a href="https://swantradecapital.com/locale/ur"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">اردو</a>
+                    <a href="https://swantradecapital.com/locale/fa"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">فارسی</a>
+                    <a href="https://swantradecapital.com/locale/id"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Bahasa Indonesia</a>
+                    <a href="https://swantradecapital.com/locale/ms"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Bahasa Melayu</a>
+                    <a href="https://swantradecapital.com/locale/vi"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Tiếng Việt</a>
+                    <a href="https://swantradecapital.com/locale/th"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">ไทย</a>
+                    <a href="https://swantradecapital.com/locale/tl"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Filipino</a>
+                    <a href="https://swantradecapital.com/locale/sw"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Kiswahili</a>
+                    <a href="https://swantradecapital.com/locale/am"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">አማርኛ</a>
+                    <a href="https://swantradecapital.com/locale/ha"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Hausa</a>
+                    <a href="https://swantradecapital.com/locale/yo"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Yorùbá</a>
+                    <a href="https://swantradecapital.com/locale/ig"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Igbo</a>
+                    <a href="https://swantradecapital.com/locale/zu"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">isiZulu</a>
+                    <a href="https://swantradecapital.com/locale/xh"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">isiXhosa</a>
+                    <a href="https://swantradecapital.com/locale/so"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Soomaali</a>
+                    <a href="https://swantradecapital.com/locale/rw"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Ikinyarwanda</a>
+                    <a href="https://swantradecapital.com/locale/pl"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Polski</a>
+                    <a href="https://swantradecapital.com/locale/uk"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Українська</a>
+                    <a href="https://swantradecapital.com/locale/cs"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Čeština</a>
+                    <a href="https://swantradecapital.com/locale/sk"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Slovenčina</a>
+                    <a href="https://swantradecapital.com/locale/sl"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Slovenščina</a>
+                    <a href="https://swantradecapital.com/locale/hr"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Hrvatski</a>
+                    <a href="https://swantradecapital.com/locale/sr"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Српски</a>
+                    <a href="https://swantradecapital.com/locale/bs"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Bosanski</a>
+                    <a href="https://swantradecapital.com/locale/ro"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Română</a>
+                    <a href="https://swantradecapital.com/locale/hu"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Magyar</a>
+                    <a href="https://swantradecapital.com/locale/el"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Ελληνικά</a>
+                    <a href="https://swantradecapital.com/locale/bg"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Български</a>
+                    <a href="https://swantradecapital.com/locale/lt"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Lietuvių</a>
+                    <a href="https://swantradecapital.com/locale/lv"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Latviešu</a>
+                    <a href="https://swantradecapital.com/locale/et"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Eesti</a>
+                    <a href="https://swantradecapital.com/locale/da"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Dansk</a>
+                    <a href="https://swantradecapital.com/locale/sv"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Svenska</a>
+                    <a href="https://swantradecapital.com/locale/no"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Norsk</a>
+                    <a href="https://swantradecapital.com/locale/fi"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Suomi</a>
+                    <a href="https://swantradecapital.com/locale/is"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Íslenska</a>
+                    <a href="https://swantradecapital.com/locale/ga"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Gaeilge</a>
+                    <a href="https://swantradecapital.com/locale/mt"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Malti</a>
+                    <a href="https://swantradecapital.com/locale/he"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">עברית</a>
+                    <a href="https://swantradecapital.com/locale/ta"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">தமிழ்</a>
+                    <a href="https://swantradecapital.com/locale/te"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">తెలుగు</a>
+                    <a href="https://swantradecapital.com/locale/kn"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">ಕನ್ನಡ</a>
+                    <a href="https://swantradecapital.com/locale/ml"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">മലയാളം</a>
+                    <a href="https://swantradecapital.com/locale/mr"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">मराठी</a>
+                    <a href="https://swantradecapital.com/locale/gu"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">ગુજરાતી</a>
+                    <a href="https://swantradecapital.com/locale/pa"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">ਪੰਜਾਬੀ</a>
+                    <a href="https://swantradecapital.com/locale/ne"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">नेपाली</a>
+                    <a href="https://swantradecapital.com/locale/si"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">සිංහල</a>
+                    <a href="https://swantradecapital.com/locale/my"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">မြန်မာ</a>
+                    <a href="https://swantradecapital.com/locale/km"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">ខ្មែរ</a>
+                    <a href="https://swantradecapital.com/locale/lo"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">ລາວ</a>
+                    <a href="https://swantradecapital.com/locale/mn"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Монгол</a>
+                    <a href="https://swantradecapital.com/locale/kk"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Қазақ</a>
+                    <a href="https://swantradecapital.com/locale/uz"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Oʻzbek</a>
+                    <a href="https://swantradecapital.com/locale/az"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Azərbaycan dili</a>
+                    <a href="https://swantradecapital.com/locale/hy"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Հայերեն</a>
+                    <a href="https://swantradecapital.com/locale/ka"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">ქართული</a>
+            </div>
+</div>
+        <!-- Theme Toggle Button -->
+       <button id="themeToggle" onclick="toggleTheme()" class="p-1.5 dark:text-gray-300 text-gray-700 hover:text-dark dark:hover:text-white dark:bg-dark-100/40 bg-light-200/40 hover:bg-light-200/80 dark:hover:bg-dark-100/80 rounded-lg transition-colors" title="Toggle Theme">
+            <!-- Sun icon for light theme (shown in dark mode) -->
+            <i data-lucide="sun" class="h-4 w-4"></i>
+            <!-- Moon icon for dark theme (shown in light mode) -->
+            <i data-lucide="moon" class="h-4 w-4"></i>
+        </button>
+        
+        <!-- KYC Verification with Improved Design -->
+                <div class="relative" x-data="{ open: false }">
+                        <button @click="open = !open" class="flex items-center dark:text-gray-300 text-gray-700 hover:text-dark dark:hover:text-white dark:bg-dark-100/40 bg-light-200/40 hover:bg-light-200/80 dark:hover:bg-dark-100/80 px-2 py-1 rounded-lg text-xs dark:border-dark-100 border-light-200 border transition-colors">
+                <i class="fas fa-shield-alt h-3.5 w-3.5 mr-1"></i>
+                <span class="hidden sm:inline-block">KYC</span>
+            </button>
+            <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-56 dark:bg-dark-50 bg-light-100 dark:border-dark-100 border-light-200 border rounded-lg shadow-lg overflow-hidden z-[10000]">
+                <div class="bg-gradient-to-r dark:from-dark-100 dark:to-dark-100/30 from-light-200 to-light-200/30 px-4 py-3 dark:border-dark-100 border-light-200 border-b">
+                    <h6 class="text-sm font-medium dark:text-white text-dark">KYC Verification</h6>
+                    <p class="text-xs dark:text-gray-400 text-gray-600 mt-0.5">Verify your identity to unlock all features</p>
+                </div>
+                <div class="p-4 text-center">
+                                            <div class="dark:bg-dark-100/40 bg-light-200/40 rounded-lg p-3 mb-3">
+                            <i class="fas fa-shield-alt h-8 w-8 text-primary mx-auto mb-2"></i>
+                            <span class="text-xs dark:text-gray-300 text-gray-700 block">Your account is not verified</span>
+                        </div>
+                        <a href="https://swantradecapital.com/dashboard/verify-account" class="inline-flex items-center justify-center gap-1.5 bg-gradient-to-r from-primary to-primary/80 text-white text-xs font-medium px-4 py-2 rounded-lg hover:from-primary/90 hover:to-primary/70 transition-all">
+                            <i class="fas fa-shield-check h-3.5 w-3.5"></i>
+                            <span>Verify Account</span>
+                        </a>
+                                    </div>
+            </div>
+                    </div>
+                
+        <!-- Notifications with Enhanced Design -->
+        <div class="relative" 
+            x-data="{ 
+                open: false, 
+                notifications: [], 
+                unreadCount: 0, 
+                loading: true, 
+                init() { 
+                    this.fetchNotifications(); 
+                    this.setupPolling(); 
+                }, 
+                fetchNotifications() { 
+                    this.loading = true; 
+                    fetch('https://swantradecapital.com/dashboard/api/notifications/latest') 
+                        .then(response => response.json()) 
+                        .then(data => { 
+                            this.notifications = data.notifications; 
+                            this.unreadCount = data.unread_count; 
+                            this.loading = false; 
+                        }) 
+                        .catch(error => { 
+                            console.error('Error fetching notifications:', error); 
+                            this.loading = false; 
+                        }); 
+                }, 
+                setupPolling() { 
+                    setInterval(() => { 
+                        this.fetchNotifications(); 
+                    }, 30000); 
+                } 
+            }"
+            x-init="init()"
+        >
+            <button @click="open = !open; if(open) fetchNotifications();" class="p-1.5 dark:text-gray-300 text-gray-700 hover:text-dark dark:hover:text-white dark:bg-dark-100/40 bg-light-200/40 hover:bg-light-200/80 dark:hover:bg-dark-100/80 rounded-lg transition-colors relative" title="Notifications">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M15 17H9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    <path d="M18 16V11C18 7.69 15.31 5 12 5C8.69 5 6 7.69 6 11V16L4.5 17.5H19.5L18 16Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="M10 19C10.4 20 11.1 20.5 12 20.5C12.9 20.5 13.6 20 14 19" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                </svg>
+                <span x-show="unreadCount > 0" x-text="unreadCount > 9 ? '9+' : unreadCount" class="absolute -right-1 -top-1 h-4 w-4 flex items-center justify-center bg-primary text-[10px] text-white rounded-full dark:border-dark border-light-100 border"></span>
+            </button>
+            
+            <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-72 dark:bg-dark-50 bg-light-100 dark:border-dark-100 border-light-200 border rounded-lg shadow-lg overflow-hidden z-[10000]">
+                <div class="bg-gradient-to-r dark:from-dark-100 dark:to-dark-100/30 from-light-200 to-light-200/30 px-4 py-3 flex items-center justify-between dark:border-dark-100 border-light-200 border-b">
+                    <h6 class="text-sm font-medium dark:text-white text-dark">Notifications</h6>
+                    <span x-show="unreadCount > 0" x-text="unreadCount" class="text-xs bg-primary text-white px-1.5 py-0.5 rounded-full"></span>
+                </div>
+                
+                <div class="max-h-[280px] overflow-y-auto">
+                    <!-- Loading State -->
+                    <template x-if="loading">
+                        <div class="p-4 text-center">
+                            <div class="inline-block h-6 w-6 animate-spin rounded-full border-2 border-solid border-primary border-r-transparent motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
+                                <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+                            </div>
+                        </div>
+                    </template>
+                    
+                    <!-- Empty State -->
+                    <template x-if="!loading && notifications.length === 0">
+                        <div class="p-4 text-center">
+                            <div class="h-12 w-12 rounded-full bg-light-200/60 dark:bg-dark-100/60 flex items-center justify-center mx-auto mb-2">
+                                <svg class="h-6 w-6 dark:text-gray-400 text-gray-600" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M4 4L20 20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                                    <path d="M15 17H9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                                    <path d="M18 16V11C18 7.69 15.31 5 12 5C10.86 5 9.79 5.32 8.87 5.88" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M6 11V16L4.5 17.5H14.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <p class="text-xs dark:text-gray-400 text-gray-600">No notifications yet</p>
+                        </div>
+                    </template>
+                    
+                    <!-- Notifications List -->
+                    <template x-if="!loading && notifications.length > 0">
+                        <div>
+                            <template x-for="notification in notifications" :key="notification.id">
+                                <a :href="'https://swantradecapital.com/dashboard/notifications/mark-as-read/' + notification.id" class="block p-3 dark:border-dark-100/60 border-light-200/60 border-b hover:bg-dark-100/30 dark:hover:bg-dark-100/30 hover:bg-light-200/30 transition-colors" :class="{ 'dark:bg-dark-100/50 bg-light-200/50': !notification.is_read }">
+                                    <div class="flex gap-3">
+                                        <div :class="notification.icon_bg_color || 'bg-primary/10'" class="h-8 w-8 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i :class="'fas ' + (notification.icon || 'fa-bell')" class="h-4 w-4"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs dark:text-white text-dark font-medium" x-text="notification.title || 'Notification'"></p>
+                                            <p class="text-xs dark:text-gray-400 text-gray-600 mt-0.5" x-text="notification.message"></p>
+                                            <p class="text-xs dark:text-gray-500 text-gray-500 mt-1" x-text="new Date(notification.created_at).toLocaleString()"></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+                
+                <div class="p-2 dark:border-dark-100 border-light-200 border-t flex justify-between">
+                    <a x-show="unreadCount > 0" href="https://swantradecapital.com/dashboard/notifications/mark-all-as-read" class="block text-xs text-primary hover:text-primary/80 py-1 px-2">
+                        Mark all as read
+                    </a>
+                    <a href="https://swantradecapital.com/dashboard/notifications" class="block text-xs text-primary hover:text-primary/80 py-1 px-2 ml-auto">
+                        View all
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- User Profile Dropdown with Enhanced Design -->
+        <div class="relative" x-data="{ open: false }">
+            <button @click="open = !open" class="flex items-center gap-2 p-1 rounded-lg dark:hover:bg-dark-100 hover:bg-light-200 transition-colors">
+                <div class="relative">
+                                            <div class="relative h-7 w-7 sm:h-8 sm:w-8 bg-primary rounded-full flex items-center justify-center text-sm font-medium dark:border-dark-50 border-light-300 border-2">
+                            ch
+                        </div>
+                                    </div>
+                <span class="hidden md:block text-sm font-medium dark:text-white text-dark">curtisc1961</span>
+                <i class="fas fa-chevron-down h-4 w-4 dark:text-gray-400 text-gray-600 hidden md:block"></i>
+            </button>
+            
+            <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-56 dark:bg-dark-50 bg-light-100 dark:border-dark-100 border-light-200 border rounded-lg shadow-lg overflow-hidden z-[10000]">
+                <div class="bg-gradient-to-r dark:from-dark-100 dark:to-dark-100/30 from-light-200 to-light-200/30 px-4 py-3 dark:border-dark-100 border-light-200 border-b">
+                    <h6 class="text-sm font-medium dark:text-white text-dark">cheryl curtis</h6>
+                    <p class="text-xs dark:text-gray-400 text-gray-600 mt-0.5">curtischery1961@gmail.com</p>
+                </div>
+                
+                <div class="py-2">
+                    <a href="https://swantradecapital.com/dashboard/account-settings" class="flex items-center gap-2 px-4 py-2 text-sm dark:text-gray-300 text-gray-700 dark:hover:bg-dark-100/60 hover:bg-light-200/60 transition-colors">
+                        <i class="fas fa-user h-4 w-4 dark:text-gray-400 text-gray-600"></i>
+                        <span>My Profile</span>
+                    </a>
+                    <a href="https://swantradecapital.com/dashboard/accounthistory" class="flex items-center gap-2 px-4 py-2 text-sm dark:text-gray-300 text-gray-700 dark:hover:bg-dark-100/60 hover:bg-light-200/60 transition-colors">
+                        <i class="fas fa-history h-4 w-4 dark:text-gray-400 text-gray-600"></i>
+                        <span>Transaction History</span>
+                    </a>
+                    <a href="https://swantradecapital.com/dashboard/support" class="flex items-center gap-2 px-4 py-2 text-sm dark:text-gray-300 text-gray-700 dark:hover:bg-dark-100/60 hover:bg-light-200/60 transition-colors">
+                        <i class="fas fa-life-ring h-4 w-4 dark:text-gray-400 text-gray-600"></i>
+                        <span>Support</span>
+                    </a>
+                </div>
+                
+                <div class="py-2 dark:border-dark-100 border-light-200 border-t">
+                    <a href="https://swantradecapital.com/logout" 
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                       class="flex items-center gap-2 px-4 py-2 text-sm text-danger dark:hover:bg-dark-100/60 hover:bg-light-200/60 transition-colors">
+                        <i class="fas fa-sign-out-alt h-4 w-4"></i>
+                        <span>Logout</span>
+                    </a>
+                    
+                    <form id="logout-form" action="https://swantradecapital.com/logout" method="POST" class="hidden">
+                        <input type="hidden" name="_token" value="cVHdUwFWJ3GYKGfRKcfnpsAlTgFW0CDiZazwDqTG">                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>    <div id="dashboard-stock-ticker" class="shrink-0 border-b dark:border-dark-100 border-light-200 dark:bg-dark-50/80 bg-light-100/90 backdrop-blur-sm">
+    <div class="flex items-stretch min-h-[2.25rem]">
+        <div class="flex items-center gap-2 px-2 sm:px-3 py-1.5 border-r dark:border-dark-100 border-light-200 shrink-0">
+                            <a href="https://swantradecapital.com/dashboard" class="flex items-center shrink-0 opacity-90 hover:opacity-100 transition-opacity" aria-label="Swan Trade Capital">
+                    <img src="https://swantradecapital.com/storage/app/public/photos/OLyPkK78IllyMFmXHomXdOLYUar4vzdWI4uYVmrp.png" alt="Swan Trade Capital" class="h-5 sm:h-6 w-auto max-w-[4.25rem] object-contain object-left">
+                </a>
+                <span class="h-4 w-px shrink-0 dark:bg-dark-100 bg-light-200" aria-hidden="true"></span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider dark:text-gray-400 text-gray-500">Stocks</span>
+        </div>
+        <div class="relative flex-1 overflow-hidden min-w-0 py-1" aria-live="polite">
+            <div id="stock-ticker-loading" class="absolute inset-0 flex items-center px-3 text-[11px] dark:text-gray-500 text-gray-500">
+                Loading quotes…
+            </div>
+            <div id="stock-ticker-viewport" class="hidden overflow-hidden">
+                <div id="stock-ticker-track" class="stock-ticker-track flex items-center gap-x-8 whitespace-nowrap py-0.5"></div>
+            </div>
+        </div>
+        <a href="https://swantradecapital.com/dashboard/trading/stocks"
+           class="hidden sm:flex items-center px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-primary hover:underline shrink-0 border-l dark:border-dark-100 border-light-200">
+            Trade
+        </a>
+    </div>
+</div>
+
+<style>
+    @keyframes  stock-ticker-marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    .stock-ticker-track {
+        width: max-content;
+        animation: stock-ticker-marquee 45s linear infinite;
+    }
+    .stock-ticker-track:hover {
+        animation-play-state: paused;
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .stock-ticker-track {
+            animation: none;
+            flex-wrap: wrap;
+            white-space: normal;
+            row-gap: 0.25rem;
+            justify-content: center;
+            padding: 0.25rem 0.5rem;
+        }
+    }
+</style>
+
+<script>
+(function () {
+    var url = "https:\/\/swantradecapital.com\/dashboard\/api\/stock-ticker";
+    var loadingEl = document.getElementById('stock-ticker-loading');
+    var viewportEl = document.getElementById('stock-ticker-viewport');
+    var trackEl = document.getElementById('stock-ticker-track');
+    if (!trackEl || !viewportEl) return;
+
+    function esc(s) {
+        if (s == null) return '';
+        return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+    }
+
+    function stockLogoUrl(symbol) {
+        var raw = String(symbol || '').replace(/[^A-Za-z0-9.\-]/g, '').toUpperCase();
+        if (!raw) return '';
+        return 'https://financialmodelingprep.com/image-stock/' + encodeURIComponent(raw) + '.png';
+    }
+
+    function buildItem(q) {
+        var sym = esc(q.symbol);
+        var price = typeof q.price === 'number' ? q.price.toFixed(2) : esc(q.price);
+        var ch = Number(q.change);
+        var chp = Number(q.changePercent);
+        var up = ch >= 0;
+        var color = up ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400';
+        var sign = ch > 0 ? '+' : '';
+        var stockUrl = "https:\/\/swantradecapital.com\/dashboard\/trading\/stocks" + '/' + encodeURIComponent(q.symbol);
+        var logoSrc = stockLogoUrl(q.symbol);
+        var logoHtml = logoSrc
+            ? '<img src="' + logoSrc + '" alt="" width="16" height="16" class="h-4 w-4 rounded-full object-cover shrink-0 ring-1 ring-black/5 dark:ring-white/10" loading="lazy" onerror="this.style.visibility=\'hidden\'">'
+            : '';
+        return (
+            '<a href="' + esc(stockUrl) + '" class="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium dark:text-gray-200 text-gray-800 hover:text-primary transition-colors">' +
+                logoHtml +
+                '<span class="font-semibold tracking-tight">' + sym + '</span>' +
+                '<span class="tabular-nums">$' + price + '</span>' +
+                '<span class="tabular-nums ' + color + '">' + sign + ch.toFixed(2) + ' (' + sign + chp.toFixed(2) + '%)</span>' +
+            '</a>'
+        );
+    }
+
+    function render(quotes) {
+        if (!quotes || !quotes.length) {
+            if (loadingEl) {
+                loadingEl.textContent = 'Market data unavailable';
+                loadingEl.classList.remove('hidden');
+            }
+            viewportEl.classList.add('hidden');
+            return;
+        }
+        var html = quotes.map(buildItem).join('<span class="dark:text-gray-600 text-gray-300 select-none" aria-hidden="true">·</span>');
+        trackEl.innerHTML = html + html;
+        if (loadingEl) loadingEl.classList.add('hidden');
+        viewportEl.classList.remove('hidden');
+    }
+
+    function load() {
+        fetch(url, {
+            credentials: 'same-origin',
+            headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }
+        })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+                if (data && data.success && data.quotes) {
+                    render(data.quotes);
+                } else {
+                    render([]);
+                }
+            })
+            .catch(function () {
+                render([]);
+            });
+    }
+
+    load();
+    setInterval(load, 120000);
+})();
+</script>
+    
+    <!-- Page content -->
+    <div class="p-4 md:p-6 pb-20 md:pb-8 overflow-x-hidden flex-grow">
+            <!-- Page title -->
+    <div class="page-title">
+        <div class="row justify-content-between align-items-center">
+            <div class="mb-3 col-md-6 mb-md-0">
+                <h5 class="mb-0 text-white h3 font-weight-400">Fund Transfer</h5>
+            </div>
+        </div>
+    </div>
+    <div>
+    </div>    <div>
+    </div>    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row profile">
+                        <div class="col-md-12">
+                            <div class="p-2 pb-3 p-md-5 pb-md-0 ">
+                                <div class="row">
+                                    <div class="mb-3 col-md-4 offset-md-4">
+                                        <div class="p-3 card">
+                                            <div class="d-flex align-items-center justify-content-around">
+                                                <img src="https://swantradecapital.com/dash2/img/wallet.png" alt="wallet"
+                                                    width="25">
+                                                <div>
+                                                    <h5 class="mb-1 d-inlne">
+                                                        <b>$0.00</b>
+                                                    </h5>
+                                                    <small class="text-muted">Your Account Balance</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 offset-md-2">
+                                        <form method="post" action="javascript:void(0)" id="transferform">
+                                            <input type="hidden" name="_token" value="cVHdUwFWJ3GYKGfRKcfnpsAlTgFW0CDiZazwDqTG">                                            <div class="form-group">
+                                                <label for="" class="">Recipient Email or username <span
+                                                        class=" text-danger">*</span></label>
+                                                <input type="text" name="email" class="form-control " required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="" class="">Amount($) <span
+                                                        class=" text-danger">*</span></label>
+                                                <input type="number" min="1000" name="amount"
+                                                    placeholder="Enter amount you want to transfer to recipient"
+                                                    class="form-control " required>
+                                            </div>
+                                            <div class="form-group">
+                                                <h6 class="">Transfer Charges: <strong
+                                                        class=" text-danger">0%</strong>
+                                                </h6>
+                                            </div>
+                                            <input type="hidden" name="password" id="acntpass">
+                                            <div class="">
+                                                <input type="submit" id="subbtn" class="py-2 btn btn-primary btn-block"
+                                                    value="Proceed">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="py-4 border-t dark:border-dark-100 border-light-200 text-center md:text-left hidden md:flex md:justify-between md:items-center px-4 md:px-6">
+        <div>
+            <p class="text-sm dark:text-gray-400 text-gray-600">All Rights Reserved © Swan Trade Capital 2026</p>
+        </div>
+    </div>
+</div>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <!-- Modern Mobile Navigation -->
+<div class="user-dashboard-mobile-nav fixed bottom-0 left-0 right-0 z-[9990] md:hidden">
+    <!-- Main Navigation Bar - Refined Design -->
+    <div class="bg-gradient-to-b dark:from-dark-50 dark:to-dark from-light-100 to-light dark:border-dark-100/80 border-light-200/80 border-t pt-0.5">
+        <!-- Interactive Track Bar -->
+        <div class="mx-auto w-1/2 h-1 -mt-0.5 rounded-full bg-gradient-to-r from-primary/20 via-secondary/60 to-tertiary/20"></div>
+        
+        <!-- Navigation Items -->
+        <div class="flex items-center justify-center h-16 relative px-1 gap-0.5">
+            <!-- Home -->
+            <a href="https://swantradecapital.com/dashboard" 
+               class="flex flex-col items-center justify-center h-full min-w-0 flex-1 mx-0.5 py-1 relative z-10 transition-colors duration-200 nav-item ">
+                <div class="nav-icon-wrapper dark:text-gray-400 text-gray-600 transition-all duration-300">
+                    <i data-lucide="home" class="h-5 w-5"></i>
+                </div>
+                <span class="text-xs mt-1 dark:text-gray-400 text-gray-600 transition-all duration-300">Home</span>
+            </a>
+            
+            <!-- Deposit -->
+            <a href="https://swantradecapital.com/dashboard/deposits" 
+               class="flex flex-col items-center justify-center h-full min-w-0 flex-1 mx-0.5 py-1 relative z-10 transition-colors duration-200 nav-item ">
+                <div class="nav-icon-wrapper dark:text-gray-400 text-gray-600 transition-all duration-300">
+                    <i data-lucide="download" class="h-5 w-5"></i>
+                </div>
+                <span class="text-xs mt-1 dark:text-gray-400 text-gray-600 transition-all duration-300">Deposit</span>
+            </a>
+            
+            <!-- Quick Actions (FAB) -->
+            <div class="flex flex-col items-center justify-end h-full relative shrink-0 px-0.5 -mt-8">
+                <button id="fab-button" 
+                        class="h-14 w-14 rounded-full shadow-lg flex items-center justify-center relative z-20 bg-primary transform hover:scale-105 transition-all duration-300">
+                    <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="48" fill="none" stroke-width="2" stroke="rgba(255,255,255,0.1)" />
+                        <circle cx="50" cy="50" r="48" fill="none" stroke-width="2" stroke="rgba(239,68,68,0.85)" stroke-dasharray="302" stroke-dashoffset="302" class="animate-dash" />
+                    </svg>
+                    <i data-lucide="zap" class="h-6 w-6 text-white"></i>
+                </button>
+                <span class="text-xs dark:text-gray-400 text-gray-600 absolute -bottom-2">Actions</span>
+            </div>
+            
+            <!-- History -->
+            <a href="https://swantradecapital.com/dashboard/accounthistory" 
+               class="flex flex-col items-center justify-center h-full min-w-0 flex-1 mx-0.5 py-1 relative z-10 transition-colors duration-200 nav-item ">
+                <div class="nav-icon-wrapper dark:text-gray-400 text-gray-600 transition-all duration-300">
+                    <i data-lucide="history" class="h-5 w-5"></i>
+                </div>
+                <span class="text-xs mt-1 dark:text-gray-400 text-gray-600 transition-all duration-300">History</span>
+            </a>
+            
+            <!-- Profile -->
+            <a href="https://swantradecapital.com/dashboard/account-settings" 
+               class="flex flex-col items-center justify-center h-full min-w-0 flex-1 mx-0.5 py-1 relative z-10 transition-colors duration-200 nav-item ">
+                <div class="nav-icon-wrapper dark:text-gray-400 text-gray-600 transition-all duration-300">
+                    <i data-lucide="user" class="h-5 w-5"></i>
+                </div>
+                <span class="text-xs mt-1 dark:text-gray-400 text-gray-600 transition-all duration-300">Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Floating Action Menu (hidden by default) -->
+    <div id="fab-menu" class="hidden fixed inset-0 dark:bg-dark/70 bg-light/70 backdrop-blur-sm z-[9991] animate-in fade-in duration-300">
+        <div class="absolute inset-x-0 bottom-24 flex flex-col items-center">
+            <!-- Actions Grid -->
+            <div class="flex flex-wrap justify-center gap-4 max-w-md mx-auto p-3">
+                <!-- Invest -->
+                                <a href="https://swantradecapital.com/dashboard/buy-plan" class="w-[calc(33%-12px)] aspect-square flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-secondary/20 to-secondary/5 border border-secondary/20 hover:from-secondary/30 transition-all duration-300 shadow-lg menu-item">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-secondary/70 flex items-center justify-center mb-2">
+                        <i data-lucide="trending-up" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="text-xs font-medium dark:text-white text-dark">Invest</span>
+                </a>
+                                
+                <!-- Withdraw -->
+                                <a href="https://swantradecapital.com/dashboard/withdrawals" class="w-[calc(33%-12px)] aspect-square flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-primary/20 to-primary/5 border border-primary/20 hover:from-primary/30 transition-all duration-300 shadow-lg menu-item">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center mb-2">
+                        <i data-lucide="upload" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="text-xs font-medium dark:text-white text-dark">Withdraw</span>
+                </a>
+                                
+                <!-- Swap -->
+                                
+                <!-- Refer -->
+                <a href="https://swantradecapital.com/dashboard/referuser" class="w-[calc(33%-12px)] aspect-square flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-accent/20 to-accent/5 border border-accent/20 hover:from-accent/30 transition-all duration-300 shadow-lg menu-item">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center mb-2">
+                        <i data-lucide="users" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="text-xs font-medium dark:text-white text-dark">Refer</span>
+                </a>
+                
+                <!-- Support -->
+                <a href="https://swantradecapital.com/dashboard/support" class="w-[calc(33%-12px)] aspect-square flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-danger/20 to-danger/5 border border-danger/20 hover:from-danger/30 transition-all duration-300 shadow-lg menu-item">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-danger to-danger/70 flex items-center justify-center mb-2">
+                        <i data-lucide="headphones" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="text-xs font-medium dark:text-white text-dark">Support</span>
+                </a>
+                
+                <!-- News -->
+                <a href="#" class="w-[calc(33%-12px)] aspect-square flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-purple/20 to-purple/5 border border-purple/20 hover:from-purple/30 transition-all duration-300 shadow-lg menu-item">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple to-purple/70 flex items-center justify-center mb-2">
+                        <i data-lucide="newspaper" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="text-xs font-medium dark:text-white text-dark">News</span>
+                </a>
+            </div>
+            
+            <!-- Close Button -->
+            <button id="fab-close" class="mt-8 w-12 h-12 rounded-full dark:bg-dark-100/80 bg-light-200/80 dark:border-dark-100 border-light-200 border flex items-center justify-center">
+                <i data-lucide="x" class="h-6 w-6 dark:text-white text-dark"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+/* SVG Animation */
+@keyframes  dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-dash {
+  animation: dash 2s ease-in-out infinite alternate;
+}
+
+/* Active tab: compact inset pill (smaller than full cell, still tappable) */
+.nav-item {
+    position: relative;
+    border-radius: 0.5rem;
+}
+.nav-item.active::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 5px;
+    bottom: 5px;
+    left: 14%;
+    right: 14%;
+    border-radius: 0.5rem;
+    background-color: rgba(239, 68, 68, 0.11);
+    box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.14);
+    pointer-events: none;
+}
+.dark .nav-item.active::before {
+    background-color: rgba(239, 68, 68, 0.15);
+    box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.2);
+}
+
+.nav-icon-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-icon-wrapper svg {
+    flex-shrink: 0;
+}
+.nav-item > span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Animation for menu items */
+.menu-item {
+    animation: menu-appear 0.4s backwards;
+}
+
+@keyframes  menu-appear {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get elements
+        const fabButton = document.getElementById('fab-button');
+        const fabMenu = document.getElementById('fab-menu');
+        const fabClose = document.getElementById('fab-close');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        // Sync .active with current URL (Blade already sets it; this handles edge cases)
+        navItems.forEach(item => {
+            const href = item.getAttribute('href');
+            if (!href || href === '#') return;
+            try {
+                const linkUrl = new URL(href, window.location.origin);
+                if (window.location.pathname === linkUrl.pathname) {
+                    navItems.forEach(n => n.classList.remove('active'));
+                    item.classList.add('active');
+                }
+            } catch (e) { /* ignore */ }
+        });
+
+        // FAB button functionality
+        if (fabButton && fabMenu && fabClose) {
+            // Open menu
+            fabButton.addEventListener('click', function() {
+                fabMenu.classList.remove('hidden');
+                
+                // Stagger animation for menu items
+                const menuItems = document.querySelectorAll('.menu-item');
+                menuItems.forEach((item, index) => {
+                    item.style.animationDelay = `${index * 0.05}s`;
+                });
+                
+                // Change FAB icon
+                const fabIcon = fabButton.querySelector('i');
+                if (fabIcon) {
+                    fabIcon.setAttribute('data-lucide', 'x');
+                    lucide.createIcons();
+                }
+            });
+            
+            // Close menu
+            fabClose.addEventListener('click', function() {
+                fabMenu.classList.add('hidden');
+                
+                // Change FAB icon back
+                const fabIcon = fabButton.querySelector('i');
+                if (fabIcon) {
+                    fabIcon.setAttribute('data-lucide', 'zap');
+                    lucide.createIcons();
+                }
+            });
+            
+            // Close menu when clicking outside (on the backdrop)
+            fabMenu.addEventListener('click', function(e) {
+                if (e.target === fabMenu) {
+                    fabMenu.classList.add('hidden');
+                    
+                    // Change FAB icon back
+                    const fabIcon = fabButton.querySelector('i');
+                    if (fabIcon) {
+                        fabIcon.setAttribute('data-lucide', 'zap');
+                        lucide.createIcons();
+                    }
+                }
+            });
+        }
+    });
+</script>
+    <!-- Core Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="https://swantradecapital.com/dash2/libs/sweetalert/sweetalert.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/af-2.3.5/b-1.6.3/b-flash-1.6.3/b-html5-1.6.3/b-print-1.6.3/r-2.2.5/datatables.min.js"></script>
+    
+    <!-- Theme Management Script -->
+    <script>
+        // Theme initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check for saved theme preference or use system preference
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const savedTheme = localStorage.getItem('darkMode');
+            
+            if (savedTheme === 'true' || (savedTheme === null && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            } else if (savedTheme === 'false') {
+                document.documentElement.classList.remove('dark');
+            }
+            
+            // Update theme switcher icon
+            updateThemeIcon();
+        });
+        
+        // Function to toggle theme
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('darkMode', 'false');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('darkMode', 'true');
+            }
+            
+            // Update the icon
+            updateThemeIcon();
+        }
+        
+        // Update theme icon based on current theme
+        function updateThemeIcon() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const sunIcon = document.querySelector('[data-lucide="sun"]');
+            const moonIcon = document.querySelector('[data-lucide="moon"]');
+            
+            if (sunIcon && moonIcon) {
+                if (isDark) {
+                    sunIcon.style.display = 'block';
+                    moonIcon.style.display = 'none';
+                } else {
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'block';
+                }
+            }
+        }
+    </script>
+    
+    <!-- Initialize Lucide Icons -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+            
+            // Mobile menu toggle functionality
+            const menuToggles = document.querySelectorAll('[data-action="sidenav-pin"]');
+            const sidebar = document.getElementById('sidenav-main');
+            
+            if (menuToggles.length > 0 && sidebar) {
+                const syncSidebarForViewport = () => {
+                    const isMobile = window.innerWidth < 768;
+                    if (!isMobile) {
+                        sidebar.classList.remove('hidden', 'active', '-translate-x-full');
+                        sidebar.classList.add('translate-x-0');
+                    } else if (!sidebar.classList.contains('active')) {
+                        sidebar.classList.add('-translate-x-full');
+                        sidebar.classList.remove('translate-x-0');
+                    }
+                };
+
+                menuToggles.forEach(toggle => {
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const isMobile = window.innerWidth < 768;
+                        if (!isMobile) {
+                            return;
+                        }
+                        const willOpen = !sidebar.classList.contains('active');
+                        sidebar.classList.toggle('active', willOpen);
+                        sidebar.classList.toggle('-translate-x-full', !willOpen);
+                        sidebar.classList.toggle('translate-x-0', willOpen);
+                    });
+                });
+                
+                // Close sidebar when clicking outside on mobile
+                document.addEventListener('click', function(e) {
+                    const isMobile = window.innerWidth < 768;
+                    const clickedInside = sidebar.contains(e.target);
+                    const clickedToggle = Array.from(menuToggles).some(toggle => toggle.contains(e.target));
+                    
+                    if (isMobile && !clickedInside && !clickedToggle && sidebar.classList.contains('active')) {
+                        sidebar.classList.remove('active');
+                        sidebar.classList.add('-translate-x-full');
+                        sidebar.classList.remove('translate-x-0');
+                    }
+                });
+
+                window.addEventListener('resize', syncSidebarForViewport);
+                syncSidebarForViewport();
+            }
+            
+            // Initialize Select2
+            if ($.fn.select2) {
+                $('.select2').select2();
+            }
+            
+            // Initialize DataTables responsively
+            if ($.fn.DataTable) {
+                $('.datatable').DataTable({
+                    responsive: true,
+                    dom: '<"top"fl>rt<"bottom"ip>',
+                    language: {
+                        search: "",
+                        searchPlaceholder: "Search..."
+                    }
+                });
+            }
+        });
+    </script>
+
+        
+    <!-- GetButton.io widget -->
+        
+    <!-- Livewire Scripts -->
+
+<script src="/livewire/livewire.js?id=de3fca26689cb5a39af4" data-turbo-eval="false" data-turbolinks-eval="false" ></script>
+<script data-turbo-eval="false" data-turbolinks-eval="false" >
+    if (window.livewire) {
+	    console.warn('Livewire: It looks like Livewire\'s @livewireScripts JavaScript assets have already been loaded. Make sure you aren\'t loading them twice.')
+	}
+
+    window.livewire = new Livewire();
+    window.livewire.devTools(true);
+    window.Livewire = window.livewire;
+    window.livewire_app_url = '';
+    window.livewire_token = 'cVHdUwFWJ3GYKGfRKcfnpsAlTgFW0CDiZazwDqTG';
+
+	/* Make sure Livewire loads first. */
+	if (window.Alpine) {
+	    /* Defer showing the warning so it doesn't get buried under downstream errors. */
+	    document.addEventListener("DOMContentLoaded", function () {
+	        setTimeout(function() {
+	            console.warn("Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire\'s scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js")
+	        })
+	    });
+	}
+
+	/* Make Alpine wait until Livewire is finished rendering to do its thing. */
+    window.deferLoadingAlpine = function (callback) {
+        window.addEventListener('livewire:load', function () {
+            callback();
+        });
+    };
+
+    let started = false;
+
+    window.addEventListener('alpine:initializing', function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+</script>
+            <script>
+        $('#transferform').on('submit', function() {
+            (async () => {
+
+                const {
+                    value: password
+                } = await Swal.fire({
+                    title: 'Input your password',
+                    input: 'password',
+                    inputLabel: 'Enter your account password to complete transfer',
+                    inputPlaceholder: 'Enter your account password'
+                })
+
+                if (password) {
+
+                    document.getElementById('acntpass').value = password;
+                    $("#subbtn").attr("disabled", "disabled").val('Please wait....');
+                    $.ajax({
+                        url: "https://swantradecapital.com/dashboard/transfertouser",
+                        type: 'POST',
+                        data: $('#transferform').serialize(),
+                        success: function(response) {
+                            if (response.status === 200) {
+                                Swal.fire({
+                                    title: 'Success!',
+                                    text: response.message,
+                                    icon: 'success',
+                                    confirmButtonText: 'Cool'
+                                });
+                                $("#subbtn").removeAttr("disabled").val('Proceed');
+                                setTimeout(() => {
+                                    let url = "https://swantradecapital.com/dashboard/transfer-funds";
+                                    window.location.href = url;
+                                }, 3000);
+                            } else {
+                                $("#subbtn").removeAttr("disabled").val('Proceed');
+                                Swal.fire({
+                                    title: 'Error!',
+                                    text: response.message,
+                                    icon: 'error',
+                                });
+                            }
+                        },
+                        error: function(error) {
+                            console.log(error);
+                        },
+
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Password is required',
+                        icon: 'error',
+                        confirmButtonText: 'Alright'
+                    })
+                }
+
+            })()
+
+        });
+    </script>
+
+
+        
+    <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = '913782fef01345f11b5e20b1d25e10f810d07b97';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+
+
+</body>
+</html>
