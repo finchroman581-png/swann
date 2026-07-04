@@ -1,0 +1,316 @@
+/* MT5 Platforms Hero Video */
+.mt5-platforms-hero-video {
+    min-height: 501px;
+    max-height: 501px;
+}
+
+/* Accounts CTA Section */
+.accounts-cta-section.fxc-container.ib-page {
+    border-radius: 15px;
+    border: 1px solid #d0d5dd;
+    background: url(/wp-content/themes/fxc/inc/assets/images/partnerships/ib/mt5-platforms-footer-image.png) !important;
+    background-blend-mode: normal, normal, normal, multiply, normal;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: right !important;
+    padding: 60px;
+    gap: 40px;
+}
+
+/* MT4 Hero Image */
+.fxc-page-hero-visuale.mt4-hero-image {
+    height: 450px !important;
+}
+
+/* MT5 Platforms Download Section */
+.fxc-mt5-platforms-download {
+    border-bottom: 1px solid #D0D5DD;
+    background: var(--offwhite, #F9F9F9) !important;
+}
+
+/* MT5 Platforms Benefits Wrapper */
+.fxc-mt5-platforms-benefits-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+/* Hero Subtitle */
+.hero-subtitle.mt5 {
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 160%;
+    letter-spacing: 0.16px;
+}
+
+/* Platform Content and Image Layout */
+.fxc-platform-mt5-content {
+    flex: 1;
+}
+
+.fxc-platform-mt5-image {
+    flex: 1;
+}
+
+/* MT5 Learn Section */
+.fxc-mt5-learn {
+    border-bottom: 1px solid #D0D5DD;
+}
+
+/* MT5 CTA Section */
+.fxc-accounts-cta-wrapper.mt5-platforms {
+    background-color: #f9f9f9;
+}
+
+/* MT5 Download Image */
+.fxc-mt5-download-image {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+/* IB Benefits */
+.fxc-ib-benefits.mt5-platforms {
+    background: var(--offwhite, #F9F9F9) !important;
+}
+
+/* Platforms Info Box */
+.mt5-platforms-info-col-box {
+    border-radius: 10px;
+    border: 1px solid var(--body-text-standard, #475467);
+    background: var(--body-text-black, #000d22);
+    display: flex;
+    padding: 30px;
+    align-items: center;
+    gap: 30px;
+    flex: 1 0 0;
+    align-self: stretch;
+    position: relative;
+    align-items: flex-start;
+}
+
+/* Info Box Text Layout */
+.mt5-platforms-info-col-box-text {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
+
+/* Mobile Same Line Layout */
+.mobile-same-line {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
+
+/* Info Box Text Styling */
+.mt5-platforms-info-col-box-text h6,
+.mt5-platforms-info-col-box-text .white-text,
+.mt5-platforms-info-col-box-text p,
+.mt5-platforms-information-text {
+    font-family: Montserrat;
+}
+
+.mt5-platforms-info-col-box-text h6 {
+    color: var(--absolute-white, #FFF);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 160%;
+    letter-spacing: 0.16px;
+}
+
+.mt5-platforms-info-col-box-text .white-text {
+    color: var(--absolute-white, #fff);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 140%;
+    letter-spacing: 0.14px;
+}
+
+.mt5-platforms-info-col-box-text p {
+    color: var(--off-white, #F9F9F9);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.14px;
+}
+
+.mt5-platforms-information-text {
+    color: var(--absolute-white, #fff);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 160%;
+    letter-spacing: 0.16px;
+    max-width: 600px;
+}
+
+/* MT5 CTA Content */
+.mt5-platforms-cta-content h3 {
+    color: var(--absolute-white, #FFF);
+    font-family: Glancyr;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 110%;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+}
+
+.mt5-platforms-cta-content p {
+    color: var(--Off-White, #F9F9F9);
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.14px;
+}
+
+/* Max Inline Text */
+.mt5-platforms-max-inline-text {
+    max-inline-size: 600px;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.14px;
+}
+
+/* Benefits List */
+.fxc-mt5-platforms-benefits-wrapper .section-inner-list ul li p {
+    color: var(--dark-blue-300, #000D22);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 160%;
+    letter-spacing: 0.16px;
+}
+
+/* Media Queries */
+
+/* Small Screens (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+
+    .mt5-platforms-hero-video {
+        transform: translateX(0px) translateY(0px);
+        min-height: unset;
+        scale: 1;
+    }
+
+    .fxc-mt5-platforms-benefits-wrapper {
+        gap: 32px;
+        flex-direction: column;
+    }
+
+    .fxc-ib-usp-box.ib-pages {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-direction: column;
+    }
+
+    [data-section-skin="dark"] .fxc-ib-usp-box.ib-pages {
+        border-left: 0px solid #094273;
+        padding-left: 0px !important;
+        align-items: center !important;
+    }
+
+    .fxc-ib-usp-box.ib-pages .fxc-ib-usp-box-text,
+    .fxc-ib-usp-box.ib-pages .fxc-ib-usp-box-text h3 {
+        text-align: center;
+    }
+
+    .mt5-platforms-info-col-box-text h6 {
+        color: var(--absolute-white, #FFF);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 140%;
+        letter-spacing: 0.14px;
+    }
+
+    .mt5-platforms-info-col-box-text .white-text {
+        color: var(--off-white, #F9F9F9);
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 140%;
+        letter-spacing: 0.13px;
+    }
+
+    .mt5-platforms-info-col-box-text p {
+        color: var(--off-white, #F9F9F9);
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 140%;
+        letter-spacing: 0.13px;
+    }
+
+    .mobile-same-line {
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .accounts-cta-section.fxc-container.ib-page {
+        border-radius: 15px;
+        border: none !important;
+        background: url(/wp-content/themes/fxc/inc/assets/images/partnerships/ib/mt5-platforms-footer-image-mobile.png) !important;
+        padding: 30px 20px;
+        gap: 40px;
+        min-height: 420px;
+    }
+
+    .accounts-cta-wrapper.ib-pages {
+        align-items: center !important;
+    }
+
+    .mt5-platforms-cta-content h3 {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 120%;
+        text-transform: uppercase;
+    }
+
+    .fxc-accounts-cta-wrapper.mt5-platforms[data-spacing="top-bottom"] {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .mt5-page-information-wrapper {
+        padding: 40px 0px !important;
+    }
+
+    .fxc-mt5-platforms-benefits-wrapper .section-inner-list ul li p {
+        color: var(--dark-blue-300, #000D22);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 140%;
+        letter-spacing: 0.14px;
+    }
+
+    .mt5-platforms-information-text {
+        font-size: 14px !important;
+    }
+
+    .hero-subtitle.mt5 {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 140%;
+        letter-spacing: 0.14px;
+    }
+
+    .fxc-mt5-download-image {
+        height: 250px;
+        width: auto;
+    }
+
+    .fxc-page-hero-visuale.mt4-hero-image {
+        max-height: 270px !important;
+    }
+}
+
+/* Max Width: 1289px */
+@media screen and (max-width: 1289px) {
+    .empty-space-div {
+        min-height: 25px !important;
+    }
+}

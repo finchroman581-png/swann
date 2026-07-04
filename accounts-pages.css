@@ -1,0 +1,338 @@
+/* General Styles */
+.icon-text-wrapper {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
+
+.fxc-account-usp-box-text {
+    max-width: 150px;
+}
+
+.fxc-tabs-action-section.accounts-tabs {
+    margin-bottom: 32px;
+}
+
+.fxc-why-boxes-section {
+    border-top: 1px solid #D0D5DD;
+}
+
+.fxc-page-hero-visuale.accounts-overview-size {
+    max-height: 500px;
+    width: auto;
+}
+
+/* Active Tab Styles */
+.fxc-tab.fxc-tab1.active.accounts {
+    background: var(--yellow-300, #FFC118);
+}
+
+/* Icons Carousel */
+.icons-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 20px;
+    margin: auto;
+}
+
+.icons-carousel-track {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    animation: none;
+}
+
+.icons-carousel-item {
+    flex: 0 0 auto;
+    width: auto;
+    padding-right: 32px;
+    height: 100%;
+}
+
+.icons-carousel-item svg {
+    max-height: 20px;
+}
+
+.icons-carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Overview Accounts List Image */
+.overview-accounts-list-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+}
+
+.overview-accounts-list-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    object-fit: contain;
+    transition: opacity 1s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
+
+.overview-accounts-list-image img.active {
+    opacity: 1;
+}
+
+/* Accounts CTA Section */
+.accounts-cta-section.fxc-container {
+    border-radius: 15px;
+    border: 1px solid #d0d5dd;
+    background: url(../images/cta-bg.png);
+    background-blend-mode: normal, normal, normal, multiply, normal;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    padding: 60px;
+    gap: 40px;
+    background-color: #f9f9f9;
+}
+
+/* Media Queries */
+
+/* Tablet and Mobile (max-width: 1023px) */
+@media (max-width: 1023px) {
+    .fxc-accounts-overview-section .section-wrapper-title {
+        align-items: center;
+    }
+
+    .icon-text-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-direction: row;
+    }
+
+    .account-type-checklist {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fxc-account-usp-box-text {
+        max-width: 100%;
+    }
+
+    .accounts-information-wide-col {
+        align-items: center;
+    }
+
+    .accounts-info-col-box {
+        border-radius: 10px;
+        border: 1px solid var(--steel-grey-100, #D0D5DD);
+        background: var(--offwhite, #F9F9F9);
+        display: flex;
+        padding: 26px 60px;
+        align-items: center;
+        gap: 16px !important;
+        flex: 1 0 0;
+        align-self: stretch;
+        position: relative;
+        flex-direction: column;
+    }
+
+    .accounts-info-col-box-icon {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .accounts-info-col-box-icon svg {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .accounts-info-col-box-text {
+        display: flex;
+        gap: 6px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Button Width */
+    .fxc-account-information-section a.button.button-secondary,
+    .fxc-account-information-section a.button.button-primary {
+        width: 100%;
+    }
+
+    /* Text Alignment */
+    .deposit-your-funds-grid p {
+        text-align: center !important;
+    }
+
+    /* Section Link */
+    a.section-link-text.has-icon {
+        float: none;
+        margin: 0 auto;
+    }
+
+    /* Text Styling */
+    .accounts-info-col-box-text h4 {
+        font-size: 18px !important;
+        text-align: center;
+    }
+
+    /* Logos Wrapper */
+    .logos-wrapper {
+        display: flex;
+        overflow: hidden;
+        flex-wrap: nowrap !important;
+        animation: scroll 20s linear infinite;
+        width: 250%;
+    }
+
+    .logos-wrapper>.logos-wrapper {
+        flex-shrink: 0;
+        padding: 0 24px;
+        width: auto;
+    }
+
+    .logos-wrapper svg {
+        display: block;
+        max-width: 100px;
+        height: auto;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(40%);
+        }
+
+        100% {
+            transform: translateX(-90%);
+        }
+    }
+
+    /* Text Size */
+    .account-quick-info-inner p {
+        font-size: 10px !important;
+        text-align: center;
+    }
+
+    .account-quick-info-inner h4 {
+        font-size: 16px !important;
+        text-align: center;
+    }
+
+    .account-type-checklist p {
+        font-size: 13px !important;
+        letter-spacing: 0.1px !important;
+    }
+
+    .accounts-info-col-box-text p {
+        font-size: 13px !important;
+        letter-spacing: 0.12px !important;
+    }
+
+    /* White Text Styling */
+    .accounts-info-col-box-text .white-text {
+        font-family: Montserrat;
+        font-size: 14px !important;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%;
+        letter-spacing: 0.13px;
+    }
+
+    .section-label {
+        font-family: var(--font-body-text) !important;
+        font-weight: 700 !important;
+    }
+
+    /* Hero Section */
+    .fxc-trade-on-our-asset-section .section-title {
+        margin-bottom: 32px !important;
+    }
+
+    /* Trade Box Styling */
+    .trade-on-our-asset-box-title h3 {
+        font-size: 14px !important;
+        line-height: 160% !important;
+        letter-spacing: 0.14px !important;
+    }
+
+    /* Why Boxes Wrapper */
+    .why-boxes-wrapper {
+        margin-top: 40px !important;
+    }
+
+    /* Accounts Section */
+    .fxc-accounts-section {
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+        overflow: hidden;
+    }
+
+    /* Updated Carousel */
+    .icons-carousel {
+        height: 30px;
+        padding-top: 10px;
+    }
+
+    /* Centered Items */
+    .accounts-self-center {
+        align-self: center !important;
+    }
+
+    /* Heading Center Alignment */
+    .section-heading.accounts-heading-center,
+    .section-subheading.accounts-heading-center {
+        text-align: center !important;
+    }
+
+    /* CTA Section Update */
+    .accounts-cta-section.fxc-container {
+        padding: 30px;
+        border: none;
+        background: url(../images/accounts-bottom.png);
+        background-blend-mode: normal, normal, normal, multiply, normal;
+        background-repeat: no-repeat;
+        min-height: 420px;
+        background-size: cover !important;
+        background-position: bottom center;
+        max-width: 100% !important;
+        border-radius: 0px !important;
+    }
+
+    /* Mobile Overview Accounts Image */
+    .overview-accounts-list-image {
+        width: 100%;
+        height: 100%;
+        min-height: 350px;
+        max-height: 350px;
+        float: none;
+        margin: 0 auto;
+    }
+
+    .overview-accounts-list-image img {
+        max-width: 100%;
+    }
+
+    .single-account-type-name-wrapper-mobile h4 {
+        font-size: 15px !important;
+        line-height: 160% !important;
+        letter-spacing: 0.9px;
+    }
+
+    .icons-carousel-item {
+        flex: 0 0 auto;
+        width: auto;
+        padding-right: 0px;
+        height: 100%;
+    }
+}
+
+/* Empty Space */
+@media screen and (max-width: 1289px) {
+    .empty-space-div {
+        min-height: 25px !important;
+    }
+}

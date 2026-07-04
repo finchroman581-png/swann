@@ -1,0 +1,196 @@
+@media screen and (max-width: 1024px) {
+    .instruments-container.instruments-wrapper {
+        max-width: 100% !important;
+        background: #f9f9f9 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        padding: 0px !important;
+    }
+
+    .symbol-card.instrument-ws-box-symbol-item.symbol-item {
+        background:  #ffffff !important;
+        border-radius: 12px !important;
+        padding: 0px !important;
+        max-width: 340px !important;
+        transition: all 0.3s ease !important;
+        float: none !important;
+        width: 100% !important;
+        gap: 0px !important;
+        position: relative !important; /* Added position */
+        z-index: 1 !important; /* Base z-index */
+    }
+
+    .symbol-card.instrument-ws-box-symbol-item.symbol-item.expanded {
+        z-index: 2 !important; /* Higher z-index when expanded */
+        height: auto;
+        background: #f9f9f9 !important;
+    }
+
+    .symbol-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        cursor: pointer !important;
+        width: 100% !important;
+        padding: 20px !important;
+        background: #F9F9F9 !important;
+        border-radius: 12px !important;
+        overflow: hidden;
+    }
+
+    .symbol-card.instrument-ws-box-symbol-item.symbol-item.expanded .symbol-header {
+        border-radius: 20px 20px 0px 0px !important;
+        border-bottom: 1px solid #D0D5DD;
+    }
+
+    .symbol-title {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        font-weight: bold !important;
+    }
+
+    .symbol-title img {
+        width: 28px !important;
+        height: 28px !important;
+    }
+
+    .symbol-meta {
+        display: flex !important;
+        flex-direction: column !important;
+        line-height: 1.2 !important;
+    }
+
+    .symbol-code {
+        color:  #000D22;
+        font-family: Montserrat;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%; /* 19.6px */
+        letter-spacing: 0.14px;
+    }
+
+    .symbol-name {
+        display: none;
+    }
+
+    .symbol-change-wrapper {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    .symbol-change.price-value.price-value-daily-change {
+        text-align: right;
+        font-family: Montserrat;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%; /* 18.2px */
+        letter-spacing: 0.13px;
+    }
+
+    .arrow-mobile-instruments-table {
+        transform: translateY(10%);
+    }
+
+    .symbol-card.instrument-ws-box-symbol-item.symbol-item.expanded .arrow-mobile-instruments-table {
+        transform: rotate(-90deg) !important;
+    }
+
+    .symbol-details {
+        display: flex !important;
+        justify-content: space-between !important;
+        text-align: center !important;
+        padding: 16px !important;
+        transition: all 0.3s ease !important;
+        width: 100% !important;
+        font-size: 13px !important;
+        background: #fff !important;
+        border-radius: 0 0 15px 15px !important;
+        gap: 5px;
+    }
+
+    .symbol-card.instrument-ws-box-symbol-item.symbol-item:not(.expanded) .symbol-details {
+        display: none !important;
+    }
+
+    .symbol-data {
+        width: 100%;
+        margin-left: -5px;
+    }
+
+    .symbol-data .label {
+        color: #99A0AC;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 140%; /* 14px */
+        letter-spacing: 0.1px;
+        padding-top: 5px;
+    }
+
+    .symbol-data .value {
+        text-align: center !important;
+        font-family: Montserrat !important;
+        font-size: 13px !important;
+        font-style: normal !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.13px !important;
+    }
+
+    .pagination-controls.instruments-box-action {
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    .instruments-box-wrappers {
+        background-color: #f9f9f9;
+    }
+
+    .homepage-instruments .instruments-box-action {
+        background-color: #fff;
+        border-radius: 10px;
+    }
+
+    .no-instruments-results {
+        margin-top: 0px
+    }
+
+      .fxc-skeleton, 
+      .instrument-ws-box-skeleton {
+        width: 40px !important;
+        height: 20px !important;
+    }
+
+    .instruments-box-action-wrapper {
+        padding: 30px;
+        border: 1px solid #D0D5DD !important;
+        border-radius: 10px;
+        gap: 16px;
+        overflow: hidden !important;
+    }
+
+    .see-this-btn {
+        justify-content: start;
+    }
+
+    /* .instruments-box-action p {
+        gap: 12px
+    } */
+
+
+    .leverage-mobile-table-instruments {
+        font-size: 10px !important;
+    }
+
+    /* .spread-mobile-table-instruments {
+        width: 50%;
+    } */
+}

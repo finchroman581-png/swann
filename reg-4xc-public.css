@@ -1,0 +1,318 @@
+.xc-reg-form {
+    color: #404040;
+    border-radius: 5px;
+    margin: auto;
+    max-width: 600px;
+}
+
+.xc-reg-form * {
+    box-sizing: border-box !important;
+}
+
+.xc-form-wrapper {
+    display: grid;
+    --gap: 24px;
+    grid-gap: var(--gap);
+    grid-template-columns: 1fr;
+}
+
+#tac-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: var(--Web-colors-Body-text-Standard, #475467);
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.12px;
+}
+
+#tac-wrapper a {
+    color: var(--Web-colors-Light-Blue-300, #0088FD);
+    text-decoration-line: underline;
+}
+
+.xc-reg-form select,
+.xc-reg-form textarea,
+.xc-reg-form input[type=url],
+.xc-reg-form input[type=tel],
+.xc-reg-form input[type=text],
+.xc-reg-form input[type=time],
+.xc-reg-form input[type=date],
+.xc-reg-form input[type=datetime],
+.xc-reg-form input[type=datetime-local],
+.xc-reg-form input[type=email],
+.xc-reg-form input[type=number],
+.xc-reg-form input[type=search],
+.xc-reg-form input[type=password] {
+    width: 100%;
+    min-height: 40px;
+
+
+
+
+
+
+
+
+
+    transition: all .12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+
+
+
+    font-family: var(--font-family-base);
+    background-color: var(--input-background-color);
+    font-size: var(--font-size-base) !important;
+    line-height: var(--line-height-base) !important;
+    color: var(--font-color-base) !important;
+    padding: 10px;
+    border: 1px solid var(--input-border-color);
+    transition: 0.12s cubic-bezier(0.355, 0.03, 0.415, 0.85);
+    border-radius: 4px !important;
+    outline: transparent solid 0px !important;
+}
+
+input#phone-number {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-top-right-radius: 2px !important;
+    border-bottom-right-radius: 2px !important;
+}
+
+select#phone-number-prefix {
+    border-right: none !important;
+}
+
+.xc-reg-form .phone-number-grid select {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    border-right: 1px solid #e1e8ed !important;
+    border-radius: 0px;
+    padding-right: 5px;
+    pointer-events: none !important;
+}
+
+.xc-reg-form input::-webkit-outer-spin-button,
+.xc-reg-form input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+}
+
+.xc-reg-form .phone-number-grid select {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+}
+
+/* Firefox */
+.xc-reg-form input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.xc-reg-form .country-id select {
+    background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat;
+    background-position: calc(100% - 0.75rem) center !important;
+    -moz-appearance: none !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+}
+
+.xc-reg-form label.field,
+.xc-reg-form label#tac {
+    color: var(--Web-colors-Body-text-Standard, #475467);
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.12px;
+    margin-bottom: 8px;
+}
+
+label.field {
+    margin-bottom: 8px !important;
+    display: block;
+}
+
+.xc-reg-form .phone-number-grid {
+    display: grid;
+    --gap: 0;
+    grid-gap: var(--gap);
+    grid-template-columns: auto 1fr;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e1e8ed;
+    border-radius: 3px;
+    transition: all .12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.xc-reg-form .phone-number-grid select,
+.xc-reg-form .phone-number-grid input {
+    border: none;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs-grid {
+    display: grid;
+    --gap: 20px;
+    grid-gap: var(--gap);
+    grid-template-columns: 1fr 1fr;
+}
+
+.xc-submit-btn #save {
+    width: 100% !important;
+    color: #FFF;
+
+    /* Button Text */
+    font-family: Montserrat;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    /* 13px */
+    letter-spacing: 0.65px;
+    text-transform: uppercase;
+}
+
+/* .xc-submit-btn #save {
+    background: #ffc710;
+    color: #4c3c04 !important;
+    border: none !important;
+    width: 100%;
+    font-size: 16px;
+    padding: 13px !important;
+    border-radius: 4px !important;
+    margin-top: 0;
+    cursor: pointer;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.xc-submit-btn #save:hover {
+    background: #e1b411;
+} */
+
+.xc-reg-form #tac label {
+    margin: 0px;
+}
+
+.xc-reg-form #tac {
+    display: flex;
+    gap: 10px;
+}
+
+.xc-reg-form input#tac {
+    cursor: pointer;
+}
+
+.disable-select {
+    position: absolute;
+    height: 40px;
+    width: 60px;
+    border-radius: 3px;
+}
+
+.xc-reg-form .validation {
+    font-size: 12px;
+    font-weight: 500;
+    color: red;
+}
+
+.xc-reg-form .messages-wrapper {
+    display: none !important;
+}
+
+.xc-reg-form #messages {
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 3;
+    border-radius: 3px;
+}
+
+.xc-reg-form #messages br {
+    display: none;
+}
+
+.xc-reg-form #signupsuccess {
+    width: 100%;
+    padding: 0px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.xc-reg-form #signupsuccess h2 {
+    font-size: 16px !important;
+    margin-bottom: 20px !important;
+    padding: 0px !important;
+    margin-top: 10px !important;
+    text-transform: uppercase;
+}
+
+a.bt-login {
+    width: 100% !important;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0.65px;
+    text-transform: uppercase;
+}
+
+a.bt-login:hover {
+    background: #028080;
+}
+
+.xc-reg-form .sccess-icon {
+    background: #36aaaa;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    line-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 70px;
+    margin: auto;
+}
+
+.xc-reg-form .blocked_form {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#signupfileuploadloader {
+    display: none;
+}
+
+.loading-form-bg {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.xc-reg-form .bt-login svg {
+    fill: #fff;
+    width: 13px;
+    margin-left: 7px;
+}
+
+@media screen and (max-width: 450px) {
+    .inputs-grid {
+        display: grid;
+        --gap: 15px;
+        grid-gap: var(--gap);
+        grid-template-columns: 1fr !important;
+    }
+}

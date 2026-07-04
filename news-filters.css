@@ -1,0 +1,793 @@
+/**
+ * FXC Unified News Filter UI Styles
+ *
+ * A responsive and unified CSS layout for news filtering interface.
+ * Combines desktop and mobile layouts with smooth transitions.
+ * Modified to keep search box always visible on mobile next to toggle button.
+ * 
+ * TABLE OF CONTENTS:
+ * 1. Base Layout & Structure
+ * 2. Form Inputs & Search
+ * 3. Custom Dropdown Component
+ * 4. Date Picker & Flatpickr
+ * 5. Filter Tags & Actions
+ * 6. Mobile Toggle & Navigation
+ * 7. Responsive Design - Tablet (1024px)
+ * 8. Responsive Design - Mobile (480px)
+ * 9. Animations & Accessibility
+ */
+
+/* ==========================================================================
+   1. BASE LAYOUT & STRUCTURE
+   ========================================================================== */
+
+.news-filter-ui {
+  background: #fff;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.news-filter-content {
+  display: block;
+}
+
+.news-filter-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.news-filter-left {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-end;
+}
+
+.news-filter-right {
+  display: flex;
+  align-items: flex-end;
+}
+
+.news-filter-search,
+.news-filter-category,
+.news-filter-date-range {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.news-filter-search strong,
+.news-filter-category label,
+.news-filter-date-range label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 4px;
+}
+
+.news-filter-category {
+  min-width: 250px;
+  width: 100%;
+}
+
+/* No Results State */
+.fxc-news-no-results {
+  display: none;
+}
+
+.fxc-news-no-results p {
+  color: #475467;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  /* 19.6px */
+  letter-spacing: 0.14px;
+  text-align: center;
+}
+
+/* ==========================================================================
+     2. FORM INPUTS & SEARCH
+     ========================================================================== */
+
+.news-filter-search-term {
+  display: flex;
+  width: 376px;
+  padding: 16px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #D0D5DD;
+  background: #F9F9F9;
+}
+
+.dropdown-selected,
+.news-filter-date-from {
+  border: 1px solid #d0d5dd;
+  border-radius: 10px !important;
+  background-color: #f9f9f9 !important;
+  padding: 16px;
+  font-size: 14px;
+  color: #475467 !important;
+  font-family: Montserrat, sans-serif;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+input[type="text"].news-filter-search-term {
+  width: 250px;
+  background-color: #f9f9f9 !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3e%3cpath d='M19.0804 18.2168L14.3041 13.2662C15.5322 11.8113 16.2051 9.98069 16.2051 8.07499C16.2051 3.62251 12.5702 0 8.10254 0C3.63487 0 0 3.62251 0 8.07499C0 12.5275 3.63487 16.15 8.10254 16.15C9.77976 16.15 11.3781 15.6458 12.7446 14.6888L17.5571 19.677C17.7583 19.8852 18.0288 20 18.3188 20C18.5932 20 18.8535 19.8957 19.0512 19.7061C19.4711 19.3034 19.4845 18.6357 19.0804 18.2168ZM8.10254 2.10652C11.4048 2.10652 14.0914 4.78391 14.0914 8.07499C14.0914 11.3661 11.4048 14.0435 8.10254 14.0435C4.80022 14.0435 2.11371 11.3661 2.11371 8.07499C2.11371 4.78391 4.80022 2.10652 8.10254 2.10652Z' fill='%23475467'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 20px !important;
+  border-radius: 10px !important;
+  border-radius: 10px;
+  border: 1px solid #D0D5DD;
+  color: #475467;
+  font-family: Montserrat !important;
+  font-size: 14px !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  line-height: 140% !important;
+  /* 19.6px */
+  letter-spacing: 0.14px !important;
+  padding: 16px !important;
+}
+
+.news-filter-search-term::placeholder,
+.news-filter-date-from.news-filter-trigger.form-control::placeholder {
+  color: #475467 !important;
+}
+
+/* ==========================================================================
+     3. CUSTOM DROPDOWN COMPONENT
+     ========================================================================== */
+
+.custom-dropdown {
+  position: relative;
+  min-width: 300px;
+}
+
+.dropdown-selected {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown-selected .dropdown-arrow {
+  transition: transform 0.2s ease;
+}
+
+.custom-dropdown.open .dropdown-selected .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 240px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #d0d5dd;
+  margin-top: 2px;
+  z-index: 1000;
+  border-radius: 10px;
+  display: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  /* --- WebKit Browsers (Chrome, Safari, Edge, Opera) --- */
+  &::-webkit-scrollbar {
+    width: 12px;
+    /* Adjust the width of the scrollbar */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #00A9A9;
+    /* Your Teal Blue - 100 color */
+    border-radius: 6px;
+    border: 3px solid #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #008f8f;
+  }
+}
+
+.custom-dropdown.open .dropdown-options {
+  display: block;
+}
+
+.custom-dropdown.open .dropdown-selected {
+  border-radius: 10px 10px 0 0;
+  border-bottom-color: #d0d5dd;
+}
+
+.dropdown-option {
+  color: #374151;
+  font-family: Montserrat !important;
+  font-size: 14px !important;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  padding: 16px 20px;
+}
+
+.dropdown-option:hover {
+  cursor: pointer;
+  background: #f1f3f5;
+}
+
+.dropdown-option[data-selected="true"] {
+  background: #e2f0f0;
+  font-weight: 600;
+}
+
+.dropdown-option:first-child {
+  padding: 16px;
+  color: #99A0AC !important;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #d0d5dd;
+}
+
+.dropdown-option:nth-child(2) {
+  padding: 16px 20px !important;
+}
+
+.dropdown-option:nth-last-child(1) {
+  padding: 16px 20px !important;
+}
+
+.selected-text {
+  color: #475467;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: 0.14px;
+  padding-right: 5px;
+}
+
+/* ==========================================================================
+     4. DATE PICKER & FLATPICKR
+     ========================================================================== */
+
+.news-date-range-inputs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #d0d5dd !important;
+  border-radius: 10px !important;
+  background-color: #f9f9f9 !important;
+  font-size: 14px !important;
+  color: #475467 !important;
+  font-family: Montserrat, sans-serif !important;
+  font-weight: 500 !important;
+  line-height: 140% !important;
+  letter-spacing: 0.14px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  padding: 0px;
+}
+
+.separator {
+  color: #6c757d;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+input.news-filter-date-from.news-filter-trigger.form-control.input.fxc-datepicker-input {
+  border: none !important;
+  cursor: pointer;
+  border-radius: 10px !important;
+  padding: 16px !important;
+  width: 100%;
+  background-color: transparent !important;
+  color: #475467;
+  font-family: Montserrat !important;
+  font-size: 14px !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  line-height: 140% !important;
+  /* 19.6px */
+  letter-spacing: 0.14px !important;
+}
+
+input[type="text"].news-filter-date-from::placeholder,
+.news-filter-date-from.flatpickr-input::placeholder,
+.fxc-datepicker-input::placeholder,
+#news-filter-datepicker::placeholder {
+  color: #475467 !important;
+}
+
+.flatpickr-mobile {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+}
+
+.fxc-datepicker-unified.flatpickr-calendar {
+  border-radius: 10px;
+  border: 1px solid #d0d5dd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.fxc-datepicker-unified .flatpickr-day {
+  border-radius: 6px;
+}
+
+.fxc-datepicker-unified .flatpickr-day.selected {
+  background: #00a9a9;
+  border-color: #00a9a9;
+}
+
+.fxc-datepicker-unified .flatpickr-day:hover {
+  background: rgba(0, 169, 169, 0.1);
+  border-color: #00a9a9;
+}
+
+.flatpickr-calendar.fxc-datepicker-unified .flatpickr-custom-header {
+  font-family: 'Montserrat', sans-serif;
+  cursor: default;
+}
+
+.flatpickr-custom-header {
+  display: flex;
+  height: 47px;
+  padding: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 10px 10px 0px 0px !important;
+  border-bottom: 1px solid #D0D5DD;
+  background: #F9F9F9;
+  color: var(--Web-colors-Steel-Grey-300, #99A0AC);
+
+  /* Paragraph - 14px */
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  /* 19.6px */
+  letter-spacing: 0.14px;
+  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='8' viewBox='0 0 13 8' fill='none'%3E%3Cpath d='M11.085 0L6.5 4.94673L1.91502 0L0.5 1.52661L6.5 8L12.5 1.52661L11.085 0Z' fill='%2300A9A9'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20px) center;
+    background-size: 12px !important; */
+}
+
+/* Calendar Arrow Rotation Logic */
+.date-input-wrapper.calendar-open .calendar-arrow,
+.custom-dropdown.open .dropdown-selected .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-arrow,
+.calendar-arrow {
+  transition: transform 0.2s ease;
+}
+
+.news-filter-date-range.date-input-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.news-filter-date-range.date-input-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none'%3E%3Cpath d='M10.585 0L6 4.94673L1.41502 0L0 1.52661L6 8L12 1.52661L10.585 0Z' fill='%23000D22'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.date-input-wrapper.calendar-open::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* ==========================================================================
+     5. FILTER TAGS & ACTIONS
+     ========================================================================== */
+
+.news-filter-bottom {
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.news-filter-bottom.has-content {
+  display: flex;
+}
+
+.news-filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex: 1;
+  margin: 20px 0px;
+}
+
+.news-filter-tag {
+  display: flex;
+  padding: 8px 12px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 60px;
+  border: 1px solid #D0D5DD;
+  background: #F9F9F9;
+  color: var(--Web-colors-Steel-Grey-300, #99A0AC);
+  font-family: Montserrat !important;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  /* 19.6px */
+  letter-spacing: 0.14px;
+}
+
+svg.news-filter-tag-remove {
+  cursor: pointer;
+}
+
+svg.news-filter-tag-remove:hover {
+  transform: scale(1.1);
+}
+
+button.news-filter-tag-remove {
+  background: transparent;
+  border: none;
+  color: #99a0ac;
+  cursor: pointer;
+  font-size: 16px;
+  gap: 10px;
+  line-height: 1;
+  padding: 0;
+  display: block;
+  transform: translateY(-25%);
+}
+
+.news-clear-all-filters {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500 !important;
+  color: #475467;
+  background: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 44px;
+  white-space: nowrap;
+}
+
+.news-clear-all-filters:hover {
+  background: #f8f9fa;
+  border-color: #adb5bd;
+  color: #495057;
+}
+
+#filter-loader {
+  font-size: 14px;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* ==========================================================================
+     6. MOBILE TOGGLE & NAVIGATION
+     ========================================================================== */
+
+/* Mobile Toggle Button (Hidden on Desktop) */
+.mobile-filter-toggle {
+  display: none;
+  background: #f8f9fa;
+  border: 1px solid #d0d5dd !important;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.mobile-filter-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: #475467;
+}
+
+.mobile-filter-top {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0px;
+}
+
+/* Mobile Toggle Icon States */
+.icon-mobile-toggle path {
+  fill: #000D22;
+}
+
+.is-open .icon-mobile-toggle path {
+  fill: #00A9A9;
+}
+
+/* ==========================================================================
+     7. RESPONSIVE DESIGN - TABLET (max-width: 1024px)
+     ========================================================================== */
+
+@media (max-width: 1024px) {
+  .news-filter-ui {
+    border: none;
+    padding: 0px;
+    margin-bottom: 0px;
+    position: relative;
+  }
+
+  input.news-filter-date-from.news-filter-trigger.form-control.input.fxc-datepicker-input {
+    padding: 8px !important;
+  }
+
+  .dropdown-selected,
+  .news-filter-date-from {
+    padding: 8px;
+  }
+
+  .news-filter-date-range.date-input-wrapper::after {
+    right: 9px;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=%2212%22 height=%228%22 fill='none'%3E%3Cpath d='M10.585 0L6 4.94673L1.41502 0L0 1.52661L6 8L12 1.52661L10.585 0Z' fill='%23000D22'/%3E%3C/svg%3E");
+    width: 12px;
+    height: 8px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    /* optional, for inline use */
+    background-size: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  .mobile-filter-top {
+    display: flex;
+  }
+
+  .mobile-filter-toggle {
+    display: none;
+  }
+
+  .mobile-filter-top .mobile-filter-toggle {
+    display: flex;
+    background: #f8f9fa;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    padding: 16px !important;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .mobile-filter-top .mobile-filter-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: #475467;
+  }
+
+  .mobile-filter-top .news-filter-search {
+    flex: 1;
+    gap: 0;
+  }
+
+  .mobile-filter-top .news-filter-search-term {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .news-filter-content .news-filter-search {
+    display: none;
+  }
+
+  .news-filter-content {
+    display: none;
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px solid black;
+    border-radius: 10px;
+    border: 1px solid #D0D5DD;
+    background: #FFF;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    align-self: stretch;
+  }
+
+  .news-filter-ui.is-open .news-filter-content {
+    display: block;
+  }
+
+  .news-filter-top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .news-filter-left {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .news-filter-right {
+    align-items: stretch;
+  }
+
+  .custom-dropdown,
+  .news-filter-date-from {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .custom-dropdown {
+    min-width: unset;
+  }
+
+  .dropdown-options {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-height: 240px;
+    overflow-y: auto;
+    background: transparent !important;
+    border: none;
+    margin-top: 2px;
+    z-index: 1000;
+    border-radius: 10px;
+    display: none;
+    box-shadow: none;
+  }
+
+  .dropdown-option:first-child {
+    padding: 16px;
+    background-color: transparent;
+    border-bottom: none;
+    display: none;
+  }
+
+  .news-filter-bottom {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .news-filter-tag {
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  .news-filter-date-from.flatpickr-input,
+  .fxc-datepicker-input,
+  #news-filter-datepicker {
+    font-size: 16px !important;
+    width: 100% !important;
+    min-width: unset !important;
+  }
+
+  input[type="text"].news-filter-search-term {
+    width: 100%;
+  }
+
+  .flatpickr-mobile {
+    width: 100% !important;
+    font-size: 16px !important;
+  }
+
+  .news-date-range-inputs {
+    width: 100%;
+  }
+
+  .dropdown-option:nth-last-child(1) {
+    padding: 16px 20px !important;
+  }
+}
+
+/* ==========================================================================
+     8. RESPONSIVE DESIGN - MOBILE (max-width: 480px)
+     ========================================================================== */
+
+/* @media (max-width: 480px) {
+    .news-filter-ui {
+      padding: 12px;
+    }
+    
+    .news-filter-content {
+      margin-top: 12px;
+      padding-top: 12px;
+    }
+    
+    .news-filter-top {
+      gap: 12px;
+    }
+    
+    .news-filter-left {
+      gap: 12px;
+    }
+    
+    .mobile-filter-top {
+      gap: 8px;
+    }
+    
+    .mobile-filter-top .mobile-filter-toggle {
+      padding: 10px;
+    }
+    
+    .mobile-filter-top .mobile-filter-toggle svg {
+      width: 18px;
+      height: 18px;
+    }
+  } */
+
+/* ==========================================================================
+     9. ANIMATIONS & ACCESSIBILITY
+     ========================================================================== */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility - Respect User's Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+
+  .news-filter-content,
+  .dropdown-arrow,
+  .news-filter-tag,
+  svg.news-filter-tag-remove {
+    animation: none;
+    transition: none;
+  }
+}

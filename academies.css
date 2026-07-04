@@ -1,0 +1,1593 @@
+/* ==========================================================================
+   Hero and Video Background
+   ========================================================================== */
+.fxc-center-bg-hero-alpha-fx {
+  position: relative;
+  background-color: #011840;
+  padding: 180px 0px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.video-background {
+  min-height: 650px;
+}
+
+.video-background__video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 1;
+  object-fit: cover;
+}
+
+.video-background__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(191deg, rgba(1, 24, 64, 0.00) 54.28%, #011840 100.01%), linear-gradient(0deg, rgba(0, 13, 34, 0.80) 0%, rgba(0, 13, 34, 0.80) 100%);
+  background-blend-mode: normal, normal, color;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.center-bg-hero-hero-header {
+  position: relative;
+  z-index: 3;
+}
+
+/* ==========================================================================
+   Academy USP Sections
+   ========================================================================== */
+.fxc-ib-usp-dark.academies {
+  background-color: #000D22;
+}
+
+.fxc-ib-usp-box.academies {
+  border-left: none;
+  padding-left: 0px;
+  width: 100%;
+}
+
+.academies-hero-box {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+/* ==========================================================================
+   Grid Layouts
+   ========================================================================== */
+.grid-container-alpha-fx {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  padding: 100px 0px 0px;
+}
+
+.grid-item-alpha-fx {
+  background-color: #ffffff;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  padding: 60px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: 0.16px;
+  position: relative;
+  text-align: center;
+  gap: 16px;
+}
+
+/* ==========================================================================
+   CTA Sections
+   ========================================================================== */
+
+.page-template-page-alpha-fx .alpha-fx-cta-section.fxc-container {
+  background-position: bottom left !important;
+}
+
+.alpha-fx-cta-section.fxc-container {
+  border-radius: 15px;
+  background: #000D22;
+  padding: 60px;
+  background-blend-mode: normal, color, normal, normal, normal;
+  background-image: url(../images/alpha-fx-footer.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom !important;
+}
+
+.t4f-cta-section.fxc-container {
+  border-radius: 15px;
+  background: #000D22;
+  padding: 60px;
+  background-blend-mode: normal, color, normal, normal, normal;
+  background-image: url(../images/t4f-live.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom !important;
+}
+
+.t4f-cta-section-footer.fxc-container {
+  border-radius: 15px;
+  padding: 60px;
+  background-image: url(../images/t4f-footer.png);
+  background-blend-mode: normal, color, normal, normal, normal;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom !important;
+  border: 1px solid var(--steel-grey-100, #D0D5DD);
+}
+
+/* ==========================================================================
+   Text and Status Elements
+   ========================================================================== */
+.coming-soon-text {
+  color: var(--white, #FFF);
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: 0.14px;
+}
+
+.offwhite-bg {
+  background: var(--Off-White, #F9F9F9);
+}
+
+.t4f-list {
+  margin: 0px;
+}
+
+.social-list {
+  margin: 0px;
+}
+
+.social-trading-bullet-list {
+  padding-left: 20px;
+}
+
+/* ==========================================================================
+   Section Styles
+   ========================================================================== */
+.fxc-why-boxes-section.academy {
+  border-top: none !important;
+  border-bottom: 1px solid var(--steel-grey-100, #D0D5DD);
+}
+
+.eventos-de-4xc,
+.core-values-section.academy.academy-dark-background {
+  background: #f9f9f9;
+}
+
+.core-values-section.academy {
+  border: none;
+  background: #fff;
+}
+
+.section-title.academy-webinar {
+  text-align: center;
+}
+
+.grid-container-4xc-academy {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  padding: 60px 0px 0px;
+}
+
+.grid-item-4xc-academy {
+  border: 1px solid var(--steel-grey-100, #D0D5DD);
+  background: #FFF !important;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  background: var(--offwhite, #F9F9F9);
+}
+
+.grid-item-4xc-academy h5 {
+  font-size: 18px;
+}
+
+.academy-note {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: 0.12px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--steel-grey-100, #D0D5DD);
+  background: var(--offwhite, #F9F9F9);
+}
+
+.academy-seminars-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 60px 0px;
+}
+
+/* ==========================================================================
+   Profile Section
+   ========================================================================== */
+.custom-profile-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-profile-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.custom-profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: -5px;
+  background: var(--offwhite, #F9F9F9);
+  border-radius: 10px;
+}
+
+.custom-profile-separator {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 5px 0;
+  width: 100%;
+}
+
+.custom-profile-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+}
+
+.custom-profile-image-container {
+  flex-shrink: 0;
+}
+
+.custom-profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  object-fit: cover;
+  /* border: 1px solid var(--steel-grey-100, #D0D5DD); */
+}
+
+.custom-profile-details {
+  flex-grow: 1;
+}
+
+.custom-profile-info-line {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.custom-profile-info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-profile-info-item svg {
+  display: flex;
+  flex: 1;
+}
+
+.date-weight {
+  color: var(--dark-blue---300, #000D22);
+  font-family: Montserrat !important;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  padding-right: 16px;
+}
+
+/* ==========================================================================
+   Market News Section
+   ========================================================================== */
+.market-news {
+  display: flex;
+  margin-top: 60px;
+  padding: 60px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 10px;
+  border: 1px solid #EAEAEA;
+  background: #F5F5F5;
+}
+
+/* ==========================================================================
+   Learning Section
+   ========================================================================== */
+.learning-hero {
+  border-bottom: 1px solid var(--steel-grey-100, #D0D5DD);
+  background: var(--offwhite, #F9F9F9);
+}
+
+.educational-material {
+  border-bottom: 1px solid #D0D5DD;
+}
+
+.section-wrapper-title-educational {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.grid-container-learning-materials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  padding: 100px 0px 0px;
+}
+
+.grid-item-learning-materials {
+  border: 1px solid var(--steel-grey-100, #D0D5DD);
+  border-radius: 10px;
+  padding: 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  gap: 32px;
+  justify-content: space-between;
+  background: var(--offwhite, #F9F9F9);
+}
+
+.grid-item-learning-materials .button {
+  width: 100%;
+  background: var(--offwhite, #F9F9F9);
+}
+
+.grid-item-learning-materials .button:hover {
+  width: 100%;
+  background: #E5E5E5;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.learning-hero-img {
+  max-height: 400px;
+}
+
+.hero-subtitle.learning-subtitle {
+  max-inline-size: 500px;
+}
+
+.core-values-section.social-trading-benefits {
+  border-top: none !important;
+  border-bottom: 1px solid var(--steel-grey-100, #D0D5DD);
+  background: var(--offwhite, #F9F9F9);
+}
+
+.section-wrapper-title.signals-center {
+  align-items: center;
+  padding-bottom: 100px;
+}
+
+.dark-steps-section h5 {
+  color: #fff;
+}
+
+.grid-container-social-trading {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  padding: 60px 0px 0px;
+}
+
+.grid-item-alpha-fx {
+  padding: 40px 20px;
+}
+
+.grid-item-social-trading {
+  border: 1px solid var(--steel-grey-100, #D0D5DD);
+  background: #FFF !important;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  gap: 16px;
+  justify-content: space-between;
+  background: var(--offwhite, #F9F9F9);
+}
+
+.social-trading-subscribe-signal {
+  border-bottom: 1px solid #D0D5DD;
+}
+
+.mt5-platforms-max-inline-text.font-white {
+  color: #fff;
+}
+
+.section-wrapper-title.social-trading {
+  align-items: center;
+  padding-bottom: 100px;
+}
+
+.section-wrapper-title.social-trader {
+  align-items: center;
+  padding-bottom: 0px;
+}
+
+.fxc-academy-platforms-benefits-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+
+/* Benefits List */
+.fxc-academy-platforms-benefits-wrapper .section-inner-list ul li p {
+  color: var(--dark-blue-300, #000D22);
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: 0.16px;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media screen and (max-width: 1024px) {
+
+  .fxc-ib-usp-dark.academies {
+    background-color: #000D22;
+    padding: 60px 0px
+  }
+
+  .fxc-ib-usp-box.academies .fxc-ib-usp-box-text {
+    text-align: center;
+  }
+
+  .center-bg-hero-hero-header .fxc-container .wrapper[data-flex-col-gap="l"] {
+    gap: 24px
+  }
+
+  .academies-hero-box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 16px
+  }
+
+  .academies-hero-box h3 {
+    text-align: center !important;
+    font-size: 16px !important;
+  }
+
+  .academies-usp-box p {
+    text-align: center;
+  }
+
+  .t4f-cta-section.fxc-container {
+    border-radius: 15px;
+    background: #000D22;
+    padding: 30px;
+    height: 450px;
+    background-blend-mode: normal, color, normal, normal, normal;
+    background-image: url(../images/t4f-cta-mobile.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center !important;
+  }
+
+  .t4f-cta-section-footer.fxc-container {
+    border-radius: 0px;
+    background: #000D22;
+    height: 500px;
+    padding: 60px 20px;
+    background-blend-mode: normal, color, normal, normal, normal;
+    background-image: url(../images/t4f-footer-cta-mobile.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom !important;
+    border: none;
+    max-width: 100%
+  }
+
+  .alpha-fx-cta-section.fxc-container {
+    border-radius: 0px;
+    background: #000D22;
+    height: 500px;
+    padding: 60px 20px;
+    background-blend-mode: normal, color, normal, normal, normal;
+    background-image: url(../images/alpha-fx-footer-mobile.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom !important;
+    border: none;
+    max-width: 100%
+  }
+
+  .fxc-ib-usp-wrapper.academies {
+    gap: 40px
+  }
+
+  .video-background {
+    min-height: 0px;
+  }
+
+  .fxc-center-bg-hero-alpha-fx {
+    padding: 100px 0px;
+    min-height: 400px;
+  }
+
+  .fxc-ib-usp-box.academies {
+    justify-content: center;
+  }
+
+  .grid-container-4xc-academy {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 40px 0px 0px;
+    gap: 40px
+  }
+
+  .custom-profile-body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .custom-profile-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .custom-profile-title {
+    font-size: 16px;
+  }
+
+  .custom-profile-date {
+    font-size: 14px;
+  }
+
+  .custom-profile-info-line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .custom-profile-button-container {
+    text-align: left;
+  }
+
+  .grid-container-learning-materials {
+    padding-top: 32px;
+  }
+
+  .learning-materials-footer[data-spacing="bottom"] {
+    padding-bottom: 0px
+  }
+
+  /* Adjust breakpoint as needed */
+  .mobile-hide-break {
+    display: none;
+  }
+
+  .academies-footer-cta-no-padding[data-spacing="top-bottom"] {
+    padding: 0px !important;
+  }
+
+  .academies-footer-cta-no-padding[data-spacing="bottom"] {
+    padding: 0px !important;
+  }
+
+  .grid-container-alpha-fx {
+    padding: 32px 0px 0px;
+  }
+
+  .hero-subtitle.learning-subtitle {
+    font-size: 14px !important
+  }
+
+  .learning-materials-gap24 {
+    gap: 24px
+  }
+
+  .why-boxes-box.fxc-academy-box {
+    gap: 24px
+  }
+
+  .grid-item-4xc-academy {
+    padding: 40px 20px;
+  }
+
+  .grid-item-4xc-academy h5 {
+    font-size: 16px;
+  }
+
+  .fxc-academy-platforms-benefits-wrapper {
+    gap: 60px;
+    flex-direction: column;
+  }
+
+  .fxc-academy-platforms-benefits-wrapper .section-inner-list ul li p {
+    color: var(--dark-blue-300, #000D22);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.14px;
+  }
+
+  .academy-webinar-text-mobile,
+  .academy-webinar-image-mobile {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .academy-webinar-text-mobile .button-secondary-two {
+    width: 100%;
+  }
+
+  .academy-seminars-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 60px 0px 0px;
+  }
+
+  .t4f-list li p {
+    font-size: 14px !important
+  }
+
+  .t4f-list li::before {
+    top: 40% !important
+  }
+
+  .grid-item-alpha-fx h5 {
+    font-size: 16px;
+  }
+
+  .section-title.academy-footer-mobile {
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+
+  .grid-container-social-trading {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    padding: 40px 0px 0px;
+  }
+
+  .section-wrapper-title.social-trading {
+    align-items: start;
+    padding-bottom: 40px;
+  }
+
+  .section-wrapper-title.social-trader {
+    align-items: start;
+    padding-bottom: 0px;
+  }
+
+  .section-wrapper-title.social-trader div p {
+    text-align: left;
+  }
+
+  .social-trading-bullet-list {
+    padding-left: 30px;
+  }
+
+  .list-mobile-gap-signal-provider {
+    display: flex !important;
+    flex-direction: column;
+    gap: 16px;
+    padding-left: 30px;
+  }
+
+  .custom-profile-details {
+    width: 100%;
+  }
+}
+
+/* ===========================================
+   GLOBAL STYLES
+   =========================================== */
+
+   html {
+    scroll-padding-top: 80px !important;
+}
+
+.section-title-gap {
+    margin-bottom: 60px;
+}
+
+/* ===========================================
+   DARK THEME STYLES
+   =========================================== */
+
+[data-section-skin="dark"] .benefits-inner-box-content {
+    border: 1px solid #094273;
+    background: #000D22;
+}
+
+[data-section-skin="dark"] .benefits-inner-box-content ul li {
+    color: #fff;
+}
+
+/* ===========================================
+   PROMO CODE WRAPPER
+   =========================================== */
+
+.promo-code-wrapper {
+    /*color: #fff;*/
+    gap: 150px;
+}
+
+.promo-code-wrapper.fx-empire-promo-code-wrapper {
+    align-items: center;
+}
+
+/* ===========================================
+   UKTA HERO CTA STYLES
+   =========================================== */
+
+.ukta-hero-cta-wrapper {
+    border-radius: 10px;
+    border: 1px solid #094273;
+    max-width: 556px;
+    margin: auto;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    display: flex;
+    flex-direction: row;
+    transition: all 0.3s ease;
+    width: 100%;
+    position: relative;
+    background: url(../images/ukta-msin-cta-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.ukta-hero-cta-wrapper:hover {
+    gap: 20px;
+    box-shadow: 0px 0px 20px 0px #0088FD inset;
+    border: 1px solid var(--light-blue-300, #0088FD);
+}
+
+.ukta-hero-cta-wrapper-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ===========================================
+   DISCOUNT & PRICING STYLES
+   =========================================== */
+
+.discount-percentage {
+    display: flex;
+    font-family: Glancyr;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+}
+
+.discount-percentage h3 {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 25px;
+    line-height: 100%;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.discount-text p {
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+    letter-spacing: 0.16px;
+}
+
+/* ===========================================
+   HOT LABEL STYLES
+   =========================================== */
+
+.hot-label {
+    color: #000D22;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    background: #FFB018;
+    box-shadow: 0px 0px 4px 0px rgba(255, 193, 24, 0.00);
+    display: inline-flex;
+    padding: 5px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    height: 26px;
+    transition: all 0.3s ease;
+}
+
+.ukta-hero-cta-wrapper:hover .hot-label {
+    border-radius: 5px;
+    background: #FFC118;
+    box-shadow: 0px 0px 4px 0px #FFC118;
+}
+
+span.hot-label svg {
+    width: 6.664px;
+    height: 8px;
+    flex-shrink: 0;
+    aspect-ratio: 6.66 / 8.00;
+}
+
+/* ===========================================
+   GRID ITEM BOX STYLES
+   =========================================== */
+
+.grid-item-box {
+    border-radius: 10px;
+    border: 1px solid #D0D5DD;
+    background: #F9F9F9;
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    text-align: center;
+}
+
+.grid-item-box-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+/* ===========================================
+   SPECIAL SECTIONS
+   =========================================== */
+
+.special-offer-section {
+    /*background: var(--dark-blue-300);*/
+}
+
+.fxc-ukta-about-image img {
+    max-height: 350px;
+    float: right;
+}
+
+/* ===========================================
+   DEAL BADGE STYLES
+   =========================================== */
+
+.deal-badge {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    border: 1px solid #D0D5DD;
+    background: #fff;
+    max-width: max-content;
+}
+
+.deal-badge .hot-label {
+    margin-right: 10px;
+}
+
+.deal-badge .original-price {
+    color: #9AA0AC;
+    text-decoration: line-through;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    font-family: Montserrat;
+}
+
+.deal-badge .discount-text {
+    color: #0088FD;
+    font-weight: bold;
+    font-size: 1rem;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    font-family: Montserrat;
+}
+
+/* ===========================================
+   LEARNING SECTION STYLES
+   =========================================== */
+
+.what-you-will-learn-inner {
+    width: 100%;
+}
+
+.what-you-will-learn-inner-mobile {
+    width: 100%;
+    display: none;
+}
+
+.what-you-will-learn-section {
+    display: flex;
+    align-items: center;
+}
+
+.what-you-will-learn-p {
+    color: #000D22;
+    text-align: center;
+    font-family: Glancyr;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%; /* 25.6px */
+    letter-spacing: 0.32px;
+}
+
+.what-you-will-learn-section .fxc-not-box {
+    max-width: 100% !important;
+}
+
+.what-you-will-learn-section .fxc-not-box svg {
+    color: #000D22;
+}
+
+.what-you-will-learn-section .icon-wrapper {
+    display: flex;
+}
+
+/* ===========================================
+   PROMO CARD STYLES
+   =========================================== */
+
+.promocode-wrapper-outer {
+    width: 100%;
+}
+
+.promo-card {
+    display: flex;
+    padding: 60px;
+    align-items: self-start;
+    gap: 32px;
+    text-align: left;
+    align-self: stretch;
+    border-radius: 15px;
+    border: 1px solid #D0D5DD;
+    background: #fff;
+    flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*min-height: 645px;*/
+    transition: all 0.3s ease;
+    margin-bottom: 16px;
+}
+
+.promo-card:hover,
+.promo-card.active {
+    /*box-shadow: 0px 0px 20px 0px var(--light-blue-300, #0088FD) inset;
+    border: 1px solid var(--light-blue-300, #0088FD);*/
+}
+
+.promo-card .active {
+
+}
+
+.promo-card h2 {
+    font-size: 25px;
+    margin-bottom: 0.5rem;
+}
+
+.promo-card-text {
+    font-size: 16px;
+}
+
+.benefits-inner-box-content.ukta-learn-points {
+    min-height: unset !important;
+}
+
+/* ===========================================
+   BUTTON STYLES
+   =========================================== */
+
+.start-button {
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.start-button:hover {
+    background: #1d4ed8;
+}
+
+/* ===========================================
+   CODE BOX STYLES
+   =========================================== */
+
+.code-box {
+    display: flex;
+    width: 100%;
+    max-width: 229px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #094273;
+    background: #011840;
+    transition: all 0.3s ease !important;
+}
+
+.code-box:hover {
+    border: 1px solid var(--light-blue-300, #0088FD);
+}
+
+.blurred {
+    filter: blur(5px);
+}
+
+/* ===========================================
+   PROMO CODE WRAPPER STYLES
+   =========================================== */
+
+.promocode-wrapper {
+    display: block;
+    align-items: center;
+    flex-direction: row;
+    gap: 24px;
+    width: 100%;
+    justify-content: center;
+    transition: gap 0.4s ease !important;
+}
+
+.promocode-wrapper .fxc-form-wrapper {
+    --formwidth: 100%;
+    width: 100%;
+}
+
+/*.promo-card:hover .promocode-wrapper {
+    gap: 8px;
+    transition: gap 0.4s ease;
+}*/
+
+#promoCode,
+.hide-promocode {
+    color: #fff;
+    text-align: center;
+    font-family: Glancyr;
+    font-size: 25px;
+    padding: 20px;
+    font-style: normal;
+    font-weight: 850;
+    line-height: 100%;
+    width: 100%;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+}
+
+.promo-code-wrapper .section-subheading .note-p {
+    color: #D0D5DD;
+}
+
+/* ===========================================
+   BACKGROUND COLOR CLASSES
+   =========================================== */
+
+.ukta-bg-gray {
+    background: #F9F9F9;
+}
+
+.core-values-section.ukta-bg-white {
+    background: #fff
+}
+
+.core-values-section.fxpremiere-bg-white {
+    background: #fff;
+}
+
+/* ===========================================
+   FORM & BOX STYLES
+   =========================================== */
+
+.fxc-not-box.ukta-bg-gray {
+    border-radius: 5px;
+    border: 1px solid #D0D5DD;
+    background: #EFEFEF;
+}
+
+.fxc-not-box.ukta-bg-gray p {
+    color: #000D22
+}
+
+.fxc-not-box.ukta-bg-gray-form {
+    border-radius: 5px;
+    border: 1px solid #D0D5DD;
+    background: #EFEFEF;
+}
+
+.fxc-not-box.ukta-bg-gray-form p {
+    color: #475467;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 16.8px */
+    letter-spacing: 0.12px;
+}
+
+.fxc-not-box.form-not-registered {
+    background: none !important;
+    border: none !important;
+    justify-content: center;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.fxc-not-box.form-not-registered a.section-link-text.has-icon {
+    /* Paragraph - 12px */
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 16.8px */
+    letter-spacing: 0.12px;
+    text-decoration: none
+}
+
+.fxc-not-box.promo-code-box {
+    display: flex;
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 5px;
+    border: 1px solid #D0D5DD;
+    background: #F9F9F9;
+}
+
+.fxc-not-box.promo-code-box p {
+    color: #0088FD;
+    text-align: center;
+    font-family: Glancyr;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%; /* 33px */
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+}
+
+/* ===========================================
+   TEXT STYLES
+   =========================================== */
+
+.ukta-exclusive {
+    color: #475467 !important;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 16.8px */
+    letter-spacing: 0.12px;
+}
+
+.ukta-whats-included-list {
+    color: #000D22;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 19.6px */
+    letter-spacing: 0.14px;
+    margin: 0px;
+}
+
+.fxpremiere-whats-included-list {
+  color: #000D22;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%; /* 19.6px */
+  letter-spacing: 0.14px;
+  margin: 0px;
+}
+
+/* ===========================================
+   FX PREMIERE STYLES
+   =========================================== */
+
+.fxpremiere-note {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.12px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--light-blue-300, #0088FD);
+    background: var(--dark-blue-200, #011840);
+    color: #fff;
+    justify-content: center;
+}
+
+.fxc-container.fx-premiere-60-gap {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.fxpremiere-heading {
+    color: var(--Web-colors-Dark-Blue---300, #000D22);
+    text-align: center;
+    /* H2 - Desktop */
+    font-family: Glancyr;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 850;
+    line-height: 110%; /* 44px */
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.fxpremiere-subheading {
+    color: var(--Web-colors-Dark-Blue---300, #000D22);
+    /* H4 - Desktop */
+    font-family: Glancyr;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 850;
+    line-height: 100%; /* 25px */
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+}
+
+.fxc-center-bg-hero-fxpremiere {
+    position: relative;
+    background-color: #011840;
+    padding: 170px 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* ===========================================
+   FX PREMIERE CHOICE WRAPPER
+   =========================================== */
+
+.fxpremiere-choose-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 16px;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.fxpremiere-big-box {
+    border-radius: 10px;
+    border: 1px solid var(--steel-grey-100, #D0D5DD);
+    background: var(--offwhite, #F9F9F9);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.fxpremiere-big-box-inner-box {
+    display: flex;
+    padding: 30px;
+    align-items: center;
+    gap: 23.701px;
+    flex: 1 0 0;
+    border-radius: 0px;
+    background: var(--Web-colors-Off-White, #F9F9F9);
+    border-right: 1px solid var(--steel-grey-100, #D0D5DD);
+    justify-content: center
+}
+
+.fxpremiere-big-box-inner-box:first-child {
+    border-radius: 10px 0px 0px 10px;
+}
+
+.fxpremiere-big-box-inner-box:last-child {
+    border: none !important;
+    border-radius: 0px 10px 10px 0px;
+}
+
+p.fxpremiere-light {
+    color: #475467;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 28px */
+    letter-spacing: 0.2px;
+}
+
+.fxpremiere-big-box-inner-box .wrapper h3 {
+    color: #000D22;
+    /* H2 - Desktop */
+    font-family: Glancyr;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%; /* 44px */
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    text-align: left !important;
+}
+
+.fxpremiere-small-box {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+/* ===========================================
+   MEDIA QUERIES - TABLET & MOBILE
+   =========================================== */
+
+@media screen and (max-width: 1024px) {
+
+    /* FX Premiere Responsive Styles */
+    .fxpremiere-big-box {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 40px;
+    }
+
+    .fxpremiere-big-box-inner-box {
+        display: flex;
+        padding: 20px;
+        align-items: center;
+        gap: 23.701px;
+        flex: 1 0 0;
+        border-radius: 0px;
+        background: var(--Web-colors-Off-White, #F9F9F9);
+        border-bottom: 1px solid var(--steel-grey-100, #D0D5DD);
+        border-right: none;
+    }
+
+    .fxc-container.fx-premiere-60-gap {
+        gap: 40px;
+    }
+
+    .fxpremiere-big-box-inner-box:first-child {
+        border-radius: 10px 10px 0px 0px;
+    }
+
+    .fxpremiere-big-box-inner-box:last-child {
+        border: none !important;
+        border-radius: 0px 0px 10px 10px;
+    }
+
+    .fxpremiere-heading {
+        color: #000D22;
+        /* H2 - mobile */
+        font-family: Glancyr;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 850;
+        line-height: 120%; /* 28.8px */
+        text-transform: uppercase;
+        text-align: left;
+    }
+
+    .fxpremiere-subheading {
+        color: #000D22;
+        /* H3 - mobile */
+        font-family: Glancyr;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 850;
+        line-height: 120%; /* 24px */
+        text-transform: uppercase;
+    }
+
+    p.fxpremiere-light {
+        color: #475467;
+        text-align: center !important;
+        /* Paragraph - 13px */
+        font-family: Montserrat;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 140%; /* 18.2px */
+        letter-spacing: 0.13px;
+    }
+
+    .fxpremiere-big-box-inner-box .wrapper h3 {
+        color: #000D22;
+        /* H3 - mobile */
+        font-family: Glancyr;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 850;
+        line-height: 120%; /* 24px */
+        text-transform: uppercase;
+        text-align: center !important;
+    }
+
+    .fxc-ib-benefits-wrapper.fxpremiere-reverse-columns {
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    /* General Mobile Responsive Styles */
+    .discount-percentage h3 {
+        color: #FFF;
+        font-size: 20px;
+    }
+
+    .discount-text p {
+        font-size: 14px;
+    }
+
+    .ukta-hero-cta-wrapper {
+        gap: 20px;
+    }
+
+    .promo-code-wrapper {
+        gap: 32px;
+    }
+
+    .promo-card {
+        gap: 24px;
+        padding: 40px 20px;
+        min-height: unset !important;
+    }
+
+    .section-heading {
+        font-size: 24px !important;
+    }
+
+    .section-title-gap {
+        margin-bottom: 32px;
+    }
+
+    .grid-item-box {
+        padding: 30px 20px;
+    }
+
+    .grid-item-box-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .benefits-inner-box-content.ukta-learn-points ul li {
+        font-size: 14px !important
+    }
+
+    .ukta-mobile-left {
+        text-align: left !important
+    }
+
+    .what-you-will-learn-section {
+        display: flex;
+        align-items: start;
+    }
+
+    .what-you-will-learn-section .section-title {
+        display: flex;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    .what-you-will-learn-inner {
+        width: 100%;
+        display: none;
+    }
+
+    .what-you-will-learn-inner-mobile {
+        width: 100%;
+        display: block;
+    }
+
+    .fxc-center-bg-hero-fxpremiere {
+        padding: 100px 0px;
+        min-height: 400px;
+    }
+
+    .fxc-container.fxpremiere-container-mobile {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .fxpremiere-choose-wrapper {
+        margin-top: 0px;
+    }
+}
