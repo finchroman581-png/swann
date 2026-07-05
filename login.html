@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="NjYbYVyOqfcIa4SGe0RVRQW76qWzD3AQKCyJMMUA">
+    <title>Swan Trade Capital | Account Login</title>
+
+    <link rel="icon" href="https://swantradecapital.com/storage/app/public/photos/xA50CiCxzXfeDLJbvKTDt2MIDx7w1Qxvf0nnFJSH.png" type="image/png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    screens: {
+                        'xs': '375px',
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#EF4444',
+                            '50': '#F8F0EC',
+                            '100': '#F1E2D9',
+                            '200': '#E4C7B4',
+                            '300': '#D7AB8F',
+                            '400': '#EF4444',
+                            '500': '#B8724A',
+                            '600': '#9A5E3C',
+                            '700': '#7C4B2E',
+                            '800': '#5D381F',
+                            '900': '#3F2511',
+                        },
+                        secondary: {
+                            DEFAULT: '#4A9D7F',
+                            '50': '#E8F5F0',
+                            '100': '#D1EBE1',
+                            '200': '#A3D7C3',
+                            '300': '#76C3A5',
+                            '400': '#4A9D7F',
+                            '500': '#3C7F65',
+                            '600': '#2E614D',
+                            '700': '#214435',
+                            '800': '#13261E',
+                            '900': '#040906',
+                        },
+                        dark: {
+                            DEFAULT: '#1A1F2C',
+                            '50': '#1E2430',
+                            '100': '#2A303C',
+                            '200': '#343D4F',
+                            '300': '#3E4A62',
+                        },
+                        light: {
+                            DEFAULT: '#F8FAFC',
+                            '50': '#FFFFFF',
+                            '100': '#F1F5F9',
+                            '200': '#E2E8F0',
+                            '300': '#CBD5E1',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Google Recaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+        <!-- Custom Styles -->
+    <style>
+        :root {
+            --homepage-font: "Montserrat", sans-serif;
+        }
+
+        body,
+        button,
+        input,
+        select,
+        textarea {
+            font-family: var(--homepage-font);
+        }
+
+        /* Simple dot pattern background */
+        .bg-dot-pattern {
+            background-image: radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .light .bg-dot-pattern {
+            background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+        }
+
+        /* Responsive adjustments for split layout */
+        @media (max-width: 1023px) {
+            .split-layout {
+                min-height: 100vh;
+            }
+        }
+        
+        /* Live Notification Styles */
+        .live-notification {
+            pointer-events: auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .live-notification:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        @keyframes  slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes  slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            #live-notifications-container {
+                width: 90%;
+                left: 5%;
+                right: 5%;
+                top: 80px;
+            }
+        }
+    </style>
+    </head>
+<body class="dark:bg-dark bg-light-100 transition-colors duration-200">
+    <!-- Theme Detection Script - Run Early -->
+    <script>
+        // Check for saved theme preference or use system preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('darkMode');
+        
+        if (savedTheme === 'false') {
+            document.documentElement.classList.remove('dark');
+        } else if (savedTheme === null && !prefersDark) {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <!-- Theme Toggle -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="themeToggle" class="p-2 rounded-full dark:bg-dark-100 bg-light-200 shadow-sm">
+            <i data-lucide="sun" class="h-5 w-5 dark:text-white text-dark hidden dark:block"></i>
+            <i data-lucide="moon" class="h-5 w-5 dark:text-white text-dark block dark:hidden"></i>
+        </button>
+    </div>
+    
+    <!-- Main Content - Split Layout -->
+    <div class="min-h-screen flex flex-col lg:flex-row">
+        <!-- Left Column - Illustration (Hidden on mobile) -->
+        <div class="hidden lg:flex lg:w-1/2 bg-dot-pattern dark:bg-dark-50 bg-light-200 relative overflow-hidden">
+            <!-- Illustration Container -->
+            <div class="flex flex-col justify-center items-center p-12 w-full max-w-2xl mx-auto">
+                <!-- Logo -->
+                <div class="absolute top-8 left-8">
+                    <a href="/">
+                        <img src="https://swantradecapital.com/storage/app/public/photos/OLyPkK78IllyMFmXHomXdOLYUar4vzdWI4uYVmrp.png" alt="Logo" class="h-10">
+                    </a>
+                </div>
+                
+                <!-- Illustration from Open Source Library -->
+                <div class="mb-8 w-4/5 max-w-md mx-auto">
+                    <img src="https://raw.githubusercontent.com/cruip/open-react-template/refs/heads/master/public/images/features.png" 
+                         alt="Illustration" class="w-full h-auto" id="illustrationImage">
+                </div>
+                
+                <!-- Text Content -->
+                <div class="text-center">
+                    <h1 class="text-3xl font-bold dark:text-white text-dark mb-4" id="illustrationTitle">Welcome to Swan Trade Capital</h1>
+                    <p class="dark:text-gray-300 text-gray-700 max-w-md mx-auto" id="illustrationDescription">
+                        Our platform offers secure trading, real-time market data, and expert insights to help you achieve your financial goals.
+                    </p>
+                </div>
+                
+                <!-- Optional Feature List -->
+                <div class="mt-8 w-full max-w-md">
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i data-lucide="check-circle" class="h-5 w-5 text-secondary"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium dark:text-white text-dark">Secure Trading</h3>
+                                <p class="text-sm dark:text-gray-400 text-gray-600">State-of-the-art security features to protect your investments</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i data-lucide="check-circle" class="h-5 w-5 text-secondary"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium dark:text-white text-dark">Real-Time Analytics</h3>
+                                <p class="text-sm dark:text-gray-400 text-gray-600">Up-to-the-minute market data to inform your decisions</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i data-lucide="check-circle" class="h-5 w-5 text-secondary"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium dark:text-white text-dark">Expert Support</h3>
+                                <p class="text-sm dark:text-gray-400 text-gray-600">24/7 customer support from our team of specialists</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Column - Content Area -->
+        <div class="flex-1 min-h-screen flex flex-col">
+            <!-- Mobile Logo (Visible only on mobile) -->
+            <div class="flex justify-center pt-24 lg:hidden">
+                <a href="/">
+                    <img src="https://swantradecapital.com/storage/app/public/photos/OLyPkK78IllyMFmXHomXdOLYUar4vzdWI4uYVmrp.png" alt="Logo" class="h-10">
+                </a>
+            </div>
+            
+            <!-- Content Wrapper -->
+            <div class="flex-grow flex items-center justify-center p-4 sm:p-6 lg:p-8">
+                <div class="w-full max-w-md">
+                    <!-- Content -->
+                    <!-- Card Container -->
+<div class="dark:bg-dark-50 bg-white rounded-xl shadow-lg overflow-hidden border dark:border-dark-200/30 border-light-300/30">
+    <!-- Card Header -->
+    <div class="dark:bg-dark-100/50 bg-light-100/50 p-6 border-b dark:border-dark-200/50 border-light-200/50">
+        <h2 class="text-xl font-bold dark:text-white text-dark">Welcome Back</h2>
+        <p class="mt-1 text-sm dark:text-gray-400 text-gray-600">Sign in to your account to continue</p>
+    </div>
+    
+    <!-- Card Body -->
+    <div class="p-6 md:p-8">
+        <!-- Alert Messages -->
+                
+                
+        <!-- Login Form -->
+        <form method="POST" action="https://swantradecapital.com/login" class="space-y-6">
+            <input type="hidden" name="_token" value="NjYbYVyOqfcIa4SGe0RVRQW76qWzD3AQKCyJMMUA">            
+            <!-- Email Input -->
+            <div>
+                <label for="email" class="block text-sm font-medium dark:text-gray-300 text-gray-700 mb-2">
+                    Email Address
+                </label>
+                <div class="relative rounded-md shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i data-lucide="mail" class="h-5 w-5 dark:text-gray-400 text-gray-500"></i>
+                    </div>
+                    <input type="email" id="email" name="email" value="" required
+                           class="block w-full pl-10 pr-3 py-3 dark:bg-dark-100 bg-light-50 border dark:border-dark-200 border-light-300 rounded-lg shadow-sm dark:text-white text-dark focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                           placeholder="you@example.com">
+                </div>
+            </div>
+            
+            <!-- Password Input -->
+            <div>
+                <label for="password" class="block text-sm font-medium dark:text-gray-300 text-gray-700 mb-2">
+                    Password
+                </label>
+                <div class="relative rounded-md shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i data-lucide="lock" class="h-5 w-5 dark:text-gray-400 text-gray-500"></i>
+                    </div>
+                    <input type="password" id="password" name="password" required
+                           class="block w-full pl-10 pr-10 py-3 dark:bg-dark-100 bg-light-50 border dark:border-dark-200 border-light-300 rounded-lg shadow-sm dark:text-white text-dark focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                           placeholder="••••••••">
+                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                        <button type="button" id="togglePassword" class="dark:text-gray-400 text-gray-500 hover:text-primary dark:hover:text-primary focus:outline-none transition-colors">
+                            <i data-lucide="eye" class="h-5 w-5" id="eyeIcon"></i>
+                            <i data-lucide="eye-off" class="h-5 w-5 hidden" id="eyeOffIcon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Remember Me & Forgot Password -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <input type="checkbox" id="remember" name="remember"
+                           class="h-4 w-4 dark:bg-dark-100 bg-light-50 dark:border-dark-200 border-light-300 rounded dark:text-primary text-primary focus:ring-primary">
+                    <label for="remember" class="ml-2 block text-sm dark:text-gray-300 text-gray-700">
+                        Remember me
+                    </label>
+                </div>
+                
+                <a href="https://swantradecapital.com/forgot-password" class="text-sm font-medium text-primary hover:text-primary-600 transition-colors">
+                    Forgot password?
+                </a>
+            </div>
+            
+            <!-- Submit Button -->
+            <div>
+                <button type="submit" class="w-full flex justify-center items-center px-4 py-3 border border-transparent rounded-lg shadow-md text-white bg-primary hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+                    <i data-lucide="log-in" class="h-5 w-5 mr-2"></i>
+                    <span class="font-medium">Sign In</span>
+                </button>
+            </div>
+            
+            <!-- Social Login -->
+                    </form>
+        
+        <!-- Sign Up Link -->
+        <div class="mt-8 text-center">
+            <p class="text-sm dark:text-gray-400 text-gray-600">
+                Don't have an account? 
+                <a href="verify" class="font-medium text-primary hover:text-primary-600 transition-colors">
+                    Sign up now
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Security Notice -->
+<div class="mt-8 text-center">
+    <div class="inline-flex items-center text-xs dark:text-gray-500 text-gray-500">
+        <i data-lucide="shield" class="h-3 w-3 mr-1"></i>
+        <span>Secure login - Your data is protected</span>
+    </div>
+</div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <footer class="py-4">
+                <div class="container mx-auto px-4">
+                    <p class="text-center text-sm dark:text-gray-400 text-gray-600">
+                        © 2026 Swan Trade Capital. All rights reserved.
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Core Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lucide icons
+            lucide.createIcons();
+            
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    if (document.documentElement.classList.contains('dark')) {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('darkMode', 'false');
+                    } else {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('darkMode', 'true');
+                    }
+                });
+            }
+            
+            // Random illustration and text based on page
+            const pageType = document.title.toLowerCase();
+            const illustrations = [
+                {
+                    image: "https://raw.githubusercontent.com/cruip/open-react-template/refs/heads/master/public/images/features.png",
+                    title: "Welcome to Swan Trade Capital",
+                    description: "Our platform offers secure trading, real-time market data, and expert insights to help you achieve your financial goals."
+                },
+                {
+                    image: "https://raw.githubusercontent.com/cruip/open-react-template/refs/heads/master/public/images/features.png",
+                    title: "Invest with Confidence",
+                    description: "Take control of your financial future with our transparent and secure investment platform."
+                },
+                {
+                    image: "https://raw.githubusercontent.com/cruip/open-react-template/refs/heads/master/public/images/features.png",
+                    title: "Simple, Secure, Reliable",
+                    description: "Our advanced platform provides the tools and resources you need to succeed in today's market."
+                }
+            ];
+            
+            // Select random illustration or based on page type
+            let selectedIllustration;
+            if (pageType.includes('login')) {
+                selectedIllustration = illustrations[0];
+            } else if (pageType.includes('register') || pageType.includes('sign up')) {
+                selectedIllustration = illustrations[1];
+            } else {
+                selectedIllustration = illustrations[2];
+            }
+            
+            // Set illustration and text
+            const illustrationImage = document.getElementById('illustrationImage');
+            const illustrationTitle = document.getElementById('illustrationTitle');
+            const illustrationDescription = document.getElementById('illustrationDescription');
+            
+            if (illustrationImage && illustrationTitle && illustrationDescription) {
+                illustrationImage.src = selectedIllustration.image;
+                illustrationTitle.textContent = selectedIllustration.title;
+                illustrationDescription.textContent = selectedIllustration.description;
+            }
+        });
+    </script>
+    
+        <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Password visibility toggle
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+        const eyeIcon = document.getElementById('eyeIcon');
+        const eyeOffIcon = document.getElementById('eyeOffIcon');
+        
+        if (togglePassword && password) {
+            togglePassword.addEventListener('click', function() {
+                // Toggle password visibility
+                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                password.setAttribute('type', type);
+                
+                // Toggle eye icon
+                eyeIcon.classList.toggle('hidden');
+                eyeOffIcon.classList.toggle('hidden');
+            });
+        }
+    });
+</script>
+
+    <!-- Livewire Scripts -->
+
+<script src="/livewire/livewire.js?id=de3fca26689cb5a39af4" data-turbo-eval="false" data-turbolinks-eval="false" ></script>
+<script data-turbo-eval="false" data-turbolinks-eval="false" >
+    if (window.livewire) {
+	    console.warn('Livewire: It looks like Livewire\'s @livewireScripts JavaScript assets have already been loaded. Make sure you aren\'t loading them twice.')
+	}
+
+    window.livewire = new Livewire();
+    window.livewire.devTools(true);
+    window.Livewire = window.livewire;
+    window.livewire_app_url = '';
+    window.livewire_token = 'NjYbYVyOqfcIa4SGe0RVRQW76qWzD3AQKCyJMMUA';
+
+	/* Make sure Livewire loads first. */
+	if (window.Alpine) {
+	    /* Defer showing the warning so it doesn't get buried under downstream errors. */
+	    document.addEventListener("DOMContentLoaded", function () {
+	        setTimeout(function() {
+	            console.warn("Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire\'s scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js")
+	        })
+	    });
+	}
+
+	/* Make Alpine wait until Livewire is finished rendering to do its thing. */
+    window.deferLoadingAlpine = function (callback) {
+        window.addEventListener('livewire:load', function () {
+            callback();
+        });
+    };
+
+    let started = false;
+
+    window.addEventListener('alpine:initializing', function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+</script>
+    <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.4/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
+</body>
+</html>

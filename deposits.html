@@ -1,0 +1,2418 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="cVHdUwFWJ3GYKGfRKcfnpsAlTgFW0CDiZazwDqTG">
+    <title>Swan Trade Capital | Fund your account</title>
+    
+    <link rel="icon" href="https://swantradecapital.com/storage/app/public/photos/xA50CiCxzXfeDLJbvKTDt2MIDx7w1Qxvf0nnFJSH.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    screens: {
+                        'xs': '375px',
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#EF4444',
+                            '50': '#F8F0EC',
+                            '100': '#F1E2D9',
+                            '200': '#E4C7B4',
+                            '300': '#D7AB8F',
+                            '400': '#EF4444',
+                            '500': '#B8724A',
+                            '600': '#9A5E3C',
+                            '700': '#7C4B2E',
+                            '800': '#5D381F',
+                            '900': '#3F2511',
+                        },
+                        secondary: {
+                            DEFAULT: '#4A9D7F',
+                            '50': '#E8F5F0',
+                            '100': '#D1EBE1',
+                            '200': '#A3D7C3',
+                            '300': '#76C3A5',
+                            '400': '#4A9D7F',
+                            '500': '#3C7F65',
+                            '600': '#2E614D',
+                            '700': '#214435',
+                            '800': '#13261E',
+                            '900': '#040906',
+                        },
+                        tertiary: {
+                            DEFAULT: '#627EEA', // Ethereum blue
+                            '50': '#EDF0FC',
+                            '100': '#DBE1F9',
+                            '200': '#B7C3F3',
+                            '300': '#93A6ED',
+                            '400': '#627EEA',
+                            '500': '#3053E4',
+                            '600': '#173BCE',
+                            '700': '#122FA8',
+                            '800': '#0D2382',
+                            '900': '#08165C',
+                        },
+                        accent: {
+                            DEFAULT: '#F0B90B', // Binance yellow
+                            '50': '#FEF9E6',
+                            '100': '#FDF3CC',
+                            '200': '#FAE699',
+                            '300': '#F7DA66',
+                            '400': '#F0B90B',
+                            '500': '#C39508',
+                            '600': '#967106',
+                            '700': '#694D04',
+                            '800': '#3C2A02',
+                            '900': '#0F0A01',
+                        },
+                        danger: {
+                            DEFAULT: '#FF6B6B', 
+                            '50': '#FFF0F0',
+                            '100': '#FFE0E0',
+                            '200': '#FFC2C2',
+                            '300': '#FFA3A3',
+                            '400': '#FF6B6B',
+                            '500': '#FF3838',
+                            '600': '#FF0505',
+                            '700': '#D10000',
+                            '800': '#9E0000',
+                            '900': '#6B0000',
+                        },
+                        purple: {
+                            DEFAULT: '#9164CC',
+                            '50': '#F3EDFA',
+                            '100': '#E7DCF5',
+                            '200': '#CFB9EB',
+                            '300': '#B796E0',
+                            '400': '#9164CC',
+                            '500': '#7642BE',
+                            '600': '#5D33A0',
+                            '700': '#44267C',
+                            '800': '#2C1958',
+                            '900': '#140B34',
+                        },
+                        dark: {
+                            DEFAULT: '#1A1F2C',
+                            '50': '#1E2430',
+                            '100': '#2A303C',
+                            '200': '#343D4F',
+                            '300': '#3E4A62',
+                        },
+                        light: {
+                            DEFAULT: '#F8FAFC',
+                            '50': '#FFFFFF',
+                            '100': '#F1F5F9',
+                            '200': '#E2E8F0',
+                            '300': '#CBD5E1',
+                        },
+                    },
+                    animation: {
+                        'in': 'fadeIn 0.3s ease-in-out',
+                        'slide-in-top': 'slideInFromTop 0.3s ease-in-out',
+                        'slide-in-bottom': 'slideInFromBottom 0.3s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            'from': { opacity: '0' },
+                            'to': { opacity: '1' }
+                        },
+                        slideInFromTop: {
+                            'from': { transform: 'translateY(-20px)', opacity: '0' },
+                            'to': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        slideInFromBottom: {
+                            'from': { transform: 'translateY(20px)', opacity: '0' },
+                            'to': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    
+    <!-- Additional libraries that are still needed -->
+    <link rel="stylesheet" href="https://swantradecapital.com/dash2/libs/sweetalert2/dist/sweetalert2.min.css">
+    <script src="https://swantradecapital.com/dash2/libs/sweetalert/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/af-2.3.5/b-1.6.3/b-flash-1.6.3/b-html5-1.6.3/b-print-1.6.3/r-2.2.5/datatables.min.css" />
+    
+    <!-- Alpine.js -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script>
+    
+    <!-- Select2 for dropdowns -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+  <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <link rel="stylesheet" href="https://jcsoci.github.io/FontAwesome6Pro/css/all.min.css" >
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --homepage-font: "Montserrat", sans-serif;
+        }
+
+        body,
+        button,
+        input,
+        select,
+        textarea {
+            font-family: var(--homepage-font);
+        }
+
+        @keyframes  fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes  slideInFromTop {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes  slideInFromBottom {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .slide-in-from-top {
+            animation: slideInFromTop 0.3s ease-in-out;
+        }
+        .slide-in-from-bottom {
+            animation: slideInFromBottom 0.3s ease-in-out;
+        }
+
+        [x-cloak] {
+            display: none !important;
+        }
+        
+        /* DataTables responsive fixes */
+        .dataTables_wrapper {
+            overflow-x: auto;
+            width: 100%;
+        }
+        
+        /* Select2 dropdown fixes */
+        .select2-container {
+            width: 100% !important;
+        }
+        
+        /* Light and Dark mode styles */
+        .dark {
+            color-scheme: dark;
+        }
+        
+        /* Dark mode styles for DataTables */
+        .dark .dataTables_wrapper .dataTable {
+            background-color: #1E2430;
+            color: #fff;
+        }
+        .dark .dataTables_wrapper .dataTable th,
+        .dark .dataTables_wrapper .dataTable td {
+            border-color: #2A303C;
+        }
+        .dark .dataTables_wrapper .dataTables_info,
+        .dark .dataTables_wrapper .dataTables_paginate {
+            color: #CBD5E1 !important;
+        }
+        
+        /* Light mode styles for Select2 */
+        .light .select2-container--default .select2-selection--single {
+            background-color: #F8FAFC;
+            border-color: #CBD5E1;
+        }
+        
+        /* Dark mode styles for Select2 */
+        .dark .select2-container--default .select2-selection--single {
+            background-color: #1E2430;
+            border-color: #2A303C;
+            color: #F8FAFC;
+        }
+        .dark .select2-container--default .select2-selection--single .select2-selection__rendered {
+            color: #F8FAFC;
+        }
+        
+        /* Live Notification Styles */
+        .live-notification {
+            pointer-events: auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .live-notification:hover {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        @keyframes  slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes  slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+
+        /* ~10% smaller UI: main column + mobile bar (sidebar unscaled so fixed overlay works) */
+        .user-dashboard-shell,
+        .user-dashboard-mobile-nav {
+            zoom: 0.9;
+        }
+    </style>
+    <!-- Livewire Styles -->
+<style >
+    [wire\:loading], [wire\:loading\.delay], [wire\:loading\.inline-block], [wire\:loading\.inline], [wire\:loading\.block], [wire\:loading\.flex], [wire\:loading\.table], [wire\:loading\.grid], [wire\:loading\.inline-flex] {
+        display: none;
+    }
+
+    [wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short], [wire\:loading\.delay\.long], [wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest] {
+        display:none;
+    }
+
+    [wire\:offline] {
+        display: none;
+    }
+
+    [wire\:dirty]:not(textarea):not(input):not(select) {
+        display: none;
+    }
+
+    input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill {
+        animation-duration: 50000s;
+        animation-name: livewireautofill;
+    }
+
+    @keyframes livewireautofill { from {} }
+</style>
+    </head>
+
+<body class="dark:bg-dark bg-light-100 dark:text-white text-dark transition-colors duration-200">
+        
+    <!-- Application container (zoom only main column so sidebar fixed/overlay stays correct) -->
+    <div class="flex flex-col md:flex-row min-h-screen relative">
+        <!-- Sidebar Overlay -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[10000] hidden transition-opacity duration-300"></div>
+
+<!-- Modern Sidebar -->
+<div class="fixed inset-y-0 left-0 z-[10010] w-72 transform dark:bg-gradient-to-b dark:from-dark-50 dark:to-dark bg-gradient-to-b from-light-100 to-light overflow-y-auto transition-all duration-300 ease-in-out md:relative md:translate-x-0 -translate-x-full shadow-2xl" id="sidenav-main">
+    <div class="flex flex-col h-full">
+        <!-- Sidebar Header with Branding -->
+        <div class="flex h-16 items-center mt-4 dark:border-dark-100 border-light-200 border-b px-6">
+           <a href="https://swantradecapital.com/dashboard" class="flex items-center gap-2 font-bold text-xl">
+            <img src="https://swantradecapital.com/storage/app/public/photos/OLyPkK78IllyMFmXHomXdOLYUar4vzdWI4uYVmrp.png" alt="logo" class="h-8">
+        </a>
+            <div class="ml-auto md:hidden">
+                <button class="dark:text-white text-dark-100 bg-transparent hover:text-primary transition-colors" id="closeSideNav">
+                    <i data-lucide="x" class="h-5 w-5"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- User Profile Section with Modern Design -->
+        <div class="relative mt-6 px-4 mb-6">
+            <div class="p-4 rounded-xl dark:bg-dark-100/50 bg-light-200/50 backdrop-blur-sm dark:border-dark-100/40 border-light-200/40 border relative overflow-hidden group">
+                <!-- Decorative background elements -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-b from-primary/10 to-transparent rounded-full blur-2xl transform translate-x-8 -translate-y-8 group-hover:translate-y-0 transition-transform duration-700"></div>
+                <div class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-t from-secondary/10 to-transparent rounded-full blur-2xl transform -translate-x-8 translate-y-8 group-hover:translate-y-0 transition-transform duration-700"></div>
+                
+                <!-- User info with better layout -->
+                <div class="flex flex-col items-center relative">
+                    <div class="relative mb-3">
+                        <!-- Avatar with gradient ring -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full blur-[1px]"></div>
+                                                    <div class="relative bg-primary h-16 w-16 rounded-full flex items-center justify-center text-xl font-bold dark:border-dark/80 border-light-300/80 border-2">
+                                ch
+                            </div>
+                                                
+                        <!-- Status indicator -->
+                        <div class="absolute bottom-0 right-0 h-4 w-4 bg-secondary rounded-full dark:border-dark border-light-300 border-2 shadow-lg"></div>
+                    </div>
+                    
+                    <h5 class="font-medium dark:text-white text-dark mb-0.5">cheryl curtis</h5>
+                    <span class="text-xs dark:text-gray-400 text-gray-600 mb-3 dark:bg-dark-50/50 bg-light-200/50 px-2 py-0.5 rounded-full">online</span>
+                    
+                    <!-- Balance display with card-like design -->
+                    <div class="dark:bg-gradient-to-r dark:from-dark-50 dark:to-dark-100 bg-gradient-to-r from-light-100 to-light-200 p-3 rounded-lg w-full flex items-center gap-2 dark:border-dark-100/60 border-light-200/60 border relative overflow-hidden">
+                        <div class="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                            <i data-lucide="wallet" class="h-4 w-4 text-primary"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs dark:text-gray-400 text-gray-600 block">Balance</span>
+                            <span class="text-sm font-medium dark:text-white text-dark">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Menu with Category Sections -->
+        <div class="flex-1 px-3 py-2">
+            <div class="space-y-6">
+                <!-- Main Navigation Section -->
+                <div>
+                    <p class="text-xs font-medium text-gray-500 uppercase px-3 mb-2">Main</p>
+                    <nav class="space-y-1">
+                        <a href="https://swantradecapital.com/dashboard" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="home" class="h-5 w-5"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        
+                        <a href="https://swantradecapital.com/dashboard/account-settings" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="user" class="h-5 w-5"></i>
+                            <span>Profile</span>
+                        </a>
+                    </nav>
+                </div>
+                
+                <!-- Finance Section -->
+                <div>
+                    <p class="text-xs font-medium text-gray-500 uppercase px-3 mb-2">Finance</p>
+                    <nav class="space-y-1">
+                        <a href="https://swantradecapital.com/dashboard/deposits" class="flex items-center gap-3 rounded-lg bg-primary/10 text-primary px-3 py-2 transition-colors">
+                            <i data-lucide="download" class="h-5 w-5"></i>
+                            <span>Deposit</span>
+                        </a>
+                        
+                                                <a href="https://swantradecapital.com/dashboard/withdrawals" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="upload" class="h-5 w-5"></i>
+                            <span>Withdraw</span>
+                        </a>
+                                                
+                        <a href="https://swantradecapital.com/dashboard/accounthistory" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="history" class="h-5 w-5"></i>
+                            <span>Transactions</span>
+                        </a>
+                        
+                                                <a href="https://swantradecapital.com/dashboard/transfer-funds" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="send" class="h-5 w-5"></i>
+                            <span>Transfer Funds</span>
+                        </a>
+                                            </nav>
+                </div>
+                
+                <!-- Investment Section -->
+                                <div>
+                    <p class="text-xs font-medium text-gray-500 uppercase px-3 mb-2">Investments</p>
+                    <nav class="space-y-1">
+                        <a href="https://swantradecapital.com/dashboard/buy-plan" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="briefcase" class="h-5 w-5"></i>
+                            <span>Trading Plans</span>
+                        </a>
+                        
+                        <a href="https://swantradecapital.com/dashboard/myplans/All" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="folder" class="h-5 w-5"></i>
+                            <span>My Plans</span>
+                        </a>
+                        
+                        <a href="https://swantradecapital.com/dashboard/tradinghistory" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="trending-up" class="h-5 w-5"></i>
+                            <span>Profit History</span>
+                        </a>
+                    </nav>
+                </div>
+                                
+                <!-- Additional Services Section -->
+                <div>
+                    <p class="text-xs font-medium text-gray-500 uppercase px-3 mb-2">Services</p>
+                    <nav class="space-y-1">
+                        <a href="https://swantradecapital.com/dashboard/trading" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="bar-chart-2" class="h-5 w-5"></i>
+                            <span>Trading Platform</span>
+                        </a>
+                        
+                        <a href="https://swantradecapital.com/dashboard/copy-trading" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="copy" class="h-5 w-5"></i>
+                            <span>Copy Trading</span>
+                        </a>
+                        
+                        <a href="https://swantradecapital.com/dashboard/bot-trading" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="bot" class="h-5 w-5"></i>
+                            <span>Bot Trading</span>
+                        </a>
+                        
+                                                
+                                                
+                                                
+                        <a href="https://swantradecapital.com/dashboard/referuser" class="flex items-center gap-3 rounded-lg dark:text-gray-300 text-gray-700 hover:bg-dark-100/60 dark:hover:bg-dark-100/60 hover:bg-light-200/60 px-3 py-2 transition-colors">
+                            <i data-lucide="users" class="h-5 w-5"></i>
+                            <span>Referrals</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section with Enhanced Design -->
+        <div class="mt-auto px-4 pb-6">
+            <div class="rounded-xl overflow-hidden bg-gradient-to-r from-primary/80 to-secondary/80 p-0.5">
+                <div class="dark:bg-dark-50 bg-light-100 rounded-lg p-4">
+                    <div class="flex items-start gap-3">
+                        <div class="bg-primary/20 rounded-full p-2">
+                            <i data-lucide="life-buoy" class="h-5 w-5 text-primary"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-medium dark:text-white text-dark text-sm mb-1">Need Help?</h5>
+                            <p class="text-xs dark:text-gray-300 text-gray-700 mb-3">
+                                Our support team is available 24/7
+                            </p>
+                            <a href="https://swantradecapital.com/dashboard/support" class="flex items-center justify-center gap-2 dark:bg-dark-100 bg-light-200 hover:bg-light-200/80 dark:hover:bg-dark-100/80 dark:text-white text-dark rounded-lg py-2 text-xs font-medium transition-colors">
+                                <i data-lucide="message-circle" class="h-3.5 w-3.5"></i>
+                                <span>Contact Support</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Get elements
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebar = document.getElementById('sidenav-main');
+        const closeBtn = document.getElementById('closeSideNav');
+        const overlay = document.getElementById('sidebar-overlay');
+
+        // Helper function to open sidebar
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+            setTimeout(() => {
+                overlay.classList.add('opacity-100');
+            }, 50);
+        }
+        
+        // Helper function to close sidebar
+        function closeSidebar() {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+            overlay.classList.remove('opacity-100');
+            document.body.classList.remove('overflow-hidden');
+        }
+        
+        // Toggle sidebar on mobile menu button click
+        if (mobileMenuToggle && sidebar) {
+            mobileMenuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (sidebar.classList.contains('-translate-x-full')) {
+                    openSidebar();
+                } else {
+                    closeSidebar();
+                }
+            });
+        }
+        
+        // Close sidebar on close button click
+        if (closeBtn && sidebar) {
+            closeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeSidebar();
+            });
+        }
+        
+        // Close sidebar when clicking on overlay
+        if (overlay) {
+            overlay.addEventListener('click', function() {
+                closeSidebar();
+            });
+        }
+        
+        // Close sidebar when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideSidebar = sidebar.contains(event.target);
+            const isClickOnToggle = mobileMenuToggle && (event.target === mobileMenuToggle || mobileMenuToggle.contains(event.target));
+            
+            if (!isClickInsideSidebar && !isClickOnToggle && !sidebar.classList.contains('-translate-x-full')) {
+                closeSidebar();
+            }
+        });
+        
+        // Close sidebar when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeSidebar();
+            }
+        });
+    });
+</script>        
+        <!-- Main Content -->
+    <div class="user-dashboard-shell w-full flex flex-col">
+    <!-- Top Menu -->
+    <!-- Enhanced Top Navigation Bar -->
+<header class="flex h-16 items-center justify-between dark:border-dark-100 border-light-200 border-b px-4 sm:px-6 sticky top-0 z-[9999] dark:bg-dark-50 bg-light-100 shadow-sm">
+    <div class="flex items-center gap-4">
+        <!-- Mobile Menu Toggle with Improved Design -->
+        <button class="md:hidden dark:text-white text-dark p-1.5 rounded-lg dark:hover:bg-dark-100/60 hover:bg-light-200/60 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50" id="mobileMenuToggle">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 7H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M4 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M4 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        
+        <!-- Mobile Logo with Enhanced Appearance -->
+        <div class="flex items-center gap-3 md:hidden">
+            <a href="https://swantradecapital.com/dashboard" class="flex items-center shrink-0" aria-label="Swan Trade Capital">
+                                    <img src="https://swantradecapital.com/storage/app/public/photos/OLyPkK78IllyMFmXHomXdOLYUar4vzdWI4uYVmrp.png" alt="Swan Trade Capital" class="h-8 w-auto max-w-[10rem] object-contain object-left">
+                            </a>
+        </div>
+
+        <!-- Desktop logo (md+) -->
+        <a href="https://swantradecapital.com/dashboard" class="hidden md:flex items-center shrink-0 min-w-0" aria-label="Swan Trade Capital">
+                            <img src="https://swantradecapital.com/storage/app/public/photos/OLyPkK78IllyMFmXHomXdOLYUar4vzdWI4uYVmrp.png" alt="Swan Trade Capital" class="h-8 w-auto max-w-[11rem] object-contain object-left">
+                    </a>
+    </div>
+    
+    <!-- Right-side items with Better Layout -->
+    <div class="flex items-center gap-1.5 sm:gap-3">
+        <div class="relative" x-data="{ open: false }">
+    <button type="button" @click="open = !open"
+        class="flex items-center gap-1 p-1.5 rounded-lg text-xs dark:text-gray-300 text-gray-700 dark:bg-dark-100/40 bg-light-200/40 hover:bg-light-200/80 dark:hover:bg-dark-100/80 dark:border-dark-100 border-light-200 border transition-colors max-w-[9rem]"
+        title="Language" aria-expanded="false" aria-haspopup="true">
+        <i data-lucide="languages" class="h-4 w-4 shrink-0"></i>
+        <span class="hidden sm:inline truncate">English</span>
+        <i data-lucide="chevron-down" class="h-3.5 w-3.5 shrink-0 opacity-70 hidden sm:block"></i>
+    </button>
+    <div x-show="open" @click.away="open = false" x-cloak
+        class="absolute right-0 mt-2 max-h-64 min-w-[11rem] overflow-auto rounded-lg dark:bg-dark-50 bg-light-100 dark:border-dark-100 border-light-200 border shadow-lg z-[10001]"
+        style="display: none;">
+                    <a href="https://swantradecapital.com/locale/en"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 text-primary font-medium">English</a>
+                    <a href="https://swantradecapital.com/locale/fr"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Français</a>
+                    <a href="https://swantradecapital.com/locale/es"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Español</a>
+                    <a href="https://swantradecapital.com/locale/ja"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">日本語</a>
+                    <a href="https://swantradecapital.com/locale/zh_CN"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">简体中文</a>
+                    <a href="https://swantradecapital.com/locale/zh_TW"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">繁體中文</a>
+                    <a href="https://swantradecapital.com/locale/pt"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Português</a>
+                    <a href="https://swantradecapital.com/locale/af"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Afrikaans</a>
+                    <a href="https://swantradecapital.com/locale/de"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Deutsch</a>
+                    <a href="https://swantradecapital.com/locale/it"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Italiano</a>
+                    <a href="https://swantradecapital.com/locale/ru"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Русский</a>
+                    <a href="https://swantradecapital.com/locale/ar"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">العربية</a>
+                    <a href="https://swantradecapital.com/locale/hi"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">हिन्दी</a>
+                    <a href="https://swantradecapital.com/locale/ko"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">한국어</a>
+                    <a href="https://swantradecapital.com/locale/tr"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Türkçe</a>
+                    <a href="https://swantradecapital.com/locale/nl"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Nederlands</a>
+                    <a href="https://swantradecapital.com/locale/bn"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">বাংলা</a>
+                    <a href="https://swantradecapital.com/locale/ur"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">اردو</a>
+                    <a href="https://swantradecapital.com/locale/fa"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">فارسی</a>
+                    <a href="https://swantradecapital.com/locale/id"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Bahasa Indonesia</a>
+                    <a href="https://swantradecapital.com/locale/ms"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Bahasa Melayu</a>
+                    <a href="https://swantradecapital.com/locale/vi"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Tiếng Việt</a>
+                    <a href="https://swantradecapital.com/locale/th"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">ไทย</a>
+                    <a href="https://swantradecapital.com/locale/tl"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Filipino</a>
+                    <a href="https://swantradecapital.com/locale/sw"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Kiswahili</a>
+                    <a href="https://swantradecapital.com/locale/am"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">አማርኛ</a>
+                    <a href="https://swantradecapital.com/locale/ha"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Hausa</a>
+                    <a href="https://swantradecapital.com/locale/yo"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Yorùbá</a>
+                    <a href="https://swantradecapital.com/locale/ig"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Igbo</a>
+                    <a href="https://swantradecapital.com/locale/zu"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">isiZulu</a>
+                    <a href="https://swantradecapital.com/locale/xh"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">isiXhosa</a>
+                    <a href="https://swantradecapital.com/locale/so"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Soomaali</a>
+                    <a href="https://swantradecapital.com/locale/rw"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Ikinyarwanda</a>
+                    <a href="https://swantradecapital.com/locale/pl"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Polski</a>
+                    <a href="https://swantradecapital.com/locale/uk"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Українська</a>
+                    <a href="https://swantradecapital.com/locale/cs"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Čeština</a>
+                    <a href="https://swantradecapital.com/locale/sk"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Slovenčina</a>
+                    <a href="https://swantradecapital.com/locale/sl"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Slovenščina</a>
+                    <a href="https://swantradecapital.com/locale/hr"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Hrvatski</a>
+                    <a href="https://swantradecapital.com/locale/sr"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Српски</a>
+                    <a href="https://swantradecapital.com/locale/bs"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Bosanski</a>
+                    <a href="https://swantradecapital.com/locale/ro"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Română</a>
+                    <a href="https://swantradecapital.com/locale/hu"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Magyar</a>
+                    <a href="https://swantradecapital.com/locale/el"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Ελληνικά</a>
+                    <a href="https://swantradecapital.com/locale/bg"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Български</a>
+                    <a href="https://swantradecapital.com/locale/lt"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Lietuvių</a>
+                    <a href="https://swantradecapital.com/locale/lv"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Latviešu</a>
+                    <a href="https://swantradecapital.com/locale/et"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Eesti</a>
+                    <a href="https://swantradecapital.com/locale/da"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Dansk</a>
+                    <a href="https://swantradecapital.com/locale/sv"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Svenska</a>
+                    <a href="https://swantradecapital.com/locale/no"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Norsk</a>
+                    <a href="https://swantradecapital.com/locale/fi"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Suomi</a>
+                    <a href="https://swantradecapital.com/locale/is"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Íslenska</a>
+                    <a href="https://swantradecapital.com/locale/ga"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Gaeilge</a>
+                    <a href="https://swantradecapital.com/locale/mt"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Malti</a>
+                    <a href="https://swantradecapital.com/locale/he"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">עברית</a>
+                    <a href="https://swantradecapital.com/locale/ta"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">தமிழ்</a>
+                    <a href="https://swantradecapital.com/locale/te"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">తెలుగు</a>
+                    <a href="https://swantradecapital.com/locale/kn"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">ಕನ್ನಡ</a>
+                    <a href="https://swantradecapital.com/locale/ml"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">മലയാളം</a>
+                    <a href="https://swantradecapital.com/locale/mr"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">मराठी</a>
+                    <a href="https://swantradecapital.com/locale/gu"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">ગુજરાતી</a>
+                    <a href="https://swantradecapital.com/locale/pa"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">ਪੰਜਾਬੀ</a>
+                    <a href="https://swantradecapital.com/locale/ne"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">नेपाली</a>
+                    <a href="https://swantradecapital.com/locale/si"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">සිංහල</a>
+                    <a href="https://swantradecapital.com/locale/my"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">မြန်မာ</a>
+                    <a href="https://swantradecapital.com/locale/km"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">ខ្មែរ</a>
+                    <a href="https://swantradecapital.com/locale/lo"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">ລາວ</a>
+                    <a href="https://swantradecapital.com/locale/mn"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Монгол</a>
+                    <a href="https://swantradecapital.com/locale/kk"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Қазақ</a>
+                    <a href="https://swantradecapital.com/locale/uz"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Oʻzbek</a>
+                    <a href="https://swantradecapital.com/locale/az"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Azərbaycan dili</a>
+                    <a href="https://swantradecapital.com/locale/hy"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">Հայերեն</a>
+                    <a href="https://swantradecapital.com/locale/ka"
+                class="block px-3 py-2 text-xs sm:text-sm hover:dark:bg-dark-100 hover:bg-light-200 dark:text-gray-200 text-gray-800">ქართული</a>
+            </div>
+</div>
+        <!-- Theme Toggle Button -->
+       <button id="themeToggle" onclick="toggleTheme()" class="p-1.5 dark:text-gray-300 text-gray-700 hover:text-dark dark:hover:text-white dark:bg-dark-100/40 bg-light-200/40 hover:bg-light-200/80 dark:hover:bg-dark-100/80 rounded-lg transition-colors" title="Toggle Theme">
+            <!-- Sun icon for light theme (shown in dark mode) -->
+            <i data-lucide="sun" class="h-4 w-4"></i>
+            <!-- Moon icon for dark theme (shown in light mode) -->
+            <i data-lucide="moon" class="h-4 w-4"></i>
+        </button>
+        
+        <!-- KYC Verification with Improved Design -->
+                <div class="relative" x-data="{ open: false }">
+                        <button @click="open = !open" class="flex items-center dark:text-gray-300 text-gray-700 hover:text-dark dark:hover:text-white dark:bg-dark-100/40 bg-light-200/40 hover:bg-light-200/80 dark:hover:bg-dark-100/80 px-2 py-1 rounded-lg text-xs dark:border-dark-100 border-light-200 border transition-colors">
+                <i class="fas fa-shield-alt h-3.5 w-3.5 mr-1"></i>
+                <span class="hidden sm:inline-block">KYC</span>
+            </button>
+            <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-56 dark:bg-dark-50 bg-light-100 dark:border-dark-100 border-light-200 border rounded-lg shadow-lg overflow-hidden z-[10000]">
+                <div class="bg-gradient-to-r dark:from-dark-100 dark:to-dark-100/30 from-light-200 to-light-200/30 px-4 py-3 dark:border-dark-100 border-light-200 border-b">
+                    <h6 class="text-sm font-medium dark:text-white text-dark">KYC Verification</h6>
+                    <p class="text-xs dark:text-gray-400 text-gray-600 mt-0.5">Verify your identity to unlock all features</p>
+                </div>
+                <div class="p-4 text-center">
+                                            <div class="dark:bg-dark-100/40 bg-light-200/40 rounded-lg p-3 mb-3">
+                            <i class="fas fa-shield-alt h-8 w-8 text-primary mx-auto mb-2"></i>
+                            <span class="text-xs dark:text-gray-300 text-gray-700 block">Your account is not verified</span>
+                        </div>
+                        <a href="https://swantradecapital.com/dashboard/verify-account" class="inline-flex items-center justify-center gap-1.5 bg-gradient-to-r from-primary to-primary/80 text-white text-xs font-medium px-4 py-2 rounded-lg hover:from-primary/90 hover:to-primary/70 transition-all">
+                            <i class="fas fa-shield-check h-3.5 w-3.5"></i>
+                            <span>Verify Account</span>
+                        </a>
+                                    </div>
+            </div>
+                    </div>
+                
+        <!-- Notifications with Enhanced Design -->
+        <div class="relative" 
+            x-data="{ 
+                open: false, 
+                notifications: [], 
+                unreadCount: 0, 
+                loading: true, 
+                init() { 
+                    this.fetchNotifications(); 
+                    this.setupPolling(); 
+                }, 
+                fetchNotifications() { 
+                    this.loading = true; 
+                    fetch('https://swantradecapital.com/dashboard/api/notifications/latest') 
+                        .then(response => response.json()) 
+                        .then(data => { 
+                            this.notifications = data.notifications; 
+                            this.unreadCount = data.unread_count; 
+                            this.loading = false; 
+                        }) 
+                        .catch(error => { 
+                            console.error('Error fetching notifications:', error); 
+                            this.loading = false; 
+                        }); 
+                }, 
+                setupPolling() { 
+                    setInterval(() => { 
+                        this.fetchNotifications(); 
+                    }, 30000); 
+                } 
+            }"
+            x-init="init()"
+        >
+            <button @click="open = !open; if(open) fetchNotifications();" class="p-1.5 dark:text-gray-300 text-gray-700 hover:text-dark dark:hover:text-white dark:bg-dark-100/40 bg-light-200/40 hover:bg-light-200/80 dark:hover:bg-dark-100/80 rounded-lg transition-colors relative" title="Notifications">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M15 17H9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    <path d="M18 16V11C18 7.69 15.31 5 12 5C8.69 5 6 7.69 6 11V16L4.5 17.5H19.5L18 16Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="M10 19C10.4 20 11.1 20.5 12 20.5C12.9 20.5 13.6 20 14 19" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                </svg>
+                <span x-show="unreadCount > 0" x-text="unreadCount > 9 ? '9+' : unreadCount" class="absolute -right-1 -top-1 h-4 w-4 flex items-center justify-center bg-primary text-[10px] text-white rounded-full dark:border-dark border-light-100 border"></span>
+            </button>
+            
+            <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-72 dark:bg-dark-50 bg-light-100 dark:border-dark-100 border-light-200 border rounded-lg shadow-lg overflow-hidden z-[10000]">
+                <div class="bg-gradient-to-r dark:from-dark-100 dark:to-dark-100/30 from-light-200 to-light-200/30 px-4 py-3 flex items-center justify-between dark:border-dark-100 border-light-200 border-b">
+                    <h6 class="text-sm font-medium dark:text-white text-dark">Notifications</h6>
+                    <span x-show="unreadCount > 0" x-text="unreadCount" class="text-xs bg-primary text-white px-1.5 py-0.5 rounded-full"></span>
+                </div>
+                
+                <div class="max-h-[280px] overflow-y-auto">
+                    <!-- Loading State -->
+                    <template x-if="loading">
+                        <div class="p-4 text-center">
+                            <div class="inline-block h-6 w-6 animate-spin rounded-full border-2 border-solid border-primary border-r-transparent motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
+                                <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+                            </div>
+                        </div>
+                    </template>
+                    
+                    <!-- Empty State -->
+                    <template x-if="!loading && notifications.length === 0">
+                        <div class="p-4 text-center">
+                            <div class="h-12 w-12 rounded-full bg-light-200/60 dark:bg-dark-100/60 flex items-center justify-center mx-auto mb-2">
+                                <svg class="h-6 w-6 dark:text-gray-400 text-gray-600" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M4 4L20 20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                                    <path d="M15 17H9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                                    <path d="M18 16V11C18 7.69 15.31 5 12 5C10.86 5 9.79 5.32 8.87 5.88" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M6 11V16L4.5 17.5H14.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <p class="text-xs dark:text-gray-400 text-gray-600">No notifications yet</p>
+                        </div>
+                    </template>
+                    
+                    <!-- Notifications List -->
+                    <template x-if="!loading && notifications.length > 0">
+                        <div>
+                            <template x-for="notification in notifications" :key="notification.id">
+                                <a :href="'https://swantradecapital.com/dashboard/notifications/mark-as-read/' + notification.id" class="block p-3 dark:border-dark-100/60 border-light-200/60 border-b hover:bg-dark-100/30 dark:hover:bg-dark-100/30 hover:bg-light-200/30 transition-colors" :class="{ 'dark:bg-dark-100/50 bg-light-200/50': !notification.is_read }">
+                                    <div class="flex gap-3">
+                                        <div :class="notification.icon_bg_color || 'bg-primary/10'" class="h-8 w-8 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i :class="'fas ' + (notification.icon || 'fa-bell')" class="h-4 w-4"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs dark:text-white text-dark font-medium" x-text="notification.title || 'Notification'"></p>
+                                            <p class="text-xs dark:text-gray-400 text-gray-600 mt-0.5" x-text="notification.message"></p>
+                                            <p class="text-xs dark:text-gray-500 text-gray-500 mt-1" x-text="new Date(notification.created_at).toLocaleString()"></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+                
+                <div class="p-2 dark:border-dark-100 border-light-200 border-t flex justify-between">
+                    <a x-show="unreadCount > 0" href="https://swantradecapital.com/dashboard/notifications/mark-all-as-read" class="block text-xs text-primary hover:text-primary/80 py-1 px-2">
+                        Mark all as read
+                    </a>
+                    <a href="https://swantradecapital.com/dashboard/notifications" class="block text-xs text-primary hover:text-primary/80 py-1 px-2 ml-auto">
+                        View all
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- User Profile Dropdown with Enhanced Design -->
+        <div class="relative" x-data="{ open: false }">
+            <button @click="open = !open" class="flex items-center gap-2 p-1 rounded-lg dark:hover:bg-dark-100 hover:bg-light-200 transition-colors">
+                <div class="relative">
+                                            <div class="relative h-7 w-7 sm:h-8 sm:w-8 bg-primary rounded-full flex items-center justify-center text-sm font-medium dark:border-dark-50 border-light-300 border-2">
+                            ch
+                        </div>
+                                    </div>
+                <span class="hidden md:block text-sm font-medium dark:text-white text-dark">curtisc1961</span>
+                <i class="fas fa-chevron-down h-4 w-4 dark:text-gray-400 text-gray-600 hidden md:block"></i>
+            </button>
+            
+            <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-56 dark:bg-dark-50 bg-light-100 dark:border-dark-100 border-light-200 border rounded-lg shadow-lg overflow-hidden z-[10000]">
+                <div class="bg-gradient-to-r dark:from-dark-100 dark:to-dark-100/30 from-light-200 to-light-200/30 px-4 py-3 dark:border-dark-100 border-light-200 border-b">
+                    <h6 class="text-sm font-medium dark:text-white text-dark">cheryl curtis</h6>
+                    <p class="text-xs dark:text-gray-400 text-gray-600 mt-0.5">curtischery1961@gmail.com</p>
+                </div>
+                
+                <div class="py-2">
+                    <a href="https://swantradecapital.com/dashboard/account-settings" class="flex items-center gap-2 px-4 py-2 text-sm dark:text-gray-300 text-gray-700 dark:hover:bg-dark-100/60 hover:bg-light-200/60 transition-colors">
+                        <i class="fas fa-user h-4 w-4 dark:text-gray-400 text-gray-600"></i>
+                        <span>My Profile</span>
+                    </a>
+                    <a href="https://swantradecapital.com/dashboard/accounthistory" class="flex items-center gap-2 px-4 py-2 text-sm dark:text-gray-300 text-gray-700 dark:hover:bg-dark-100/60 hover:bg-light-200/60 transition-colors">
+                        <i class="fas fa-history h-4 w-4 dark:text-gray-400 text-gray-600"></i>
+                        <span>Transaction History</span>
+                    </a>
+                    <a href="https://swantradecapital.com/dashboard/support" class="flex items-center gap-2 px-4 py-2 text-sm dark:text-gray-300 text-gray-700 dark:hover:bg-dark-100/60 hover:bg-light-200/60 transition-colors">
+                        <i class="fas fa-life-ring h-4 w-4 dark:text-gray-400 text-gray-600"></i>
+                        <span>Support</span>
+                    </a>
+                </div>
+                
+                <div class="py-2 dark:border-dark-100 border-light-200 border-t">
+                    <a href="https://swantradecapital.com/logout" 
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                       class="flex items-center gap-2 px-4 py-2 text-sm text-danger dark:hover:bg-dark-100/60 hover:bg-light-200/60 transition-colors">
+                        <i class="fas fa-sign-out-alt h-4 w-4"></i>
+                        <span>Logout</span>
+                    </a>
+                    
+                    <form id="logout-form" action="https://swantradecapital.com/logout" method="POST" class="hidden">
+                        <input type="hidden" name="_token" value="cVHdUwFWJ3GYKGfRKcfnpsAlTgFW0CDiZazwDqTG">                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>    <div id="dashboard-stock-ticker" class="shrink-0 border-b dark:border-dark-100 border-light-200 dark:bg-dark-50/80 bg-light-100/90 backdrop-blur-sm">
+    <div class="flex items-stretch min-h-[2.25rem]">
+        <div class="flex items-center gap-2 px-2 sm:px-3 py-1.5 border-r dark:border-dark-100 border-light-200 shrink-0">
+                            <a href="https://swantradecapital.com/dashboard" class="flex items-center shrink-0 opacity-90 hover:opacity-100 transition-opacity" aria-label="Swan Trade Capital">
+                    <img src="https://swantradecapital.com/storage/app/public/photos/OLyPkK78IllyMFmXHomXdOLYUar4vzdWI4uYVmrp.png" alt="Swan Trade Capital" class="h-5 sm:h-6 w-auto max-w-[4.25rem] object-contain object-left">
+                </a>
+                <span class="h-4 w-px shrink-0 dark:bg-dark-100 bg-light-200" aria-hidden="true"></span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider dark:text-gray-400 text-gray-500">Stocks</span>
+        </div>
+        <div class="relative flex-1 overflow-hidden min-w-0 py-1" aria-live="polite">
+            <div id="stock-ticker-loading" class="absolute inset-0 flex items-center px-3 text-[11px] dark:text-gray-500 text-gray-500">
+                Loading quotes…
+            </div>
+            <div id="stock-ticker-viewport" class="hidden overflow-hidden">
+                <div id="stock-ticker-track" class="stock-ticker-track flex items-center gap-x-8 whitespace-nowrap py-0.5"></div>
+            </div>
+        </div>
+        <a href="https://swantradecapital.com/dashboard/trading/stocks"
+           class="hidden sm:flex items-center px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-primary hover:underline shrink-0 border-l dark:border-dark-100 border-light-200">
+            Trade
+        </a>
+    </div>
+</div>
+
+<style>
+    @keyframes  stock-ticker-marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    .stock-ticker-track {
+        width: max-content;
+        animation: stock-ticker-marquee 45s linear infinite;
+    }
+    .stock-ticker-track:hover {
+        animation-play-state: paused;
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .stock-ticker-track {
+            animation: none;
+            flex-wrap: wrap;
+            white-space: normal;
+            row-gap: 0.25rem;
+            justify-content: center;
+            padding: 0.25rem 0.5rem;
+        }
+    }
+</style>
+
+<script>
+(function () {
+    var url = "https:\/\/swantradecapital.com\/dashboard\/api\/stock-ticker";
+    var loadingEl = document.getElementById('stock-ticker-loading');
+    var viewportEl = document.getElementById('stock-ticker-viewport');
+    var trackEl = document.getElementById('stock-ticker-track');
+    if (!trackEl || !viewportEl) return;
+
+    function esc(s) {
+        if (s == null) return '';
+        return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+    }
+
+    function stockLogoUrl(symbol) {
+        var raw = String(symbol || '').replace(/[^A-Za-z0-9.\-]/g, '').toUpperCase();
+        if (!raw) return '';
+        return 'https://financialmodelingprep.com/image-stock/' + encodeURIComponent(raw) + '.png';
+    }
+
+    function buildItem(q) {
+        var sym = esc(q.symbol);
+        var price = typeof q.price === 'number' ? q.price.toFixed(2) : esc(q.price);
+        var ch = Number(q.change);
+        var chp = Number(q.changePercent);
+        var up = ch >= 0;
+        var color = up ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400';
+        var sign = ch > 0 ? '+' : '';
+        var stockUrl = "https:\/\/swantradecapital.com\/dashboard\/trading\/stocks" + '/' + encodeURIComponent(q.symbol);
+        var logoSrc = stockLogoUrl(q.symbol);
+        var logoHtml = logoSrc
+            ? '<img src="' + logoSrc + '" alt="" width="16" height="16" class="h-4 w-4 rounded-full object-cover shrink-0 ring-1 ring-black/5 dark:ring-white/10" loading="lazy" onerror="this.style.visibility=\'hidden\'">'
+            : '';
+        return (
+            '<a href="' + esc(stockUrl) + '" class="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium dark:text-gray-200 text-gray-800 hover:text-primary transition-colors">' +
+                logoHtml +
+                '<span class="font-semibold tracking-tight">' + sym + '</span>' +
+                '<span class="tabular-nums">$' + price + '</span>' +
+                '<span class="tabular-nums ' + color + '">' + sign + ch.toFixed(2) + ' (' + sign + chp.toFixed(2) + '%)</span>' +
+            '</a>'
+        );
+    }
+
+    function render(quotes) {
+        if (!quotes || !quotes.length) {
+            if (loadingEl) {
+                loadingEl.textContent = 'Market data unavailable';
+                loadingEl.classList.remove('hidden');
+            }
+            viewportEl.classList.add('hidden');
+            return;
+        }
+        var html = quotes.map(buildItem).join('<span class="dark:text-gray-600 text-gray-300 select-none" aria-hidden="true">·</span>');
+        trackEl.innerHTML = html + html;
+        if (loadingEl) loadingEl.classList.add('hidden');
+        viewportEl.classList.remove('hidden');
+    }
+
+    function load() {
+        fetch(url, {
+            credentials: 'same-origin',
+            headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }
+        })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+                if (data && data.success && data.quotes) {
+                    render(data.quotes);
+                } else {
+                    render([]);
+                }
+            })
+            .catch(function () {
+                render([]);
+            });
+    }
+
+    load();
+    setInterval(load, 120000);
+})();
+</script>
+    
+    <!-- Page content -->
+    <div class="p-4 md:p-6 pb-20 md:pb-8 overflow-x-hidden flex-grow">
+        <!-- Exchange-style top header with balance cards -->
+<div class="mb-4">
+    <div class="flex items-center justify-between mb-6">
+        <h1 class="text-xl font-bold text-dark dark:text-white flex items-center">
+            <svg class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.04 13.55C17.62 13.96 17.38 14.55 17.44 15.18C17.53 16.26 18.52 17.05 19.6 17.05H21.5V18.24C21.5 20.31 19.81 22 17.74 22H6.26C4.19 22 2.5 20.31 2.5 18.24V11.51C2.5 9.44 4.19 7.75 6.26 7.75H17.74C19.81 7.75 21.5 9.44 21.5 11.51V12.95H19.48C18.92 12.95 18.41 13.17 18.04 13.55Z" fill="currentColor" fill-opacity="0.2"/>
+                <path d="M14.85 4.97V7.75H6.26C4.19 7.75 2.5 9.44 2.5 11.51V6.44C2.5 5.08 3.6 3.97 4.97 3.97H13.88C14.43 3.97 14.85 4.39 14.85 4.97Z" fill="currentColor" fill-opacity="0.2"/>
+                <path d="M22.5588 13.9702V16.0302C22.5588 16.5802 22.1188 17.0302 21.5588 17.0502H19.5988C18.5188 17.0502 17.5288 16.2602 17.4388 15.1802C17.3788 14.5502 17.6188 13.9602 18.0388 13.5502C18.4088 13.1702 18.9188 12.9502 19.4788 12.9502H21.5588C22.1188 12.9702 22.5588 13.4202 22.5588 13.9702Z" fill="currentColor"/>
+            </svg>
+            <span>Deposits</span>
+        </h1>
+        <div class="hidden md:flex space-x-2">
+            <button class="px-4 py-2 text-sm font-medium rounded-lg bg-light-100 dark:bg-dark-100 text-dark dark:text-white hover:bg-light-200 dark:hover:bg-dark-200 transition-colors">
+                Deposit History
+            </button>
+            <button class="px-4 py-2 text-sm font-medium rounded-lg bg-primary text-white hover:bg-primary-600 transition-colors">
+                New Deposit
+            </button>
+        </div>
+    </div>
+
+    <!-- Balance Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white dark:bg-dark-50 rounded-xl shadow-sm border border-light-200 dark:border-dark-200/50 p-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-xs text-dark-300 dark:text-light-300 uppercase font-medium">Available Balance</p>
+                    <p class="text-xl font-bold text-dark dark:text-white mt-1">$0.00</p>
+                </div>
+                <div class="w-10 h-10 rounded-lg bg-primary-50 dark:bg-primary-900/30 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-primary-600 dark:text-primary-400" viewBox="0 0 24 24" fill="none">
+                        <path d="M18.04 13.55C17.62 13.96 17.38 14.55 17.44 15.18C17.53 16.26 18.52 17.05 19.6 17.05H21.5V18.24C21.5 20.31 19.81 22 17.74 22H6.26C4.19 22 2.5 20.31 2.5 18.24V11.51C2.5 9.44 4.19 7.75 6.26 7.75H17.74C19.81 7.75 21.5 9.44 21.5 11.51V12.95H19.48C18.92 12.95 18.41 13.17 18.04 13.55Z" fill="currentColor" fill-opacity="0.2"/>
+                        <path d="M14.85 4.97V7.75H6.26C4.19 7.75 2.5 9.44 2.5 11.51V6.44C2.5 5.08 3.6 3.97 4.97 3.97H13.88C14.43 3.97 14.85 4.39 14.85 4.97Z" fill="currentColor" fill-opacity="0.2"/>
+                        <path d="M22.5588 13.9702V16.0302C22.5588 16.5802 22.1188 17.0302 21.5588 17.0502H19.5988C18.5188 17.0502 17.5288 16.2602 17.4388 15.1802C17.3788 14.5502 17.6188 13.9602 18.0388 13.5502C18.4088 13.1702 18.9188 12.9502 19.4788 12.9502H21.5588C22.1188 12.9702 22.5588 13.4202 22.5588 13.9702Z" fill="currentColor"/>
+                        <path d="M7 12H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white dark:bg-dark-50 rounded-xl shadow-sm border border-light-200 dark:border-dark-200/50 p-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-xs text-dark-300 dark:text-light-300 uppercase font-medium">Total Deposited</p>
+                    <p class="text-xl font-bold text-dark dark:text-white mt-1">$0.00</p>
+                </div>
+                <div class="w-10 h-10 rounded-lg bg-secondary-50 dark:bg-secondary-900/30 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-secondary-600 dark:text-secondary-400" viewBox="0 0 24 24" fill="none">
+                        <path d="M9.5 13.7502C9.5 14.7202 10.25 15.5002 11.17 15.5002H13.05C13.85 15.5002 14.5 14.8202 14.5 13.9702C14.5 13.0602 14.1 12.7302 13.51 12.5202L10.5 11.4702C9.91 11.2602 9.51 10.9402 9.51 10.0202C9.51 9.18023 10.16 8.49023 10.96 8.49023H12.84C13.76 8.49023 14.51 9.27023 14.51 10.2402" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 7.5V16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17 3V7H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 2L17 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white dark:bg-dark-50 rounded-xl shadow-sm border border-light-200 dark:border-dark-200/50 p-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-xs text-dark-300 dark:text-light-300 uppercase font-medium">Pending Deposits</p>
+                    <p class="text-xl font-bold text-dark dark:text-white mt-1">$0.00</p>
+                </div>
+                <div class="w-10 h-10 rounded-lg bg-tertiary-50 dark:bg-tertiary-900/30 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-tertiary-600 dark:text-tertiary-400" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="currentColor" fill-opacity="0.2"/>
+                        <path d="M15.71 15.93L12.61 14.13C12.07 13.83 11.63 13.12 11.63 12.49V7.97" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white dark:bg-dark-50 rounded-xl shadow-sm border border-light-200 dark:border-dark-200/50 p-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-xs text-dark-300 dark:text-light-300 uppercase font-medium">Last Deposit</p>
+                    <p class="text-xl font-bold text-dark dark:text-white mt-1">$0.00</p>
+                </div>
+                <div class="w-10 h-10 rounded-lg bg-accent-50 dark:bg-accent-900/30 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-accent-600 dark:text-accent-400" viewBox="0 0 24 24" fill="none">
+                        <path d="M16.44 8.8999C20.04 9.2099 21.51 11.0599 21.51 15.1099V15.2399C21.51 19.7099 19.72 21.4999 15.25 21.4999H8.73998C4.26998 21.4999 2.47998 19.7099 2.47998 15.2399V15.1099C2.47998 11.0899 3.92998 9.2399 7.46998 8.9099" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 2V14.88" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15.35 12.6499L12 15.9999L8.65002 12.6499" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notifications Container -->
+<div id="toast-container" class="fixed top-4 right-4 z-[9999] flex flex-col gap-3"></div>
+
+<!-- Alert Messages -->
+<div>
+    </div><div>
+    </div>
+<!-- Exchange-style deposit methods table -->
+<div class="bg-white dark:bg-dark-50 rounded-xl shadow-sm border border-light-200 dark:border-dark-200/50 overflow-hidden">
+    <!-- Table Header -->
+    <div class="p-5 border-b border-light-200 dark:border-dark-200/50">
+        <h2 class="text-base font-bold text-dark dark:text-white">Select Deposit Method</h2>
+    </div>
+    
+    <!-- Filter/Search Bar -->
+    <div class="p-4 bg-light-50 dark:bg-dark-100 border-b border-light-200 dark:border-dark-200/50 flex flex-wrap gap-3 items-center justify-between">
+        <div class="flex items-center space-x-2 flex-wrap gap-y-2">
+            <button type="button" data-deposit-filter="all" class="deposit-filter-btn px-3 py-1.5 text-xs font-medium rounded-lg transition-colors bg-light-100 dark:bg-dark-200 text-dark-300 dark:text-light-300 hover:bg-light-200 dark:hover:bg-dark-300">
+                All Methods
+            </button>
+                        <button type="button" data-deposit-filter="crypto" class="deposit-filter-btn px-3 py-1.5 text-xs font-medium rounded-lg transition-colors bg-primary text-white hover:bg-primary-600">
+                Crypto
+            </button>
+                                </div>
+        <div class="relative">
+            <input type="text" id="deposit-method-search" placeholder="Search payment methods..." class="w-full md:w-60 pl-9 pr-4 py-1.5 text-sm rounded-lg bg-white dark:bg-dark-50 border border-light-200 dark:border-dark-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-dark dark:text-white">
+            <svg class="w-4 h-4 text-dark-300 dark:text-light-300 absolute left-3 top-1/2 transform -translate-y-1/2" viewBox="0 0 24 24" fill="none">
+                <path d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 22L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Methods Table -->
+    <div class="overflow-x-auto">
+        <table class="w-full">
+            <thead>
+                <tr class="bg-light-50 dark:bg-dark-100 text-dark-300 dark:text-light-300 text-xs uppercase">
+                    <th class="px-6 py-3 text-left font-medium">Method</th>
+                    <th class="px-6 py-3 text-right font-medium">Limits</th>
+                    <th class="px-6 py-3 text-right font-medium">Fee</th>
+                    <th class="px-6 py-3 text-right font-medium">Processing Time</th>
+                    <th class="px-6 py-3 text-right font-medium">Action</th>
+                </tr>
+            </thead>
+            <tbody id="deposit-methods-tbody" class="divide-y divide-light-200 dark:divide-dark-200/50">
+                                                <tr class="deposit-method-row hover:bg-light-50 dark:hover:bg-dark-100/50 transition-colors text-sm" data-deposit-category="crypto">
+                    <td class="px-6 py-4">
+                        <div class="flex items-center">
+                                                            <div class="w-8 h-8 rounded-lg bg-light-100 dark:bg-dark-200 p-1.5 mr-3 flex items-center justify-center">
+                                    <img src="https://swantradecapital.com/storage/app/public/payment_methods/KZLJYQuyAnjYQb0fC26dwaj3OjYsWJoo2cVVoiZn.jpg" alt="USDT" class="h-full w-full object-contain">
+                                </div>
+                                                        <div>
+                                <p class="font-medium text-dark dark:text-white">USDT</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <div class="text-dark dark:text-white">
+                            <div class="text-xs text-dark-300 dark:text-light-300">Min: <span class="font-medium text-dark dark:text-white">$50.00</span></div>
+                                                    </div>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <span class="px-2 py-1 text-xs rounded-md bg-secondary-50 dark:bg-secondary-900/30 text-secondary-600 dark:text-secondary-300">
+                                                                                                0%
+                                                                                    </span>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <span class="text-dark dark:text-white">Instant</span>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <button onclick="checkpamethd('21')" class="px-3 py-1.5 text-xs font-medium rounded-md bg-primary text-white hover:bg-primary-600 transition-colors">
+                            Deposit
+                        </button>
+                    </td>
+                </tr>
+                                                <tr class="deposit-method-row hover:bg-light-50 dark:hover:bg-dark-100/50 transition-colors text-sm" data-deposit-category="crypto">
+                    <td class="px-6 py-4">
+                        <div class="flex items-center">
+                                                            <div class="w-8 h-8 rounded-lg bg-light-100 dark:bg-dark-200 p-1.5 mr-3 flex items-center justify-center">
+                                    <img src="https://swantradecapital.com/storage/app/public/payment_methods/oZlJ20Sfr5vyECKsviqtU9q62u0nxNyPREuTBdA0.png" alt="Ethereum" class="h-full w-full object-contain">
+                                </div>
+                                                        <div>
+                                <p class="font-medium text-dark dark:text-white">Ethereum</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <div class="text-dark dark:text-white">
+                            <div class="text-xs text-dark-300 dark:text-light-300">Min: <span class="font-medium text-dark dark:text-white">$50.00</span></div>
+                                                    </div>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <span class="px-2 py-1 text-xs rounded-md bg-secondary-50 dark:bg-secondary-900/30 text-secondary-600 dark:text-secondary-300">
+                                                                                                0%
+                                                                                    </span>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <span class="text-dark dark:text-white">Instant</span>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <button onclick="checkpamethd('2')" class="px-3 py-1.5 text-xs font-medium rounded-md bg-primary text-white hover:bg-primary-600 transition-colors">
+                            Deposit
+                        </button>
+                    </td>
+                </tr>
+                                                <tr class="deposit-method-row hover:bg-light-50 dark:hover:bg-dark-100/50 transition-colors text-sm" data-deposit-category="crypto">
+                    <td class="px-6 py-4">
+                        <div class="flex items-center">
+                                                            <div class="w-8 h-8 rounded-lg bg-light-100 dark:bg-dark-200 p-1.5 mr-3 flex items-center justify-center">
+                                    <img src="https://swantradecapital.com/storage/app/public/payment_methods/wWGt3cgMft6LZ8ZUsASeyGlOAOyryoiykeoj8cyE.png" alt="Bitcoin" class="h-full w-full object-contain">
+                                </div>
+                                                        <div>
+                                <p class="font-medium text-dark dark:text-white">Bitcoin</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <div class="text-dark dark:text-white">
+                            <div class="text-xs text-dark-300 dark:text-light-300">Min: <span class="font-medium text-dark dark:text-white">$50.00</span></div>
+                                                    </div>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <span class="px-2 py-1 text-xs rounded-md bg-secondary-50 dark:bg-secondary-900/30 text-secondary-600 dark:text-secondary-300">
+                                                                                                0%
+                                                                                    </span>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <span class="text-dark dark:text-white">Instant</span>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <button onclick="checkpamethd('1')" class="px-3 py-1.5 text-xs font-medium rounded-md bg-primary text-white hover:bg-primary-600 transition-colors">
+                            Deposit
+                        </button>
+                    </td>
+                </tr>
+                            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Deposit Form Card -->
+<div class="mt-6 bg-white dark:bg-dark-50 rounded-xl shadow-sm border border-light-200 dark:border-dark-200/50 overflow-hidden">
+    <div class="p-5 border-b border-light-200 dark:border-dark-200/50">
+        <h2 class="text-base font-bold text-dark dark:text-white flex items-center">
+            <svg class="w-5 h-5 mr-2 text-primary" viewBox="0 0 24 24" fill="none">
+                <path d="M9.5 13.7502C9.5 14.7202 10.25 15.5002 11.17 15.5002H13.05C13.85 15.5002 14.5 14.8202 14.5 13.9702C14.5 13.0602 14.1 12.7302 13.51 12.5202L10.5 11.4702C9.91 11.2602 9.51 10.9402 9.51 10.0202C9.51 9.18023 10.16 8.49023 10.96 8.49023H12.84C13.76 8.49023 14.51 9.27023 14.51 10.2402" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 7.5V16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Deposit Details
+        </h2>
+    </div>
+    
+    <div class="p-6">
+        <form action="javascript:;" method="post" id="submitpaymentform" class="space-y-6">
+            <input type="hidden" name="_token" value="cVHdUwFWJ3GYKGfRKcfnpsAlTgFW0CDiZazwDqTG">            
+            <!-- Amount Input -->
+            <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                    <label for="amount" class="text-sm font-medium text-dark dark:text-white">Amount to deposit</label>
+                    
+                    <div class="flex items-center">
+                        <span class="text-xs text-dark-300 dark:text-light-300 mr-2">Min:</span>
+                        <span class="text-sm font-medium text-dark dark:text-white">$50.00</span>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <span class="text-dark-300 dark:text-light-300">$</span>
+                    </div>
+                    <input class="block w-full pl-10 pr-12 py-3 text-lg rounded-xl bg-light-100 dark:bg-dark-100 border border-light-200 dark:border-dark-200 focus:ring-2 focus:ring-primary focus:border-transparent text-dark dark:text-white transition-all" 
+                           placeholder="0.00" 
+                           type="number" 
+                           name="amount" 
+                           id="amount" 
+                           value=""
+                           min="50"
+                           required>
+                </div>
+            </div>
+            
+            <input type="hidden" name="payment_method" id="paymethod" value="">
+            
+            <!-- Selected Payment Method Display -->
+            <div id="selected-method" class="hidden p-4 rounded-xl bg-light-50 dark:bg-dark-100 border border-light-200 dark:border-dark-200 flex items-center justify-between">
+                <div class="flex items-center">
+                    <div id="method-icon" class="w-10 h-10 rounded-lg bg-primary-50 dark:bg-primary-900/30 p-2 mr-3 flex items-center justify-center"></div>
+                    <div>
+                        <p class="text-sm text-dark-300 dark:text-light-300">Selected Method</p>
+                        <p id="method-name" class="text-base font-medium text-dark dark:text-white">-</p>
+                    </div>
+                </div>
+                
+                <button type="button" onclick="resetMethod()" class="text-xs text-primary dark:text-primary-400 hover:underline">
+                    Change
+                </button>
+            </div>
+            
+            <!-- Submit Button -->
+            <div class="pt-4">
+                <button type="submit" id="submit-btn" class="w-full py-4 px-4 rounded-xl bg-gradient-to-r from-primary to-secondary hover:from-primary-600 hover:to-secondary-600 text-white font-medium flex items-center justify-center gap-2 transform transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                        <path d="M9.5 13.7502C9.5 14.7202 10.25 15.5002 11.17 15.5002H13.05C13.85 15.5002 14.5 14.8202 14.5 13.9702C14.5 13.0602 14.1 12.7302 13.51 12.5202L10.5 11.4702C9.91 11.2602 9.51 10.9402 9.51 10.0202C9.51 9.18023 10.16 8.49023 10.96 8.49023H12.84C13.76 8.49023 14.51 9.27023 14.51 10.2402" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 7.5V16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Complete Deposit</span>
+                </button>
+                <p class="mt-3 text-center text-xs text-dark-300 dark:text-light-300">
+                    By proceeding, you agree to our terms of service
+                </p>
+            </div>
+            
+            <input type="hidden" id="lastchosen" value="0">
+        </form>
+    </div>
+</div>
+
+<!-- Exchange-style Information Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+    <!-- Deposit Process -->
+    <div class="bg-white dark:bg-dark-50 rounded-xl shadow-sm border border-light-200 dark:border-dark-200/50 overflow-hidden">
+        <div class="p-4 border-b border-light-200 dark:border-dark-200/50 flex items-center">
+            <svg class="w-5 h-5 text-primary mr-2" viewBox="0 0 24 24" fill="none">
+                <path d="M10.75 2.44995C11.44 1.85995 12.57 1.85995 13.27 2.44995L14.85 3.81001C15.15 4.07001 15.71 4.28002 16.11 4.28002H17.81C18.87 4.28002 19.74 5.14996 19.74 6.20996V7.91003C19.74 8.30003 19.95 8.87001 20.21 9.17001L21.57 10.75C22.16 11.44 22.16 12.57 21.57 13.27L20.21 14.85C19.95 15.15 19.74 15.71 19.74 16.11V17.8101C19.74 18.8701 18.87 19.74 17.81 19.74H16.11C15.72 19.74 15.15 19.95 14.85 20.21L13.27 21.5699C12.58 22.1599 11.45 22.1599 10.75 21.5699L9.17004 20.21C8.87004 19.95 8.31004 19.74 7.91004 19.74H6.18C5.12 19.74 4.25 18.8701 4.25 17.8101V16.1C4.25 15.71 4.04 15.15 3.79 14.85L2.44 13.26C1.86 12.57 1.86 11.45 2.44 10.76L3.79 9.17001C4.04 8.87001 4.25 8.31003 4.25 7.91003V6.20996C4.25 5.14996 5.12 4.28002 6.18 4.28002H7.91004C8.30004 4.28002 8.87004 4.07001 9.17004 3.81001L10.75 2.44995Z" fill="currentColor" fill-opacity="0.2"/>
+                <path d="M10.58 16.46L7.34998 13.23C6.94998 12.83 6.94998 12.16 7.34998 11.76C7.74998 11.36 8.41998 11.36 8.81998 11.76L10.58 13.52L15.18 8.91998C15.58 8.51998 16.25 8.51998 16.65 8.91998C17.05 9.31998 17.05 9.98998 16.65 10.39L10.58 16.46Z" fill="currentColor"/>
+            </svg>
+            <h3 class="text-base font-medium text-dark dark:text-white">Deposit Process</h3>
+        </div>
+        <div class="p-5">
+            <ol class="relative border-l border-light-200 dark:border-dark-200 ml-3 space-y-6">
+                <li class="ml-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-primary-50 dark:bg-primary-900/30 rounded-full -left-3 ring-4 ring-white dark:ring-dark-50">
+                        <span class="text-xs font-bold text-primary-600 dark:text-primary-400">1</span>
+                    </span>
+                    <h3 class="font-medium text-dark dark:text-white">Select Method</h3>
+                    <p class="text-xs text-dark-300 dark:text-light-300 mt-1">Choose your preferred deposit method from the available options.</p>
+                </li>
+                <li class="ml-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-primary-50 dark:bg-primary-900/30 rounded-full -left-3 ring-4 ring-white dark:ring-dark-50">
+                        <span class="text-xs font-bold text-primary-600 dark:text-primary-400">2</span>
+                    </span>
+                    <h3 class="font-medium text-dark dark:text-white">Enter Amount</h3>
+                    <p class="text-xs text-dark-300 dark:text-light-300 mt-1">Specify the amount you wish to deposit to your account.</p>
+                </li>
+                <li class="ml-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-primary-50 dark:bg-primary-900/30 rounded-full -left-3 ring-4 ring-white dark:ring-dark-50">
+                        <span class="text-xs font-bold text-primary-600 dark:text-primary-400">3</span>
+                    </span>
+                    <h3 class="font-medium text-dark dark:text-white">Complete Payment</h3>
+                    <p class="text-xs text-dark-300 dark:text-light-300 mt-1">Follow the instructions to complete your deposit through the selected method.</p>
+                </li>
+                <li class="ml-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-primary-50 dark:bg-primary-900/30 rounded-full -left-3 ring-4 ring-white dark:ring-dark-50">
+                        <span class="text-xs font-bold text-primary-600 dark:text-primary-400">4</span>
+                    </span>
+                    <h3 class="font-medium text-dark dark:text-white">Confirmation</h3>
+                    <p class="text-xs text-dark-300 dark:text-light-300 mt-1">Your deposit will be confirmed and credited to your account.</p>
+                </li>
+            </ol>
+        </div>
+    </div>
+    
+    <!-- Security Tips -->
+    <div class="bg-white dark:bg-dark-50 rounded-xl shadow-sm border border-light-200 dark:border-dark-200/50 overflow-hidden">
+        <div class="p-4 border-b border-light-200 dark:border-dark-200/50 flex items-center">
+            <svg class="w-5 h-5 text-accent mr-2" viewBox="0 0 24 24" fill="none">
+                <path d="M10.49 2.23006L5.50003 4.10004C4.35003 4.53004 3.41003 5.89004 3.41003 7.12004V14.55C3.41003 15.73 4.19005 17.28 5.14005 17.99L9.44003 21.2C10.85 22.26 13.17 22.26 14.58 21.2L18.88 17.99C19.83 17.28 20.61 15.73 20.61 14.55V7.12004C20.61 5.89004 19.67 4.53004 18.52 4.10004L13.53 2.23006C12.68 1.92006 11.32 1.92006 10.49 2.23006Z" fill="currentColor" fill-opacity="0.2"/>
+                <path d="M12 12.5C11.59 12.5 11.25 12.16 11.25 11.75V8.75C11.25 8.34 11.59 8 12 8C12.41 8 12.75 8.34 12.75 8.75V11.75C12.75 12.16 12.41 12.5 12 12.5Z" fill="currentColor"/>
+                <path d="M12 16C11.44 16 11 15.55 11 15C11 14.45 11.45 14 12 14C12.55 14 13 14.45 13 15C13 15.55 12.56 16 12 16Z" fill="currentColor"/>
+            </svg>
+            <h3 class="text-base font-medium text-dark dark:text-white">Security Tips</h3>
+        </div>
+        <div class="p-5">
+            <ul class="space-y-3">
+                <li class="flex">
+                    <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-50 dark:bg-accent-900/30 flex items-center justify-center mr-3 mt-0.5">
+                        <svg class="w-3 h-3 text-accent-600 dark:text-accent-400" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 10L10.2 14.2L18 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <p class="text-xs text-dark-300 dark:text-light-300">Always verify payment details before confirming transactions.</p>
+                </li>
+                <li class="flex">
+                    <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-50 dark:bg-accent-900/30 flex items-center justify-center mr-3 mt-0.5">
+                        <svg class="w-3 h-3 text-accent-600 dark:text-accent-400" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 10L10.2 14.2L18 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <p class="text-xs text-dark-300 dark:text-light-300">Use secure and private internet connections when making deposits.</p>
+                </li>
+                <li class="flex">
+                    <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-50 dark:bg-accent-900/30 flex items-center justify-center mr-3 mt-0.5">
+                        <svg class="w-3 h-3 text-accent-600 dark:text-accent-400" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 10L10.2 14.2L18 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <p class="text-xs text-dark-300 dark:text-light-300">For crypto deposits, double-check the network type to avoid loss of funds.</p>
+                </li>
+                <li class="flex">
+                    <div class="flex-shrink-0 w-5 h-5 rounded-full bg-accent-50 dark:bg-accent-900/30 flex items-center justify-center mr-3 mt-0.5">
+                        <svg class="w-3 h-3 text-accent-600 dark:text-accent-400" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 10L10.2 14.2L18 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <p class="text-xs text-dark-300 dark:text-light-300">Never share your payment credentials with anyone.</p>
+                </li>
+            </ul>
+            
+            <div class="mt-5 pt-4 border-t border-light-200 dark:border-dark-200/50">
+                <div class="flex items-center p-3 rounded-lg bg-tertiary-50 dark:bg-tertiary-900/20 border border-tertiary-100 dark:border-tertiary-800/30">
+                    <svg class="w-5 h-5 text-tertiary-600 dark:text-tertiary-400 mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" fill="currentColor" fill-opacity="0.2"/>
+                        <path d="M12 6V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 16H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p class="text-xs text-tertiary-700 dark:text-tertiary-300">
+                        Need help with your deposit? Contact our support team via the help center.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deposit Policy -->
+    <div class="bg-white dark:bg-dark-50 rounded-xl shadow-sm border border-light-200 dark:border-dark-200/50 overflow-hidden">
+        <div class="p-4 border-b border-light-200 dark:border-dark-200/50 flex items-center">
+            <svg class="w-5 h-5 text-secondary mr-2" viewBox="0 0 24 24" fill="none">
+                <path d="M21 7V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V7C3 4 4.5 2 8 2H16C19.5 2 21 4 21 7Z" fill="currentColor" fill-opacity="0.2"/>
+                <path d="M14.5 4.5V6.5C14.5 7.6 15.4 8.5 16.5 8.5H18.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 13H12" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 17H16" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3 class="text-base font-medium text-dark dark:text-white">Deposit Policy</h3>
+        </div>
+        <div class="p-5">
+            <div class="space-y-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-secondary-50 dark:bg-secondary-900/30 flex items-center justify-center mr-3">
+                            <svg class="w-4 h-4 text-secondary-600 dark:text-secondary-400" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="currentColor" fill-opacity="0.2"/>
+                                <path d="M15.71 15.93L12.61 14.13C12.07 13.83 11.63 13.12 11.63 12.49V7.97" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-medium text-dark dark:text-white">Processing Time</h4>
+                            <p class="text-xs text-dark-300 dark:text-light-300 mt-1">All payment methods</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-xs text-dark dark:text-white font-medium">Instant</span>
+                    </div>
+                </div>
+                
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-secondary-50 dark:bg-secondary-900/30 flex items-center justify-center mr-3">
+                            <svg class="w-4 h-4 text-secondary-600 dark:text-secondary-400" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="currentColor" fill-opacity="0.2"/>
+                                <path d="M8 13H16" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 17H16" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 9H12" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-medium text-dark dark:text-white">Minimum Deposit</h4>
+                            <p class="text-xs text-dark-300 dark:text-light-300 mt-1">Platform requirement</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-xs text-dark dark:text-white font-medium">$50.00</span>
+                    </div>
+                </div>
+                
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-secondary-50 dark:bg-secondary-900/30 flex items-center justify-center mr-3">
+                            <svg class="w-4 h-4 text-secondary-600 dark:text-secondary-400" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="currentColor" fill-opacity="0.2"/>
+                                <path d="M15.5 12H15.51" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M11.5 12H11.51" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7.5 12H7.51" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-medium text-dark dark:text-white">Deposit Methods</h4>
+                            <p class="text-xs text-dark-300 dark:text-light-300 mt-1">Available options</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-xs text-dark dark:text-white font-medium">Multiple</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-5">
+                <a href="https://swantradecapital.com/dashboard/accounthistory" class="text-xs text-primary dark:text-primary-400 font-medium flex items-center hover:underline">
+                    <span>View deposit history</span>
+                    <svg class="w-3 h-3 ml-1" viewBox="0 0 24 24" fill="none">
+                        <path d="M8.91003 19.9201L15.43 13.4001C16.2 12.6301 16.2 11.3701 15.43 10.6001L8.91003 4.08008" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modern styles with animations -->
+<style>
+    /* Animated floating elements */
+    .floating-element {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.7;
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+    }
+    
+    .elem-1 {
+        width: 100px;
+        height: 100px;
+        top: 10%;
+        left: 5%;
+        animation-name: float1;
+    }
+    
+    .elem-2 {
+        width: 70px;
+        height: 70px;
+        top: 20%;
+        right: 10%;
+        animation-name: float2;
+    }
+    
+    .elem-3 {
+        width: 50px;
+        height: 50px;
+        bottom: 20%;
+        left: 15%;
+        animation-name: float3;
+    }
+    
+    .elem-4 {
+        width: 80px;
+        height: 80px;
+        bottom: 10%;
+        right: 5%;
+        animation-name: float4;
+    }
+    
+    @keyframes  float1 {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        25% { transform: translate(15px, 15px) rotate(90deg); }
+        50% { transform: translate(0, 30px) rotate(180deg); }
+        75% { transform: translate(-15px, 15px) rotate(270deg); }
+        100% { transform: translate(0, 0) rotate(360deg); }
+    }
+    
+    @keyframes  float2 {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        25% { transform: translate(-20px, 10px) rotate(-90deg); }
+        50% { transform: translate(0, 20px) rotate(-180deg); }
+        75% { transform: translate(20px, 10px) rotate(-270deg); }
+        100% { transform: translate(0, 0) rotate(-360deg); }
+    }
+    
+    @keyframes  float3 {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        33% { transform: translate(15px, -15px) rotate(120deg); }
+        66% { transform: translate(-15px, -15px) rotate(240deg); }
+        100% { transform: translate(0, 0) rotate(360deg); }
+    }
+    
+    @keyframes  float4 {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        33% { transform: translate(-20px, -10px) rotate(-120deg); }
+        66% { transform: translate(20px, -20px) rotate(-240deg); }
+        100% { transform: translate(0, 0) rotate(-360deg); }
+    }
+    
+    /* Payment methods card styles */
+    .payment-method-card.active .payment-radio-inner {
+        display: block;
+    }
+    
+    .payment-method-card.active > div {
+        border-color: theme('colors.primary.500');
+        box-shadow: 0 0 0 1px theme('colors.primary.500');
+    }
+    
+    /* Modern Toast Notifications */
+    .toast {
+        min-width: 300px;
+        max-width: 400px;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        transform: translateX(100%);
+        animation: slideIn 0.3s forwards, fadeOut 0.5s 4.5s forwards;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        z-index: 10000;
+    }
+    
+    .toast.success {
+        background-color: #10b981;
+        color: white;
+    }
+    
+    .toast.danger {
+        background-color: #ef4444;
+        color: white;
+    }
+    
+    .toast.dark-success {
+        background-color: #065f46;
+        color: white;
+    }
+    
+    .toast.dark-danger {
+        background-color: #b91c1c;
+        color: white;
+    }
+    
+    .toast .icon {
+        margin-right: 12px;
+        font-size: 1.5rem;
+    }
+    
+    .toast .content {
+        flex: 1;
+    }
+    
+    .toast .title {
+        font-weight: 600;
+        font-size: 0.875rem;
+    }
+    
+    .toast .message {
+        font-size: 0.75rem;
+        opacity: 0.9;
+    }
+    
+    .toast .close {
+        cursor: pointer;
+        font-size: 0.75rem;
+        padding: 4px;
+    }
+    
+    .toast .progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        width: 100%;
+    }
+    
+    .toast .progress-bar {
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.3);
+        width: 100%;
+        animation: progress 5s linear forwards;
+    }
+    
+    @keyframes  slideIn {
+        from { transform: translateX(100%); }
+        to { transform: translateX(0); }
+    }
+    
+    @keyframes  fadeOut {
+        from { opacity: 1; transform: translateX(0); }
+        to { opacity: 0; transform: translateX(100%); }
+    }
+    
+    @keyframes  progress {
+        from { width: 100%; }
+        to { width: 0%; }
+    }
+</style>
+
+<!-- Modern toast notifications and payment method handling -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    // Modern Toast Notification System
+    function showToast(type, title, message) {
+        const toastContainer = document.getElementById('toast-container');
+        const isDarkMode = document.documentElement.classList.contains('dark') || 
+                          window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // Determine toast class based on type and dark mode
+        let toastClass = type;
+        if (isDarkMode) {
+            toastClass = 'dark-' + type;
+        }
+        
+        // Create toast element
+        const toast = document.createElement('div');
+        toast.className = `toast ${toastClass}`;
+        
+        // Set icon based on type
+        let icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+        
+        // Build toast HTML
+        toast.innerHTML = `
+            <div class="icon">
+                <i class="fas ${icon}"></i>
+            </div>
+            <div class="content">
+                <div class="title">${title}</div>
+                <div class="message">${message}</div>
+            </div>
+            <div class="close" onclick="this.parentElement.remove()">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="progress">
+                <div class="progress-bar"></div>
+            </div>
+        `;
+        
+        // Add to container
+        toastContainer.appendChild(toast);
+        
+        // Remove after animation completes
+        setTimeout(() => {
+            toast.remove();
+        }, 3000);
+        
+        // Allow click to dismiss
+        toast.addEventListener('click', function() {
+            this.style.animation = 'fadeOut 0.3s forwards';
+            setTimeout(() => {
+                this.remove();
+            }, 300);
+        });
+    }
+    
+    // Function to handle payment method selection
+    function checkpamethd(id) {
+        // Enable the submit button
+        document.getElementById('submit-btn').disabled = false;
+        
+        // Show the selected method panel
+        document.getElementById('selected-method').classList.remove('hidden');
+        
+        // Make the API call to get method details
+        let url = "https://swantradecapital.com/dashboard/get-method" + '/' + id;
+        fetch(url)
+        .then(function(res){
+            return res.json();
+        })
+        .then(function (response){
+            // Update payment method value
+            $('#paymethod').val(response);
+            
+            // Update method name in the selected panel
+            document.getElementById('method-name').textContent = response;
+            
+            // Find and update the method icon in the selected panel
+            updateMethodIcon(id);
+            
+            // Store the last chosen method
+            $('#lastchosen').val(id);
+            
+            // Show notification
+            showToast('success', 'Success', 'You have chosen to pay with ' + response);
+        })
+        .catch(function(err){
+            showToast('danger', 'Error', 'Failed to fetch payment method details');
+        });
+    }
+    
+    window.__depositCategoryFilter = "crypto";
+
+    function depositFilterActiveClasses(isActive) {
+        return isActive
+            ? 'bg-primary text-white hover:bg-primary-600'
+            : 'bg-light-100 dark:bg-dark-200 text-dark-300 dark:text-light-300 hover:bg-light-200 dark:hover:bg-dark-300';
+    }
+
+    function applyDepositMethodFilter() {
+        const filter = window.__depositCategoryFilter || 'all';
+        const q = (document.getElementById('deposit-method-search')?.value || '').trim().toLowerCase();
+        document.querySelectorAll('tr.deposit-method-row').forEach(function (row) {
+            const cat = row.getAttribute('data-deposit-category') || 'other';
+            const catOk = filter === 'all' || cat === filter;
+            const text = row.textContent.toLowerCase();
+            const searchOk = !q || text.includes(q);
+            row.style.display = catOk && searchOk ? '' : 'none';
+        });
+    }
+
+    // Function to update the method icon based on the selected method
+    function updateMethodIcon(id) {
+        // Find the selected method's row
+        const methodRows = document.querySelectorAll('#deposit-methods-tbody tr.deposit-method-row');
+        let methodIcon = null;
+        
+        methodRows.forEach(row => {
+            // Check if this row contains the button with the given ID
+            const button = row.querySelector(`button[onclick="checkpamethd('${id}')"]`);
+            if (button) {
+                // Try to find an image first
+                const img = row.querySelector('.flex.items-center img');
+                if (img) {
+                    methodIcon = img.cloneNode(true);
+                } else {
+                    // Otherwise try to find the SVG
+                    const svg = row.querySelector('.flex.items-center svg');
+                    if (svg) {
+                        methodIcon = svg.cloneNode(true);
+                    }
+                }
+            }
+        });
+        
+        // Update the method icon in the selected panel
+        const methodIconContainer = document.getElementById('method-icon');
+        methodIconContainer.innerHTML = '';
+        
+        if (methodIcon) {
+            methodIconContainer.appendChild(methodIcon);
+        } else {
+            // Default icon if no image/svg found
+            methodIconContainer.innerHTML = `
+                <svg class="w-5 h-5 text-primary-600 dark:text-primary-400" viewBox="0 0 24 24" fill="none">
+                    <path d="M9.5 13.7502C9.5 14.7202 10.25 15.5002 11.17 15.5002H13.05C13.85 15.5002 14.5 14.8202 14.5 13.9702C14.5 13.0602 14.1 12.7302 13.51 12.5202L10.5 11.4702C9.91 11.2602 9.51 10.9402 9.51 10.0202C9.51 9.18023 10.16 8.49023 10.96 8.49023H12.84C13.76 8.49023 14.51 9.27023 14.51 10.2402" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 7.5V16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            `;
+        }
+    }
+    
+    // Function to reset payment method
+    function resetMethod() {
+        $('#paymethod').val("");
+        document.getElementById('selected-method').classList.add('hidden');
+        document.getElementById('submit-btn').disabled = true;
+        $('#lastchosen').val(0);
+    }
+    
+    // Document Ready Function
+    $(document).ready(function() {
+        applyDepositMethodFilter();
+
+        document.querySelectorAll('.deposit-filter-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                window.__depositCategoryFilter = btn.getAttribute('data-deposit-filter') || 'all';
+                document.querySelectorAll('.deposit-filter-btn').forEach(function (b) {
+                    const active = b.getAttribute('data-deposit-filter') === window.__depositCategoryFilter;
+                    b.className = 'deposit-filter-btn px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ' + depositFilterActiveClasses(active);
+                });
+                applyDepositMethodFilter();
+            });
+        });
+
+        const searchEl = document.getElementById('deposit-method-search');
+        if (searchEl) {
+            searchEl.addEventListener('input', applyDepositMethodFilter);
+        }
+
+        // Form submission handling - DIRECT APPROACH FROM WORKING CODE
+        $('#submitpaymentform').submit(function(e) {
+            const paymethod = $('#paymethod');
+            
+            if (paymethod.val() == "") {
+                e.preventDefault();
+                showToast('danger', 'Error', 'Please choose a payment method by clicking on it');
+                return false;
+            } else {
+                // Exactly matching the working version
+                let makepayurl = "https://swantradecapital.com/dashboard/newdeposit";
+                $("#submitpaymentform").attr("action", makepayurl);
+                return true;
+            }
+        });
+        
+        // Directly set form action on page load
+        $('#submitpaymentform').attr('action', "https://swantradecapital.com/dashboard/newdeposit");
+    });
+</script>
+
+    </div>
+    
+    <!-- Footer -->
+    <div class="py-4 border-t dark:border-dark-100 border-light-200 text-center md:text-left hidden md:flex md:justify-between md:items-center px-4 md:px-6">
+        <div>
+            <p class="text-sm dark:text-gray-400 text-gray-600">All Rights Reserved © Swan Trade Capital 2026</p>
+        </div>
+    </div>
+</div>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <!-- Modern Mobile Navigation -->
+<div class="user-dashboard-mobile-nav fixed bottom-0 left-0 right-0 z-[9990] md:hidden">
+    <!-- Main Navigation Bar - Refined Design -->
+    <div class="bg-gradient-to-b dark:from-dark-50 dark:to-dark from-light-100 to-light dark:border-dark-100/80 border-light-200/80 border-t pt-0.5">
+        <!-- Interactive Track Bar -->
+        <div class="mx-auto w-1/2 h-1 -mt-0.5 rounded-full bg-gradient-to-r from-primary/20 via-secondary/60 to-tertiary/20"></div>
+        
+        <!-- Navigation Items -->
+        <div class="flex items-center justify-center h-16 relative px-1 gap-0.5">
+            <!-- Home -->
+            <a href="https://swantradecapital.com/dashboard" 
+               class="flex flex-col items-center justify-center h-full min-w-0 flex-1 mx-0.5 py-1 relative z-10 transition-colors duration-200 nav-item ">
+                <div class="nav-icon-wrapper dark:text-gray-400 text-gray-600 transition-all duration-300">
+                    <i data-lucide="home" class="h-5 w-5"></i>
+                </div>
+                <span class="text-xs mt-1 dark:text-gray-400 text-gray-600 transition-all duration-300">Home</span>
+            </a>
+            
+            <!-- Deposit -->
+            <a href="https://swantradecapital.com/dashboard/deposits" 
+               class="flex flex-col items-center justify-center h-full min-w-0 flex-1 mx-0.5 py-1 relative z-10 transition-colors duration-200 nav-item active">
+                <div class="nav-icon-wrapper text-primary transition-all duration-300">
+                    <i data-lucide="download" class="h-5 w-5"></i>
+                </div>
+                <span class="text-xs mt-1 text-primary font-medium transition-all duration-300">Deposit</span>
+            </a>
+            
+            <!-- Quick Actions (FAB) -->
+            <div class="flex flex-col items-center justify-end h-full relative shrink-0 px-0.5 -mt-8">
+                <button id="fab-button" 
+                        class="h-14 w-14 rounded-full shadow-lg flex items-center justify-center relative z-20 bg-primary transform hover:scale-105 transition-all duration-300">
+                    <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="48" fill="none" stroke-width="2" stroke="rgba(255,255,255,0.1)" />
+                        <circle cx="50" cy="50" r="48" fill="none" stroke-width="2" stroke="rgba(239,68,68,0.85)" stroke-dasharray="302" stroke-dashoffset="302" class="animate-dash" />
+                    </svg>
+                    <i data-lucide="zap" class="h-6 w-6 text-white"></i>
+                </button>
+                <span class="text-xs dark:text-gray-400 text-gray-600 absolute -bottom-2">Actions</span>
+            </div>
+            
+            <!-- History -->
+            <a href="https://swantradecapital.com/dashboard/accounthistory" 
+               class="flex flex-col items-center justify-center h-full min-w-0 flex-1 mx-0.5 py-1 relative z-10 transition-colors duration-200 nav-item ">
+                <div class="nav-icon-wrapper dark:text-gray-400 text-gray-600 transition-all duration-300">
+                    <i data-lucide="history" class="h-5 w-5"></i>
+                </div>
+                <span class="text-xs mt-1 dark:text-gray-400 text-gray-600 transition-all duration-300">History</span>
+            </a>
+            
+            <!-- Profile -->
+            <a href="https://swantradecapital.com/dashboard/account-settings" 
+               class="flex flex-col items-center justify-center h-full min-w-0 flex-1 mx-0.5 py-1 relative z-10 transition-colors duration-200 nav-item ">
+                <div class="nav-icon-wrapper dark:text-gray-400 text-gray-600 transition-all duration-300">
+                    <i data-lucide="user" class="h-5 w-5"></i>
+                </div>
+                <span class="text-xs mt-1 dark:text-gray-400 text-gray-600 transition-all duration-300">Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Floating Action Menu (hidden by default) -->
+    <div id="fab-menu" class="hidden fixed inset-0 dark:bg-dark/70 bg-light/70 backdrop-blur-sm z-[9991] animate-in fade-in duration-300">
+        <div class="absolute inset-x-0 bottom-24 flex flex-col items-center">
+            <!-- Actions Grid -->
+            <div class="flex flex-wrap justify-center gap-4 max-w-md mx-auto p-3">
+                <!-- Invest -->
+                                <a href="https://swantradecapital.com/dashboard/buy-plan" class="w-[calc(33%-12px)] aspect-square flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-secondary/20 to-secondary/5 border border-secondary/20 hover:from-secondary/30 transition-all duration-300 shadow-lg menu-item">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-secondary/70 flex items-center justify-center mb-2">
+                        <i data-lucide="trending-up" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="text-xs font-medium dark:text-white text-dark">Invest</span>
+                </a>
+                                
+                <!-- Withdraw -->
+                                <a href="https://swantradecapital.com/dashboard/withdrawals" class="w-[calc(33%-12px)] aspect-square flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-primary/20 to-primary/5 border border-primary/20 hover:from-primary/30 transition-all duration-300 shadow-lg menu-item">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center mb-2">
+                        <i data-lucide="upload" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="text-xs font-medium dark:text-white text-dark">Withdraw</span>
+                </a>
+                                
+                <!-- Swap -->
+                                
+                <!-- Refer -->
+                <a href="https://swantradecapital.com/dashboard/referuser" class="w-[calc(33%-12px)] aspect-square flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-accent/20 to-accent/5 border border-accent/20 hover:from-accent/30 transition-all duration-300 shadow-lg menu-item">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center mb-2">
+                        <i data-lucide="users" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="text-xs font-medium dark:text-white text-dark">Refer</span>
+                </a>
+                
+                <!-- Support -->
+                <a href="https://swantradecapital.com/dashboard/support" class="w-[calc(33%-12px)] aspect-square flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-danger/20 to-danger/5 border border-danger/20 hover:from-danger/30 transition-all duration-300 shadow-lg menu-item">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-danger to-danger/70 flex items-center justify-center mb-2">
+                        <i data-lucide="headphones" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="text-xs font-medium dark:text-white text-dark">Support</span>
+                </a>
+                
+                <!-- News -->
+                <a href="#" class="w-[calc(33%-12px)] aspect-square flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-purple/20 to-purple/5 border border-purple/20 hover:from-purple/30 transition-all duration-300 shadow-lg menu-item">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple to-purple/70 flex items-center justify-center mb-2">
+                        <i data-lucide="newspaper" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="text-xs font-medium dark:text-white text-dark">News</span>
+                </a>
+            </div>
+            
+            <!-- Close Button -->
+            <button id="fab-close" class="mt-8 w-12 h-12 rounded-full dark:bg-dark-100/80 bg-light-200/80 dark:border-dark-100 border-light-200 border flex items-center justify-center">
+                <i data-lucide="x" class="h-6 w-6 dark:text-white text-dark"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+/* SVG Animation */
+@keyframes  dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-dash {
+  animation: dash 2s ease-in-out infinite alternate;
+}
+
+/* Active tab: compact inset pill (smaller than full cell, still tappable) */
+.nav-item {
+    position: relative;
+    border-radius: 0.5rem;
+}
+.nav-item.active::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 5px;
+    bottom: 5px;
+    left: 14%;
+    right: 14%;
+    border-radius: 0.5rem;
+    background-color: rgba(239, 68, 68, 0.11);
+    box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.14);
+    pointer-events: none;
+}
+.dark .nav-item.active::before {
+    background-color: rgba(239, 68, 68, 0.15);
+    box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.2);
+}
+
+.nav-icon-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-icon-wrapper svg {
+    flex-shrink: 0;
+}
+.nav-item > span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Animation for menu items */
+.menu-item {
+    animation: menu-appear 0.4s backwards;
+}
+
+@keyframes  menu-appear {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get elements
+        const fabButton = document.getElementById('fab-button');
+        const fabMenu = document.getElementById('fab-menu');
+        const fabClose = document.getElementById('fab-close');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        // Sync .active with current URL (Blade already sets it; this handles edge cases)
+        navItems.forEach(item => {
+            const href = item.getAttribute('href');
+            if (!href || href === '#') return;
+            try {
+                const linkUrl = new URL(href, window.location.origin);
+                if (window.location.pathname === linkUrl.pathname) {
+                    navItems.forEach(n => n.classList.remove('active'));
+                    item.classList.add('active');
+                }
+            } catch (e) { /* ignore */ }
+        });
+
+        // FAB button functionality
+        if (fabButton && fabMenu && fabClose) {
+            // Open menu
+            fabButton.addEventListener('click', function() {
+                fabMenu.classList.remove('hidden');
+                
+                // Stagger animation for menu items
+                const menuItems = document.querySelectorAll('.menu-item');
+                menuItems.forEach((item, index) => {
+                    item.style.animationDelay = `${index * 0.05}s`;
+                });
+                
+                // Change FAB icon
+                const fabIcon = fabButton.querySelector('i');
+                if (fabIcon) {
+                    fabIcon.setAttribute('data-lucide', 'x');
+                    lucide.createIcons();
+                }
+            });
+            
+            // Close menu
+            fabClose.addEventListener('click', function() {
+                fabMenu.classList.add('hidden');
+                
+                // Change FAB icon back
+                const fabIcon = fabButton.querySelector('i');
+                if (fabIcon) {
+                    fabIcon.setAttribute('data-lucide', 'zap');
+                    lucide.createIcons();
+                }
+            });
+            
+            // Close menu when clicking outside (on the backdrop)
+            fabMenu.addEventListener('click', function(e) {
+                if (e.target === fabMenu) {
+                    fabMenu.classList.add('hidden');
+                    
+                    // Change FAB icon back
+                    const fabIcon = fabButton.querySelector('i');
+                    if (fabIcon) {
+                        fabIcon.setAttribute('data-lucide', 'zap');
+                        lucide.createIcons();
+                    }
+                }
+            });
+        }
+    });
+</script>
+    <!-- Core Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="https://swantradecapital.com/dash2/libs/sweetalert/sweetalert.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/af-2.3.5/b-1.6.3/b-flash-1.6.3/b-html5-1.6.3/b-print-1.6.3/r-2.2.5/datatables.min.js"></script>
+    
+    <!-- Theme Management Script -->
+    <script>
+        // Theme initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check for saved theme preference or use system preference
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const savedTheme = localStorage.getItem('darkMode');
+            
+            if (savedTheme === 'true' || (savedTheme === null && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            } else if (savedTheme === 'false') {
+                document.documentElement.classList.remove('dark');
+            }
+            
+            // Update theme switcher icon
+            updateThemeIcon();
+        });
+        
+        // Function to toggle theme
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('darkMode', 'false');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('darkMode', 'true');
+            }
+            
+            // Update the icon
+            updateThemeIcon();
+        }
+        
+        // Update theme icon based on current theme
+        function updateThemeIcon() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const sunIcon = document.querySelector('[data-lucide="sun"]');
+            const moonIcon = document.querySelector('[data-lucide="moon"]');
+            
+            if (sunIcon && moonIcon) {
+                if (isDark) {
+                    sunIcon.style.display = 'block';
+                    moonIcon.style.display = 'none';
+                } else {
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'block';
+                }
+            }
+        }
+    </script>
+    
+    <!-- Initialize Lucide Icons -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+            
+            // Mobile menu toggle functionality
+            const menuToggles = document.querySelectorAll('[data-action="sidenav-pin"]');
+            const sidebar = document.getElementById('sidenav-main');
+            
+            if (menuToggles.length > 0 && sidebar) {
+                const syncSidebarForViewport = () => {
+                    const isMobile = window.innerWidth < 768;
+                    if (!isMobile) {
+                        sidebar.classList.remove('hidden', 'active', '-translate-x-full');
+                        sidebar.classList.add('translate-x-0');
+                    } else if (!sidebar.classList.contains('active')) {
+                        sidebar.classList.add('-translate-x-full');
+                        sidebar.classList.remove('translate-x-0');
+                    }
+                };
+
+                menuToggles.forEach(toggle => {
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const isMobile = window.innerWidth < 768;
+                        if (!isMobile) {
+                            return;
+                        }
+                        const willOpen = !sidebar.classList.contains('active');
+                        sidebar.classList.toggle('active', willOpen);
+                        sidebar.classList.toggle('-translate-x-full', !willOpen);
+                        sidebar.classList.toggle('translate-x-0', willOpen);
+                    });
+                });
+                
+                // Close sidebar when clicking outside on mobile
+                document.addEventListener('click', function(e) {
+                    const isMobile = window.innerWidth < 768;
+                    const clickedInside = sidebar.contains(e.target);
+                    const clickedToggle = Array.from(menuToggles).some(toggle => toggle.contains(e.target));
+                    
+                    if (isMobile && !clickedInside && !clickedToggle && sidebar.classList.contains('active')) {
+                        sidebar.classList.remove('active');
+                        sidebar.classList.add('-translate-x-full');
+                        sidebar.classList.remove('translate-x-0');
+                    }
+                });
+
+                window.addEventListener('resize', syncSidebarForViewport);
+                syncSidebarForViewport();
+            }
+            
+            // Initialize Select2
+            if ($.fn.select2) {
+                $('.select2').select2();
+            }
+            
+            // Initialize DataTables responsively
+            if ($.fn.DataTable) {
+                $('.datatable').DataTable({
+                    responsive: true,
+                    dom: '<"top"fl>rt<"bottom"ip>',
+                    language: {
+                        search: "",
+                        searchPlaceholder: "Search..."
+                    }
+                });
+            }
+        });
+    </script>
+
+        
+    <!-- GetButton.io widget -->
+        
+    <!-- Livewire Scripts -->
+
+<script src="/livewire/livewire.js?id=de3fca26689cb5a39af4" data-turbo-eval="false" data-turbolinks-eval="false" ></script>
+<script data-turbo-eval="false" data-turbolinks-eval="false" >
+    if (window.livewire) {
+	    console.warn('Livewire: It looks like Livewire\'s @livewireScripts JavaScript assets have already been loaded. Make sure you aren\'t loading them twice.')
+	}
+
+    window.livewire = new Livewire();
+    window.livewire.devTools(true);
+    window.Livewire = window.livewire;
+    window.livewire_app_url = '';
+    window.livewire_token = 'cVHdUwFWJ3GYKGfRKcfnpsAlTgFW0CDiZazwDqTG';
+
+	/* Make sure Livewire loads first. */
+	if (window.Alpine) {
+	    /* Defer showing the warning so it doesn't get buried under downstream errors. */
+	    document.addEventListener("DOMContentLoaded", function () {
+	        setTimeout(function() {
+	            console.warn("Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire\'s scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js")
+	        })
+	    });
+	}
+
+	/* Make Alpine wait until Livewire is finished rendering to do its thing. */
+    window.deferLoadingAlpine = function (callback) {
+        window.addEventListener('livewire:load', function () {
+            callback();
+        });
+    };
+
+    let started = false;
+
+    window.addEventListener('alpine:initializing', function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+</script>
+    
+        
+    <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = '913782fef01345f11b5e20b1d25e10f810d07b97';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+
+
+</body>
+</html>
